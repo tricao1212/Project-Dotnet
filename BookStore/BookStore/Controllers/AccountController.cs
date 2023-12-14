@@ -151,7 +151,7 @@ namespace BookStore.Controllers
                         }
                         profileToUpdate.Avatar = "profile/avatar/" + newName;
                         if (await TryUpdateModelAsync<Profile>(profileToUpdate, "", m => m.FirstName, m => m.LastName,
-                        m => m.DateOfBirth, m => m.Address, m => m.PhoneNumber, m => m.Avatar))
+                         m => m.Address, m => m.PhoneNumber, m => m.Avatar))
                         {
                             try
                             {
@@ -164,7 +164,7 @@ namespace BookStore.Controllers
                     else
                     {
                         if (await TryUpdateModelAsync<Profile>(profileToUpdate, "", m => m.FirstName, m => m.LastName,
-                        m => m.DateOfBirth, m => m.Address, m => m.PhoneNumber))
+                        m => m.Address, m => m.PhoneNumber))
                         {
                             try
                             {

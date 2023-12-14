@@ -767,3 +767,13 @@ D:\CSE 443\Project\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft
 D:\CSE 443\Project\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
 D:\CSE 443\Project\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
 D:\CSE 443\Project\project-dotnet\BookStore\BookStore\obj\Debug\net7.0\BookStore.MvcApplicationPartsAssemblyInfo.cs
+E:\DOTNET\Project-Dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\DOTNET\Project-Dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\DOTNET\Project-Dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\DOTNET\Project-Dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.UI.dll
+E:\DOTNET\Project-Dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Embedded.dll
+E:\DOTNET\Project-Dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+E:\DOTNET\Project-Dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+E:\DOTNET\Project-Dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+E:\DOTNET\Project-Dotnet\BookStore\BookStore\obj\Debug\net7.0\BookStore.MvcApplicationPartsAssemblyInfo.cs
+E:\DOTNET\Project-Dotnet\BookStore\BookStore\bin\Debug\net7.0\libman.json

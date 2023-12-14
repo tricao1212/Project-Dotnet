@@ -29,6 +29,8 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\images\book\" />
+    <Folder Include="wwwroot\images\avatar\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -15,6 +15,8 @@ namespace BookStore.Models
         public decimal Price { get; set; }
 
         public string ImgURL { get; set; }
+        [NotMapped]
+        public IFormFile imgFile { get; set; }
         public string Description { get; set; }
 
 

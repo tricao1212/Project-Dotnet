@@ -6,10 +6,21 @@ namespace BookStore.Models
     {
         [Key]
         public int UserId { get; set; }
+
+        [Required]
+        [Display(Name = "Book image")]
         public string Avatar { get; set; }
         public BookUser User { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        [Display(Name = "First name")]
         public string FirstName { get; set; }
-        public string LastName { get; set; }
+
+		[Required]
+		[MaxLength(100)]
+		[Display(Name = "Last name")]
+		public string LastName { get; set; }
         public string FullName
         {
             get
@@ -17,9 +28,12 @@ namespace BookStore.Models
                 return FirstName + " " + LastName;
             }
         }
-        public enum Gender { male, female, other }
-        public DateTime DateOfBirth { get; set; }
+
+        [Required]
         public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "Phone number")]
         public string PhoneNumber { get; set; }
     }
 }
