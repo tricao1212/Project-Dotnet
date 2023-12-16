@@ -8,7 +8,7 @@ namespace BookStore.Models
         public int Id { get; set; }
 
         [Required]
-        public string? Tittle { get; set; }
+        public string? Title { get; set; }
 
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18,2)")]

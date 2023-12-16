@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Edit";
+    var defaultAva = "images/product/default.jpg";
 }
 
 <h1>Edit</h1>
@@ -12,10 +13,15 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <div class="input-group mb-3">
+                <label asp-for="imgFile" class="control-label"></label>
+                <input asp-for="imgFile" type="file" accept="image/*" onchange="loadFile(event)" />
+                <div id="preview-container"><img id="preview" src="/@(Model?.ImgURL??defaultAva)" /></div>
+            </div>
             <div class="form-group">
-                <label asp-for="Tittle" class="control-label"></label>
-                <input asp-for="Tittle" class="form-control" />
-                <span asp-validation-for="Tittle" class="text-danger"></span>
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Genres" class="control-label"></label>
@@ -57,11 +63,6 @@
                     <option>Select a Publisher</option>
                 </select>
                 <span asp-validation-for="PublisherId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImgURL" class="control-label"></label>
-                <input asp-for="ImgURL" class="form-control" />
-                <span asp-validation-for="ImgURL" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PublicDate" class="control-label"></label>

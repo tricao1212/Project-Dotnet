@@ -11620,19 +11620,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Acer pv\\.nuget\\packages\\": {}
+    "C:\\Users\\phucdhw\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\BookStore.csproj",
+      "projectUniqueName": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\BookStore.csproj",
       "projectName": "BookStore",
-      "projectPath": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\BookStore.csproj",
-      "packagesPath": "C:\\Users\\Acer pv\\.nuget\\packages\\",
-      "outputPath": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\obj\\",
+      "projectPath": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\BookStore.csproj",
+      "packagesPath": "C:\\Users\\phucdhw\\.nuget\\packages\\",
+      "outputPath": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Acer pv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\phucdhw\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11700,7 +11700,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

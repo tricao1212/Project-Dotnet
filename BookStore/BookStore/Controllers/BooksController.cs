@@ -71,7 +71,7 @@ namespace BookStore.Controllers
 		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Create([Bind("Id,Tittle,Price,imgFile,PublicDate,Description,AuthorId,PublisherId")] Book book, int[] selectedGenres)
+		public async Task<IActionResult> Create([Bind("Id,Title,Price,imgFile,PublicDate,Description,AuthorId,PublisherId")] Book book, int[] selectedGenres)
 		{
 			if (ModelState.IsValid)
 			{
@@ -128,7 +128,7 @@ namespace BookStore.Controllers
 		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Edit(int id, [Bind("Id,Tittle,Price,ImgURL,PublicDate,Description,AuthorId,PublisherId")] Book book, int[] selectedGenres)
+		public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Price,ImgURL,PublicDate,Description,AuthorId,PublisherId")] Book book, int[] selectedGenres)
 		{
 			if (id != book.Id)
 			{
@@ -140,7 +140,7 @@ namespace BookStore.Controllers
 				var bookToUpdate = await _context.Book
 				.Include(i => i.Genres)
 				.FirstOrDefaultAsync(s => s.Id == id);
-				if (await TryUpdateModelAsync<Book>(bookToUpdate, "", m => m.Tittle, m => m.PublicDate,
+				if (await TryUpdateModelAsync<Book>(bookToUpdate, "", m => m.Title, m => m.PublicDate,
 					m => m.AuthorId, m => m.PublisherId, m => m.Description))
 				{
 					await UpdateGenres(book, bookToUpdate, selectedGenres);
@@ -195,9 +195,12 @@ namespace BookStore.Controllers
 				return NotFound();
 			}
 
-			var book = await _context.Book
-				.FirstOrDefaultAsync(m => m.Id == id);
-			if (book == null)
+            var book = await _context.Book
+                .Include(m => m.Genres)
+                .Include(m => m.Author)
+                .Include(m => m.Publisher)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (book == null)
 			{
 				return NotFound();
 			}
