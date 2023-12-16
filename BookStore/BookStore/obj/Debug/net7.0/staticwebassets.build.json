@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jFB+YMTm+rpD6E29kU7Lj/Sleilcp1AQC85AJHyNOgY=",
+  "Hash": "bvkK2eJ0U7yOuNOUEF2KxVEgyvk2JfouSNVXUKWCV7c=",
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -1105,12 +1105,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\0f21feff-19f5-4b4c-858e-8ec8664aa7fc.png",
+      "Identity": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\avatar\\default.jpg",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\",
       "BasePath": "_content/BookStore",
-      "RelativePath": "images/book/0f21feff-19f5-4b4c-858e-8ec8664aa7fc.png",
+      "RelativePath": "images/avatar/default.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1119,15 +1119,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\book\\0f21feff-19f5-4b4c-858e-8ec8664aa7fc.png"
+      "OriginalItemSpec": "wwwroot\\images\\avatar\\default.jpg"
     },
     {
-      "Identity": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\download.png",
+      "Identity": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\1f2bba5a-448b-4ce0-ab49-27e05454389a.jpg",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\",
       "BasePath": "_content/BookStore",
-      "RelativePath": "images/book/download.png",
+      "RelativePath": "images/book/1f2bba5a-448b-4ce0-ab49-27e05454389a.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1136,7 +1136,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\book\\download.png"
+      "OriginalItemSpec": "wwwroot\\images\\book\\1f2bba5a-448b-4ce0-ab49-27e05454389a.jpg"
+    },
+    {
+      "Identity": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\default.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "images/book/default.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\book\\default.jpg"
     },
     {
       "Identity": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\js\\site.js",

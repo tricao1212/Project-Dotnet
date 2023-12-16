@@ -13,12 +13,16 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\0f21feff-19f5-4b4c-858e-8ec8664aa7fc.png",
-      "PackagePath": "staticwebassets\\images\\book\\0f21feff-19f5-4b4c-858e-8ec8664aa7fc.png"
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\avatar\\default.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\default.jpg"
     },
     {
-      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\download.png",
-      "PackagePath": "staticwebassets\\images\\book\\download.png"
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\1f2bba5a-448b-4ce0-ab49-27e05454389a.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\1f2bba5a-448b-4ce0-ab49-27e05454389a.jpg"
+    },
+    {
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\default.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\default.jpg"
     },
     {
       "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\js\\site.js",

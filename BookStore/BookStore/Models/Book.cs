@@ -16,6 +16,7 @@ namespace BookStore.Models
 
         public string ImgURL { get; set; }
         [NotMapped]
+        [Display(Name ="Image")]
         public IFormFile imgFile { get; set; }
         public string Description { get; set; }
 
@@ -28,11 +29,13 @@ namespace BookStore.Models
 
         [Required]
         [ForeignKey(nameof(Author))]
+        [Display(Name ="Author")]
         public int AuthorId { get; set; }
         public Author Author { get; set; }
 
         [Required]
         [ForeignKey(nameof(Publisher))]
+        [Display(Name ="Publisher")]
         public int PublisherId { get; set; }
         public Publisher Publisher { get; set; }
     }

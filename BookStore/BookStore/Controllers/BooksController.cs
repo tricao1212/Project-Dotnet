@@ -75,7 +75,7 @@ namespace BookStore.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var fileName = Path.GetFileName(book.imgFile.FileName);
+                var fileName = Guid.NewGuid().ToString() + ".jpg";
 				var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/book/", fileName);
 
 				using (var fileStream = new FileStream(filePath, FileMode.Create))
@@ -128,7 +128,7 @@ namespace BookStore.Controllers
 		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Price,ImgURL,PublicDate,Description,AuthorId,PublisherId")] Book book, int[] selectedGenres)
+		public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Price,imgFile,PublicDate,Description,AuthorId,PublisherId")] Book book, int[] selectedGenres)
 		{
 			if (id != book.Id)
 			{
@@ -137,10 +137,21 @@ namespace BookStore.Controllers
 
 			if (ModelState.IsValid)
 			{
-				var bookToUpdate = await _context.Book
+                var bookToUpdate = await _context.Book
 				.Include(i => i.Genres)
 				.FirstOrDefaultAsync(s => s.Id == id);
-				if (await TryUpdateModelAsync<Book>(bookToUpdate, "", m => m.Title, m => m.PublicDate,
+                if (book.imgFile != null)
+                {
+                    var fileName = Guid.NewGuid().ToString() + ".jpg";
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/book/", fileName);
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await book.imgFile.CopyToAsync(fileStream);
+                    }
+					bookToUpdate.ImgURL = "images/book/" + fileName;
+                }
+                if (await TryUpdateModelAsync<Book>(bookToUpdate, "", m => m.Title,m => m.Price, m => m.PublicDate,
 					m => m.AuthorId, m => m.PublisherId, m => m.Description))
 				{
 					await UpdateGenres(book, bookToUpdate, selectedGenres);
