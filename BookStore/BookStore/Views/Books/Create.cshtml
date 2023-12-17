@@ -6,6 +6,8 @@
 @{
 	ViewData["Title"] = "Create";
 	var defaultAva = "images/book/default.jpg";
+	Layout = "_Layout2";
+
 }
 
 <h1>Create</h1>
@@ -17,7 +19,6 @@
 		<form asp-action="Create" enctype="multipart/form-data" method="post">
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 			<div class="input-group mb-3">
-				<label asp-for="imgFile" class="control-label"></label>
 				<input asp-for="imgFile" type="file" accept="image/*" onchange="loadFile(event)" />
 				<div id="preview-container"><img id="preview" src="/@(Model?.ImgURL??defaultAva)" /></div>
 			</div>
@@ -47,6 +48,11 @@
 				<label asp-for="Price" class="control-label"></label>
 				<input asp-for="Price" class="form-control" />
 				<span asp-validation-for="Price" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Quantity" class="control-label"></label>
+				<input asp-for="Quantity" class="form-control" />
+				<span asp-validation-for="Quantity" class="text-danger"></span>
 			</div>
 			<div class="form-group">
 				<label asp-for="Description" class="control-label"></label>
@@ -110,7 +116,7 @@
 		};
 		$(function () {
 			$("#preview").on('click', function () {
-				$("#Avatar").trigger('click');
+				$("#imgFile").trigger('click');
 			})
 
 			$("#Phone").inputmask("099-9999-999");
