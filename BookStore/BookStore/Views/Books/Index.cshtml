@@ -17,7 +17,7 @@
                 @Html.DisplayNameFor(model => model.ImgURL)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tittle)
+                @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Genres)
@@ -47,7 +47,7 @@
                 <img style="max-width: 100px; max-height: 100px" src="@Html.DisplayFor(modelItem => item.ImgURL)">
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Tittle)
+                @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
                 @foreach (var genre in item.Genres)

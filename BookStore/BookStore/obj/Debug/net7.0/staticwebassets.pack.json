@@ -1,299 +1,303 @@
 {
   "Files": [
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BookStore.bundle.scp.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BookStore.bundle.scp.css",
       "PackagePath": "staticwebassets\\BookStore.bundle.scp.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\css\\site.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\favicon.ico",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\images\\7923538c-8212-4451-a13f-571003039384.png",
-      "PackagePath": "staticwebassets\\images\\7923538c-8212-4451-a13f-571003039384.png"
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\avatar\\default.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\default.jpg"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\images\\book8db2956d-a86d-4e1d-94fa-e385d513a5be.png",
-      "PackagePath": "staticwebassets\\images\\book8db2956d-a86d-4e1d-94fa-e385d513a5be.png"
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\1f2bba5a-448b-4ce0-ab49-27e05454389a.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\1f2bba5a-448b-4ce0-ab49-27e05454389a.jpg"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\js\\site.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\default.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\default.jpg"
+    },
+    {
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\bindings\\inputmask.binding.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\bindings\\inputmask.binding.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\bindings\\inputmask.binding.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.jqlite.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.jqlite.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.jqlite.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.jquery.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.jquery.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\global\\window.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\global\\window.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\global\\window.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.date.extensions.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.date.extensions.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\inputmask.date.extensions.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.extensions.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.extensions.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\inputmask.extensions.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\inputmask.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.numeric.extensions.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.numeric.extensions.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\inputmask.numeric.extensions.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\jquery.inputmask.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\jquery.inputmask.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\jquery.inputmask.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\jquery.inputmask.bundle.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\jquery.inputmask.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\jquery.inputmask.bundle.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "E:\\DOTNET\\Project-Dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
