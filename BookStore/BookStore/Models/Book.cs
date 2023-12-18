@@ -14,9 +14,13 @@ namespace BookStore.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
+        [Required]
+        public int Quantity {  get; set; }
+
+        [Display(Name = "Book Image")]
         public string ImgURL { get; set; }
         [NotMapped]
-        [Display(Name ="Image")]
+        [Display(Name ="")]
         public IFormFile imgFile { get; set; }
         public string Description { get; set; }
 

@@ -54,7 +54,7 @@ namespace BookStore.Controllers
 			return View(book);
 		}
 
-		// GET: Books/Create
+		//GET: Books/Create
 		public async Task<IActionResult> Create()
 		{
 			ViewData["Genres"] = await _context.Genre.ToListAsync();
@@ -71,11 +71,11 @@ namespace BookStore.Controllers
 		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Create([Bind("Id,Title,Price,imgFile,PublicDate,Description,AuthorId,PublisherId")] Book book, int[] selectedGenres)
+		public async Task<IActionResult> Create([Bind("Id,Title,Price,Quantity,imgFile,PublicDate,Description,AuthorId,PublisherId")] Book book, int[] selectedGenres)
 		{
 			if (ModelState.IsValid)
 			{
-                var fileName = Guid.NewGuid().ToString() + ".jpg";
+				var fileName = Guid.NewGuid().ToString() + ".jpg";
 				var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/book/", fileName);
 
 				using (var fileStream = new FileStream(filePath, FileMode.Create))
@@ -128,7 +128,7 @@ namespace BookStore.Controllers
 		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Price,imgFile,PublicDate,Description,AuthorId,PublisherId")] Book book, int[] selectedGenres)
+		public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Price,Quantity,imgFile,PublicDate,Description,AuthorId,PublisherId")] Book book, int[] selectedGenres)
 		{
 			if (id != book.Id)
 			{
@@ -151,7 +151,7 @@ namespace BookStore.Controllers
                     }
 					bookToUpdate.ImgURL = "images/book/" + fileName;
                 }
-                if (await TryUpdateModelAsync<Book>(bookToUpdate, "", m => m.Title,m => m.Price, m => m.PublicDate,
+                if (await TryUpdateModelAsync<Book>(bookToUpdate, "", m => m.Title,m => m.Price, m => m.Quantity, m => m.PublicDate,
 					m => m.AuthorId, m => m.PublisherId, m => m.Description))
 				{
 					await UpdateGenres(book, bookToUpdate, selectedGenres);
