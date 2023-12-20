@@ -108,8 +108,7 @@ namespace BookStore.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditProfile(Profile profile, IFormFile avatar, [FromServices] IWebHostEnvironment host)
-        {
-
+        { 
             if (ModelState.IsValid)
             {
                 var username = User.Identity.Name;
@@ -120,12 +119,12 @@ namespace BookStore.Controllers
                     if (avatar != null)
                     {
                         var newName = Guid.NewGuid().ToString() + ".jpg";
-                        var filePath = host.WebRootPath + "/profile/avatar/";
+                        var filePath = host.WebRootPath + "/images/avatar/";
                         using (var stream = System.IO.File.Create(filePath + newName))
                         {
                             await avatar.CopyToAsync(stream);
                         }
-                        profile.Avatar = "profile/avatar/" + newName;
+                        profile.Avatar = "images/avatar/" + newName;
                     }
 
                     _context.Profile.Add(profile);
@@ -144,12 +143,12 @@ namespace BookStore.Controllers
                     if (avatar != null)
                     {
                         var newName = Guid.NewGuid().ToString() + ".jpg";
-                        var filePath = host.WebRootPath + "/profile/avatar/";
+                        var filePath = host.WebRootPath + "/images/avatar/";
                         using (var stream = System.IO.File.Create(filePath + newName))
                         {
                             await avatar.CopyToAsync(stream);
                         }
-                        profileToUpdate.Avatar = "profile/avatar/" + newName;
+                        profileToUpdate.Avatar = "images/avatar/" + newName;
                         if (await TryUpdateModelAsync<Profile>(profileToUpdate, "", m => m.FirstName, m => m.LastName,
                          m => m.Address, m => m.PhoneNumber, m => m.Avatar))
                         {

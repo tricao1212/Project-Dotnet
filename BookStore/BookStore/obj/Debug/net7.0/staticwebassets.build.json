@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dNZRIAfGQP6Lc8SOL4In0raWloZdi5dERvSMzLYpPpg=",
+  "Hash": "HUmzFP/uDVZgGRV1SSliReMhPgFmKcWdTTN1IXRgHPM=",
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\avatar\\default.jpg"
+    },
+    {
+      "Identity": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\banners\\banner.png",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "images/banners/banner.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\banners\\banner.png"
     },
     {
       "Identity": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\04a0690f-9e2e-4e82-9fe6-02b827608d3f.jpg",

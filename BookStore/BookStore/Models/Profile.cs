@@ -7,8 +7,6 @@ namespace BookStore.Models
         [Key]
         public int UserId { get; set; }
 
-        [Required]
-        [Display(Name = "Book image")]
         public string Avatar { get; set; }
         public BookUser User { get; set; }
 

@@ -26,11 +26,35 @@ namespace BookStore.Controllers
 		}
 
 		// GET: Books
-		public async Task<IActionResult> Index()
+		public async Task<IActionResult> Index(
+		string sortOrder,
+		string currentFilter,
+		string searchString,
+		int? pageNumber)
 		{
-			return View(await _context.Book.Include(m => m.Genres)
-										   .Include(m => m.Author)
-										   .Include(m => m.Publisher).ToListAsync());
+			ViewData["CurrentSort"] = sortOrder;
+			ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+			ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+			if (searchString != null)
+			{
+				pageNumber = 1;
+			}
+			else
+			{
+				searchString = currentFilter;
+			}
+			ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+			ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+			ViewData["CurrentFilter"] = searchString;
+			var books = from s in _context.Book
+						   select s;
+			if (!String.IsNullOrEmpty(searchString))
+			{
+				books = books.Where(s => s.Title.Contains(searchString));
+			}
+			int pageSize = 4;
+			return View(await PaginatedList<Book>.CreateAsync(books.Include(x=>x.Genres).Include(x => x.Author)
+						.Include(x => x.Publisher).AsNoTracking(), pageNumber ?? 1, pageSize));
 		}
 
 		// GET: Books/Details/5

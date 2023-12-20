@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\images\\avatar\\default.jpg"
     },
     {
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\banners\\banner.png",
+      "PackagePath": "staticwebassets\\images\\banners\\banner.png"
+    },
+    {
       "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\04a0690f-9e2e-4e82-9fe6-02b827608d3f.jpg",
       "PackagePath": "staticwebassets\\images\\book\\04a0690f-9e2e-4e82-9fe6-02b827608d3f.jpg"
     },

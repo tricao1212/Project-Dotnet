@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BookStore.Models.Book>
+﻿@model PaginatedList<BookStore.Models.Book>
+@* @model IEnumerable<BookStore.Models.Book> *@
 
 @{
 	ViewData["Title"] = "Index";
@@ -11,35 +12,53 @@
 	<p>
 		<a asp-action="Create">Create New</a>
 	</p>
+	<form asp-action="Index" method="get">
+		<div class="form-actions no-color">
+			<p>
+				Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+				<input type="submit" value="Search" class="btn btn-default" /> |
+				<a asp-action="Index">Back to Full List</a>
+			</p>
+		</div>
+	</form>
 	<table class="table">
 		<thead>
 			<tr>
 				<th>
-					@Html.DisplayNameFor(model => model.ImgURL)
+					@* @Html.DisplayNameFor(model => model.ImgURL) *@
+					Image
 				</th>
 				<th>
-					@Html.DisplayNameFor(model => model.Title)
+					@* @Html.DisplayNameFor(model => model.Title) *@
+					Title
 				</th>
 				<th>
-					@Html.DisplayNameFor(model => model.Genres)
+					@* @Html.DisplayNameFor(model => model.Genres) *@
+					Genres
 				</th>
 				<th>
-					@Html.DisplayNameFor(model => model.Price)
+					@* @Html.DisplayNameFor(model => model.Price) *@
+					Price
 				</th>
 				<th>
-					@Html.DisplayNameFor(model => model.Quantity)
+					@* @Html.DisplayNameFor(model => model.Quantity) *@
+					Quantity
 				</th>
 				<th>
-					@Html.DisplayNameFor(model => model.Description)
+					@* @Html.DisplayNameFor(model => model.Description) *@
+					Description
 				</th>
 				<th>
-					@Html.DisplayNameFor(model => model.PublicDate)
+					@* @Html.DisplayNameFor(model => model.PublicDate) *@
+					Public Date
 				</th>
 				<th>
-					@Html.DisplayNameFor(model => model.Author)
+					@* @Html.DisplayNameFor(model => model.Author) *@
+					Author
 				</th>
 				<th>
-					@Html.DisplayNameFor(model => model.Publisher)
+					@* @Html.DisplayNameFor(model => model.Publisher) *@
+					Publisher
 				</th>
 				<th></th>
 			</tr>
@@ -88,4 +107,22 @@
 			}
 		</tbody>
 	</table>
+	@{
+		var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+		var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+	}
+	<a asp-action="Index"
+	   asp-route-sortOrder="@ViewData["CurrentSort"]"
+	   asp-route-pageNumber="@(Model.PageIndex - 1)"
+	   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+	   class="btn btn-default @prevDisabled">
+		Previous
+	</a>
+	<a asp-action="Index"
+	   asp-route-sortOrder="@ViewData["CurrentSort"]"
+	   asp-route-pageNumber="@(Model.PageIndex + 1)"
+	   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+	   class="btn btn-default @nextDisabled">
+		Next
+	</a>
 </div>
