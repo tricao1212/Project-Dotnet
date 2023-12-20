@@ -1,0 +1,39 @@
+.contain-img img {
+    width: 70%;
+}
+
+.contain-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5vh;
+}
+
+    .sign-up a {
+        color: black;
+        font-size: x-large;
+    }
+
+.sign-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .sign-in a {
+        color: black;
+        font-size: x-large;
+    }
+
+.login-register {
+    padding: 10vh;
+    background-color: #E3F2FD;
+    border-radius: 5%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}

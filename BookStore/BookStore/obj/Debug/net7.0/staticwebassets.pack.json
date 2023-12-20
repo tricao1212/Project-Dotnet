@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
       "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -39,6 +43,22 @@
     {
       "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\febae9c2-de37-4d12-ac3a-4e765110289e.jpg",
       "PackagePath": "staticwebassets\\images\\book\\febae9c2-de37-4d12-ac3a-4e765110289e.jpg"
+    },
+    {
+      "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\kisspng-login-google-account-computer-icons-user-activity-5ac6bbe74aa7f1.6157264215229736713058.png",
+      "PackagePath": "staticwebassets\\images\\kisspng-login-google-account-computer-icons-user-activity-5ac6bbe74aa7f1.6157264215229736713058.png"
+    },
+    {
+      "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\transparent-books-plant-succulent-stack-pot-stack-of-books-with-colorful-and-varied-size653439eaa31a04.8165691216979215146681.png",
+      "PackagePath": "staticwebassets\\images\\transparent-books-plant-succulent-stack-pot-stack-of-books-with-colorful-and-varied-size653439eaa31a04.8165691216979215146681.png"
+    },
+    {
+      "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\—Pngtree—hand painted day a stack_3837609.png",
+      "PackagePath": "staticwebassets\\images\\—Pngtree—hand painted day a stack_3837609.png"
+    },
+    {
+      "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\js\\script.js",
+      "PackagePath": "staticwebassets\\js\\script.js"
     },
     {
       "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\js\\site.js",
