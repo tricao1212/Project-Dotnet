@@ -1040,3 +1040,13 @@ D:\CSE 443\Project\Final\BookStore\BookStore\obj\Debug\net7.0\refint\BookStore.d
 D:\CSE 443\Project\Final\BookStore\BookStore\obj\Debug\net7.0\BookStore.pdb
 D:\CSE 443\Project\Final\BookStore\BookStore\obj\Debug\net7.0\BookStore.genruntimeconfig.cache
 D:\CSE 443\Project\Final\BookStore\BookStore\obj\Debug\net7.0\ref\BookStore.dll
+D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\libman.json
+D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.UI.dll
+D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+D:\GitHub\project-dotnet\BookStore\BookStore\obj\Debug\net7.0\BookStore.MvcApplicationPartsAssemblyInfo.cs

@@ -11,14 +11,17 @@
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;height:100px;font-size:x-large">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary shadow pb-0 mb-2" style="height:120px;font-size:x-large;">
 			<div class="container">
-				<a style="padding-top: 0.5rem; text-decoration:none; padding-right:0.5rem" asp-area="" asp-controller="Home" asp-action="Index">Book Store</a>
+				<div>
+					<img src="https://uxwing.com/wp-content/themes/uxwing/download/education-school/read-book-icon.png" height="50px" width="50px" />
+					<a style="padding-top: 0.5rem; text-decoration:none; padding-right:0.5rem;font-weight:bolder; color:black" asp-area="" asp-controller="Home" asp-action="Index">Book Store</a>
+				</div>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
 						aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div style="font-size:x-large; text-align:center">
+				<div style="font-size:x-large; text-align:center;">
 					<ul class="navbar-nav flex-grow-1">
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -28,7 +31,9 @@
 						</li>
 					</ul>
 				</div>
-				<partial name="_LoginPartial" />
+				<div class="me-3">
+					<partial name="_LoginPartial" />
+				</div>
 			</div>
 		</nav>
 	</header>
@@ -36,14 +41,13 @@
 		<main role="main" class="pb-3">
 			<div class="row">
 				<div class="col-md-4 action-group" style="font-size: x-large;margin: 0;padding: 0">
-					<div class="text-center" style="align-self: center; background-color:antiquewhite">
-						<img style="max-width:20%" src="/images/kisspng-login-google-account-computer-icons-user-activity-5ac6bbe74aa7f1.6157264215229736713058.png" alt="avatar" />
-						<h3>Admin</h3>
+					<div class="text-center" style="align-self: center">
+						<h1>Admin</h1>
 					</div>
 					<div class="list-group">
 						<a class="list-group-item list-group-item-action" asp-controller="Admin" asp-action="Index">Home</a>
 						<a class="list-group-item list-group-item-action" asp-controller="Books" asp-action="Index">All Books</a>
-						<a class="list-group-item list-group-item-action">Orders</a>
+						<a class="list-group-item list-group-item-action" id="Oders">Oders</a>
 						<a class="list-group-item list-group-item-action" asp-controller="Coupons" asp-action="Index">Coupons</a>
 						<a class="list-group-item list-group-item-action" asp-controller="Authors" asp-action="Index">Authors</a>
 						<a class="list-group-item list-group-item-action" asp-controller="Publishers" asp-action="Index">Publishers</a>
