@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\images\\avatar\\214e31bb-c862-4b5f-ac35-6bf7e4ee4078.jpg"
     },
     {
+      "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\47c8dade-2291-4aab-83eb-3fc67c268319.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\47c8dade-2291-4aab-83eb-3fc67c268319.jpg"
+    },
+    {
       "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\9957f3df-4fa1-4ee6-85cb-f077abe3e9c6.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\9957f3df-4fa1-4ee6-85cb-f077abe3e9c6.jpg"
     },
@@ -37,8 +41,16 @@
       "PackagePath": "staticwebassets\\images\\book\\04a0690f-9e2e-4e82-9fe6-02b827608d3f.jpg"
     },
     {
+      "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\08c76595-f7ae-4de1-a8fa-0804ac7741a8.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\08c76595-f7ae-4de1-a8fa-0804ac7741a8.jpg"
+    },
+    {
       "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\13b912b7-204a-4a8f-9326-c59a340d7e23.jpg",
       "PackagePath": "staticwebassets\\images\\book\\13b912b7-204a-4a8f-9326-c59a340d7e23.jpg"
+    },
+    {
+      "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\24f49f1a-28d0-4be0-b984-2396ab1dd3f6.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\24f49f1a-28d0-4be0-b984-2396ab1dd3f6.jpg"
     },
     {
       "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\272363c6-a3ba-4afe-aedc-b065dd263a7b.jpg",
@@ -57,8 +69,16 @@
       "PackagePath": "staticwebassets\\images\\book\\37d05dca-b10a-4880-93dd-5b28d6e89996.jpg"
     },
     {
+      "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\38fbcbd4-86e3-42f8-b080-68a009c4a76d.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\38fbcbd4-86e3-42f8-b080-68a009c4a76d.jpg"
+    },
+    {
       "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\5deeb9cf-eabe-41cd-95cb-2f5d59c8c3ff.jpg",
       "PackagePath": "staticwebassets\\images\\book\\5deeb9cf-eabe-41cd-95cb-2f5d59c8c3ff.jpg"
+    },
+    {
+      "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\87848adc-62fa-4580-b1df-5dc096537b9a.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\87848adc-62fa-4580-b1df-5dc096537b9a.jpg"
     },
     {
       "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\default.jpg",
@@ -67,6 +87,10 @@
     {
       "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\e64e2196-63a9-41c5-8336-0a05aad27613.jpg",
       "PackagePath": "staticwebassets\\images\\book\\e64e2196-63a9-41c5-8336-0a05aad27613.jpg"
+    },
+    {
+      "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\e964f623-fb6d-40f5-bf56-b56572af790f.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\e964f623-fb6d-40f5-bf56-b56572af790f.jpg"
     },
     {
       "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\carousels\\carousels-1.jpg",

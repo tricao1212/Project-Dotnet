@@ -7,6 +7,9 @@ html {
         font-size: 16px;
     }
 }
+.list-group-item {
+    padding: 1rem;
+}
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
@@ -16,7 +19,37 @@ html {
     position: relative;
     min-height: 100%;
 }
-
+header{
+    position:fixed;
+    z-index:1;
+    width:100%;
+    background-color:white;
+}
 body {
     margin-bottom: 60px;
+}
+#cart {
+    cursor: pointer;
+    position: relative;
+}
+
+#cart-icon {
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bubble {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 14px;
 }
