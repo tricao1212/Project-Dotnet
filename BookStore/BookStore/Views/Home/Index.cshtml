@@ -99,31 +99,17 @@
 					<h4>@Html.DisplayFor(modelItem => item.Title)</h4>
 					<p>@Html.DisplayFor(modelItem => item.Price)</p>
 					<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
-					<button class="btn btn-primary">Detail</button>
+					<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
 					<button class="btn btn-outline-warning">Add to cart</button>
 				</div>
 			</div>
 		}
 	</div>
-	@*    @if (showPaging)
-	{
-	<nav aria-label="Page navigation">
-	<ul class="pagination">
-	@for (int i = 1; i <= totalPages; i++)
-	{
-	<li class="page-item @(i == currentPage ? "active" : "")">
-	<a class="page-link" href="@Url.Action("List", new { page = i, pageSize = Model.PagingInfo.ItemsPerPage })">@i</a>
-	</li>
-	}
-	</ul>
-	</nav>
-	} *@
 </div>
 <div class="container">
 	<hr />
 	<div class="row" style="justify-content:center;align-items:center;margin:20px">
 		<img src="/images/banners/banner.png" style="width:80%;" />
-
 	</div>
 	<hr />
 </div>
@@ -138,8 +124,8 @@
 					<h4>@Html.DisplayFor(modelItem => item.Title)</h4>
 					<p>@Html.DisplayFor(modelItem => item.Price)</p>
 					<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
-					<button class="btn btn-primary">Detail</button>
-					<button class="btn btn-outline-warning">Add to cart</button>
+					<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+					<a class="btn btn-outline-warning">Add to cart</a>
 				</div>
 			</div>
 		}

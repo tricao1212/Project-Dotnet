@@ -23,31 +23,27 @@ namespace BookStore.Controllers
                                            .Include(m => m.Author)
                                            .Include(m => m.Publisher).ToListAsync());
         }
-        public IActionResult YourAction(int page = 1, int pageSize = 4)
+        public async Task<IActionResult> Detail(int? id)
         {
-            // Lấy dữ liệu từ nguồn của bạn (database, API, ...)
-            var allItems = _context.Book.Include(m => m.Genres)
-                                        .Include(m => m.Author)
-                                        .Include(m => m.Publisher).ToList();
-
-            // Tính toán phân trang
-            var totalItems = allItems.Count();
-            var items = allItems.Skip((page - 1) * pageSize).Take(pageSize);
-
-            var model = new BookViewModel
+            if (id == null || _context.Book == null)
             {
-                Books = items,
-                PagingInfo = new PagingInfo
-                {
-                    CurrentPage = page,
-                    ItemsPerPage = pageSize,
-                    TotalItems = totalItems
-                }
-            };
+                return NotFound();
+            }
 
-            return View(model);
+            var book = await _context.Book
+                .Include(m => m.Genres)
+                .Include(m => m.Author)
+                .Include(m => m.Publisher)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+            ViewBag.Price = book.Price;
+            ViewBag.Quantity = book.Quantity;
+            ViewData["Genres"] = book.Genres.ToList();
+            return View(book);
         }
-
         public IActionResult Privacy()
         {
             return View();
