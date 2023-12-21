@@ -32,8 +32,10 @@
     }
 
 .login-register {
+    margin-top:5rem;
     padding: 10vh;
     background-color: #E3F2FD;
     border-radius: 5%;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    min-height: 65vh;
 }

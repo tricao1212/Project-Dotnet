@@ -11,10 +11,10 @@
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-expand-lg bg-body-tertiary shadow pb-0 mb-2" style="height:120px;font-size:x-large;">
-			<div class="container">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary shadow pb-0 mb-2" style="height:100px;font-size:x-large;">
+			<div class="container-fluid" style="margin:0px 5rem 0px 5rem">
 				<div>
-					<img src="https://uxwing.com/wp-content/themes/uxwing/download/education-school/read-book-icon.png" height="50px" width="50px" />
+					<img src="https://uxwing.com/wp-content/themes/uxwing/download/education-school/read-book-icon.png" style="height:50px; width:50px" />
 					<a style="padding-top: 0.5rem; text-decoration:none; padding-right:0.5rem;font-weight:bolder; color:black" asp-area="" asp-controller="Home" asp-action="Index">Book Store</a>
 				</div>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -37,10 +37,10 @@
 			</div>
 		</nav>
 	</header>
-	<div class="container-fluid">
+	<div class="container-fluid" style="padding-top:150px">
 		<main role="main" class="pb-3">
 			<div class="row">
-				<div class="col-md-4 action-group" style="font-size: x-large;margin: 0;padding: 0">
+				<div class="col-md-3 action-group" style="font-size: x-large">
 					<div class="text-center" style="align-self: center; background-color:antiquewhite">
 						<img style="max-width:20%" src="/images/kisspng-login-google-account-computer-icons-user-activity-5ac6bbe74aa7f1.6157264215229736713058.png" alt="avatar" />
 						<h3>Admin</h3>
@@ -55,7 +55,7 @@
 						<a class="list-group-item list-group-item-action" asp-controller="Genres" asp-action="Index">Genres</a>
 					</div>
 				</div>
-				<div class="col-md-8" id="PartialContainer">
+				<div class="col-md-9" id="PartialContainer">
 					@RenderBody()
 				</div>
 			</div>
