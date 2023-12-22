@@ -100,7 +100,7 @@
 					<p>@Html.DisplayFor(modelItem => item.Price)</p>
 					<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
 					<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-					<button class="btn btn-outline-warning">Add to cart</button>
+					<a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
 				</div>
 			</div>
 		}
@@ -125,7 +125,7 @@
 					<p>@Html.DisplayFor(modelItem => item.Price)</p>
 					<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
 					<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-					<a class="btn btn-outline-warning">Add to cart</a>
+					<a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
 				</div>
 			</div>
 		}
