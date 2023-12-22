@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BookStore.Data;
 using BookStore.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BookStore.Controllers
 {
@@ -112,7 +113,7 @@ namespace BookStore.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Cart));
             }
             return View(order);
         }
@@ -151,7 +152,7 @@ namespace BookStore.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Cart));
         }
 
         private bool OrderExists(int id)
@@ -198,21 +199,38 @@ namespace BookStore.Controllers
         {
             Book book = await _context.Book.FindAsync(id);
             orderDetail.Book = book;
+            var oldOrder = _context.Order.Include(x => x.Book).FirstOrDefault(x => x.Book.Id == id);
             var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == User.Identity.Name);
 
             if (ModelState.IsValid)
             {
                 decimal payment = orderDetail.Book.Price;
-                
                 int quantity = orderDetail.Quantity;
+                if (oldOrder != null)
+                {
+                    quantity += oldOrder.Quantity;
+                    if (quantity>oldOrder.Book.Quantity)
+                        quantity = oldOrder.Book.Quantity;
+                    oldOrder.Quantity = quantity;
+                    oldOrder.Payment = (payment * quantity);
+                }
+                
                 orderDetail.Payment = (payment * quantity);
-
+                
                 var bill = await _context.Bill.SingleOrDefaultAsync(order => order.UserId == user.Id && order.Status == OrderStatus.Cart);
                 if (bill != null)
                 {
-                    orderDetail.BillId = bill.Id;
-                    orderDetail.Bill = bill;
-                    _context.Order.Add(orderDetail);
+                    if (oldOrder != null)
+                    {
+
+                        _context.Order.Update(oldOrder);
+                    } 
+                    else
+                    {
+                        orderDetail.BillId = bill.Id;
+                        orderDetail.Bill = bill;
+                        _context.Order.Add(orderDetail);
+                    }
                 }
                 else
                 {
