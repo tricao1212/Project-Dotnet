@@ -34,14 +34,11 @@
 				</div>
 				<div class="d-inline-flex align-items-center">
 					<partial name="_LoginPartial" />
-					@* <button style="background-color:transparent;text-decoration:none; color:black; border:hidden">
-					<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-					</button> *@
 					<div id="cart">
 						<div id="cart-icon">
-							<button style="background-color:transparent;text-decoration:none; color:black; border:hidden">
+							<a style="background-color:transparent;text-decoration:none; color:black; border:hidden" asp-action="Cart" asp-controller="Orders">
 								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-							</button>
+							</a>
 							<div id="bubble">0</div>
 						</div>
 					</div>

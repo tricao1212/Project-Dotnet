@@ -1,0 +1,94 @@
+﻿@model BookStore.Models.Order
+
+@{
+    ViewData["Title"] = "Cart";
+}
+<div class="container">
+    <h1>Cart</h1>
+    <form asp-action="Bill" method="get">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+
+                    </th>
+                    <th>
+                        Book
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Payment
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    List<Order> orderDetails = ViewBag.Order;
+                }
+                @foreach (var item in orderDetails)
+                {
+                    string payment = item.Payment.ToString();
+                    <tr>
+                        <td id="img-container">
+                            <img id="image" src="/@Html.DisplayFor(modelItem => item.Book.ImgURL)" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Book.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td>
+                            @payment
+                        </td>
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td>
+                        @{
+                            decimal totalBill = @ViewBag.Total;
+                            string total = totalBill.ToString();
+                            if (totalBill == 0)
+                            {
+                                <h4>Total : 0</h4>
+                            }
+                            else
+                            {
+                                <h4>Total: @total</h4>
+                            }
+                        }
+                    </td>
+                    <td>
+                        @{
+                            if (totalBill <= 0)
+                            {
+                                <button type="submit" class="btn btn-primary" asp-action="Create" asp-controller="Bills" hidden> Order</button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-primary" asp-action="Create" asp-controller="Bills"> Order</button>
+                            }
+                        }
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<style>
+    #image {
+        width: 80px;
+    }
+    #img-container {
+        width: 200px;
+    }
+</style>

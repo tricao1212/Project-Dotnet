@@ -76,21 +76,24 @@
                         @Html.DisplayFor(model => model.PublicDate)
                     </dd>
                 </dl>
-                <div class="row">
-                    <div class="col-3" id="button-form">
-                        <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                        <input class="quantity" min="1" name="quantity" value="1" type="number" id="number" max="@ViewBag.Quantity">
-                        <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                <form asp-action="Order" asp-controller="Orders" asp-route-id="@Model.Id" method="post">
+                    <div class="row">
+                        <div class="col-3" id="button-form">
+                            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                            <input class="quantity" min="1" name="quantity" value="1" type="number" id="number" max="@ViewBag.Quantity">
+                            <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                        </div>
+                        @{
+                            decimal total = ViewBag.Price;
+                            string tol = total.ToString();
+                        }
+                        <h4 class="col-9">Total: <span id="total">$@tol</span> </h4>
                     </div>
-                    @{
-                        decimal total = ViewBag.Price;
-                        string tol = total.ToString();
-                    }
-                    <h4 class="col-9">Total: <span id="total">$@tol</span> </h4>
-                </div>
-                <div style="margin-top:20px">
-                    <a asp-action="Detail" asp-route-id="@Model.Id" class="btn btn-outline-warning">Add to Cart</a>
-                </div>
+                    <div style="margin-top:20px">
+                        <input type="submit" value="Add to Cart"  class="btn btn-outline-warning" />
+                    </div>
+                </form>
+                
             </div>
             
         </div>

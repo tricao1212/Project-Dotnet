@@ -1,8 +1,13 @@
-
+*.com
+*.class
+*.exe
+*.dll.config
+*.cache
+*.suo
 *.v2
 *.vsidx
-*.v2
 *.props
 *.json
 *.dll
 *.pdb
+*.log
