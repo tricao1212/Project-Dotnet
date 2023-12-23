@@ -17,6 +17,13 @@ namespace BookStore.Controllers
             _logger = logger;
         }
 
+        public async Task<IActionResult> Items()
+        {
+            return View(await _context.Book.Include(m => m.Genres)
+                                                          .Include(m => m.Author)
+                                                                                                    .Include(m => m.Publisher).ToListAsync());
+        }
+
         public async Task<IActionResult> Index()
         {
             return View(await _context.Book.Include(m => m.Genres)

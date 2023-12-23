@@ -1,0 +1,151 @@
+﻿@model IEnumerable<BookStore.Models.Book>
+@{
+    ViewData["Title"] = "Items";
+    Layout = "_Layout";
+
+    int pageSize = 4; // Số mục trên mỗi trang
+    int currentPage = 1; // Trang hiện tại (bạn có thể lấy từ controller)
+    var items = Model.Skip((currentPage - 1) * pageSize).Take(pageSize);
+    // Tính tổng số trang
+    int totalPages = (int)Math.Ceiling((double)Model.Count() / pageSize);
+    bool showPaging = totalPages > 1;
+}
+
+<div class="itemcontainer d-flex">
+    <div class="d-inline-flex w-100">
+        <div class="setting justify-content-center align-items-center">
+            <div>
+                <text>Filter</text>
+                <select>
+                    <option>Category</option>
+                    <option>Author</option>
+                    <option>Price</option>
+                </select>
+            </div>
+            
+            
+        </div>
+        <div class="mainitemdiv d-flex flex-column">
+            <div class="totalBookdiv">
+                <text style="font-weight:bold">Books (@Model.Count() books)</text>
+            </div>
+            <div class="sortdiv d-inline-flex">
+                <div class="w-25">
+                    <div style="">
+                        <text>sort</text>
+                        <select style="width:80%">
+                        </select>
+                    </div>
+                </div>
+                <div class="w-25">
+                    <text>By</text>
+                    <select style="width:80%">
+                    </select>
+                </div>
+            </div>
+            <div class="itemdiv">
+                <div class="row">
+                    @foreach (var item in items)
+                    {
+                        <div class="col-md-3">
+                            <div class="container item">
+                                <div class="imgdiv">
+                                    <img class="img-fluid" src="/@Html.DisplayFor(modelItem => item.ImgURL)">
+                                </div>
+                                <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+                                <p>@Html.DisplayFor(modelItem => item.Price)</p>
+                                <p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
+                                <button class="btn btn-primary">Detail</button>
+                                <button class="btn btn-outline-warning">Add to cart</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .itemcontainer {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .setting {
+        padding: 10px;
+        width: 244px;
+        box-sizing: border-box;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba(121, 121, 121, 1);
+        border-radius: 0px;
+        -moz-box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+        -webkit-box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+        box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+    }
+
+    .mainitemdiv {
+        width: 100%;
+    }
+
+    .totalBookdiv {
+        padding: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba(121, 121, 121, 1);
+        border-radius: 0px;
+        -moz-box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+        -webkit-box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+        box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+    }
+
+    .sortdiv {
+        padding: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba(121, 121, 121, 1);
+        border-radius: 0px;
+        -moz-box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+        -webkit-box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+        box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+        justify-content: space-evenly;
+    }
+
+    .itemdiv {
+        padding: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba(121, 121, 121, 1);
+        border-radius: 0px;
+        -moz-box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+        -webkit-box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+        box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+    }
+
+    .item {
+        padding: 10px;
+        width: 270px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .imgdiv {
+        width: 150px;
+        height: 150px;
+    }
+</style>
+
+
+
