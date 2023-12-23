@@ -27,24 +27,6 @@ namespace BookStore.Controllers
               return View(await _context.Order.ToListAsync());
         }
 
-        // GET: Orders/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Order == null)
-            {
-                return NotFound();
-            }
-
-            var order = await _context.Order
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (order == null)
-            {
-                return NotFound();
-            }
-
-            return View(order);
-        }
-
         // GET: Orders/Create
         public IActionResult Create()
         {

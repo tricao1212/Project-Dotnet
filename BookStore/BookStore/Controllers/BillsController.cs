@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookStore.Data;
 using BookStore.Models;
+using BookStore.Models.Binding_Model;
 
 namespace BookStore.Controllers
 {
@@ -46,10 +47,36 @@ namespace BookStore.Controllers
         }
 
         // GET: Bills/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
-            return View();
+            String userName = User.Identity.Name;
+            var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
+            var profile = user.Profile;
+            ViewBag.UserName = profile?.FirstName == null || profile?.LastName == null ? userName : profile.FullName;
+            int userId = user.Id;
+
+            var bill = await _context.Bill.Include(x => x.OrderDetails)
+                .ThenInclude(x => x.Book)
+                .SingleOrDefaultAsync(or => or.UserId == profile.UserId && or.Status == OrderStatus.Cart);
+            decimal total = bill.OrderDetails.Sum(x => x.Payment);
+            ViewBag.Total = total.ToString();
+            //var rank = _context.Ranks.SingleOrDefault(r => r.Id == user.Profile.RankId);
+            //decimal discount = total * (rank.DiscountRate);
+            decimal payment = total;
+            //Console.WriteLine(rank.DiscountRate.ToString());
+            var model = new BillBindingModel
+            {
+                Id = bill.Id,
+                Phone = bill.Phone,
+                Quantity = bill.Quantity,
+                Address = bill.Address,
+                Note = bill.Note,
+                UserId = userId,
+                OrderDetails = bill.OrderDetails,
+                discount = 0,
+                Payment = payment
+            };
+            return View(model);
         }
 
         // POST: Bills/Create

@@ -1,68 +1,126 @@
-﻿@model BookStore.Models.Bill
+﻿@model BookStore.Models.Binding_Model.BillBindingModel
+
 
 @{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Create Bill";
 }
+<div class="container">
+    <h4>Bill</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="Create">
+                @{
+                    var quantity = 0;
+                }
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <h3>Name: @ViewBag.UserName</h3>
+                <div class="form-group">
+                    <input asp-for="Id" class="form-control" type="hidden" value="@Model.Id" />
+                </div>
+                <div class="form-group">
+                    <input asp-for="UserId" class="form-control" type="hidden" value="@Model.UserId" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" type="tel" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Note" class="control-label"></label>
+                    <input asp-for="Note" class="form-control" />
+                    <span asp-validation-for="Note" class="text-danger"></span>
+                </div>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
 
-<h1>Create</h1>
+                                </th>
+                                <th>
+                                    Book
+                                </th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (var i = 0; i < Model.OrderDetails.Count; ++i)
+                            {
+                                var detail = Model.OrderDetails.ElementAt(i);
+                                quantity += detail.Quantity;
+                                var image = "/images/book/default.jpg";
+                                if (detail.Book.ImgURL != null)
+                                {
+                                    string img = detail.Book.ImgURL.Replace("\\", "/");
+                                    image = "/" + img;
+                                }
+                                <tr>
+                                    <td>@(i + 1)</td>
+                                    <td>
+                                        <img id="image" src="@(image)" />
+                                    </td>
+                                    <td>@(detail.Book.Title)</td>
+                                    <td>@detail.Quantity</td>
 
-<h4>Bill</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CreatedDate" class="control-label"></label>
-                <input asp-for="CreatedDate" class="form-control" />
-                <span asp-validation-for="CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Payment" class="control-label"></label>
-                <input asp-for="Payment" class="form-control" />
-                <span asp-validation-for="Payment" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Quantity" class="control-label"></label>
-                <input asp-for="Quantity" class="form-control" />
-                <span asp-validation-for="Quantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Note" class="control-label"></label>
-                <input asp-for="Note" class="form-control" />
-                <span asp-validation-for="Note" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <select asp-for="Status" class="form-control"></select>
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                                    <td>@((detail.Payment).ToString())</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h4>Total: <span>@ViewBag.Total</span></h4>
+                </div>
+                <div>
+                    @{
+                        decimal dis = Model.discount;
+                        string discount = dis.ToString();
+                    }
+                    <h4>Discount: <span>@discount</span></h4>
+                </div>
+                @*    <div class="form-group">        *@
+                <div class="form-group">
+                    @{
+                        decimal pay = Model.Payment;
+                        var payment = pay.ToString();
+                    }
+                    <h4>Payment: @payment</h4>
+                    <input asp-for="Payment" class="form-control" type="hidden" value="@Model.Payment" />
+                </div>
+                <div class="form-group">
+                    <button asp-action="Create" asp-controller="Bills" asp-route-id="@Model.Id">Order</button>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Quantity" class="form-control" type="hidden" value="@quantity" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index" asp-controller="Home">Back to List</a>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+<style>
+    #image {
+        width: 50px;
+    }
+</style>

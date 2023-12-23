@@ -1,12 +1,14 @@
 ﻿using BookStore.Data;
 using BookStore.Migrations;
 using BookStore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace BookStore.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -17,13 +19,14 @@ namespace BookStore.Controllers
             _context = context;
             _logger = logger;
         }
-
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Book.Include(m => m.Genres)
                                            .Include(m => m.Author)
                                            .Include(m => m.Publisher).ToListAsync());
         }
+        [AllowAnonymous]
         public async Task<IActionResult> Detail(int? id)
         {
             if (id == null || _context.Book == null)
