@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IdentityUserRole<int>
+@{
+    Layout = null;
+}
+
+<div class="form-group">
+    <input asp-for="UserId" class="form-control" type="hidden" value="@ViewBag.UserId"/>
+    <p>User: @ViewBag.UserName</p>
+    <div class="form-group">
+        <label class="control-label">Role:</label>
+        <select class="form-control" asp-items="ViewBag.Roles" asp-for="RoleId">
+            <option>
+                ---SELECT A ROLE---
+            </option>
+        </select>
+        <span asp-validation-for="RoleId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</div>

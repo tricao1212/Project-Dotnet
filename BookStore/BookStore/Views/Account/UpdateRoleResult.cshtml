@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.EntityFrameworkCore
+@inject BookStore.Data.BookStoreContext DBContext
+@inject UserManager<BookUser> UserManager
+@{
+    var user = ViewBag.User;
+    var role = await UserManager.GetRolesAsync(user);
+    Layout = null;
+}
+<div>
+    <p>User: @(user.Profile != null ? (user.Profile.FullName) : (user.UserName))</p>
+    <p>Role: @ViewBag.Role</p>
+</div>

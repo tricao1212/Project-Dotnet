@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "S9IFEVXC6HbgAtX3OhTvkl0s1jZNGUb4AiuW2fXE+GhRsE/5xv/VVnOrnFsr5H6TvojErH0GBylW3KIj8vllgQ==",
+  "dgSpecHash": "/x8zrGwhJFjW1wAFbexUArvWgRidoGqkxsr3eKyhvYgbEkILtOW6GkyIbhgJhQDJqHv0sjfL6sQ38fWyRLJDUA==",
   "success": true,
   "projectFilePath": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\BookStore.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\phucdhw\\.nuget\\packages\\aspnetcore.unobtrusive.ajax\\2.0.0\\aspnetcore.unobtrusive.ajax.2.0.0.nupkg.sha512",
     "C:\\Users\\phucdhw\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\phucdhw\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\phucdhw\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

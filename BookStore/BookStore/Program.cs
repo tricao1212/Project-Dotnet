@@ -3,15 +3,19 @@ using Microsoft.Extensions.DependencyInjection;
 using BookStore.Data;
 using BookStore.Models;
 using Microsoft.AspNetCore.Identity;
+using AspNetCore.Unobtrusive.Ajax;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BookStoreContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BookStoreContext") ?? throw new InvalidOperationException("Connection string 'BookStoreContext' not found.")));
-builder.Services.AddDefaultIdentity<BookUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<BookStoreContext>();
+builder.Services.AddIdentity<BookUser,IdentityRole<int>>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<BookStoreContext>()
+    .AddRoles<IdentityRole<int>>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+builder.Services.AddUnobtrusiveAjax();
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Default Lockout settings.
@@ -70,9 +74,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.UseUnobtrusiveAjax();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.MapRazorPages();
 app.Run();
