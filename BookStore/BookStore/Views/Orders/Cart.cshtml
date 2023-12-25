@@ -19,6 +19,9 @@
                         Quantity
                     </th>
                     <th>
+                        Price
+                    </th>
+                    <th>
                         Payment
                     </th>
                     <th></th>
@@ -39,7 +42,10 @@
                             @Html.DisplayFor(modelItem => item.Book.Title)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Quantity)
+                            <input value="@item.Quantity" data-book = "@item.Book.Id" class="quantity" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Book.Price)
                         </td>
                         <td>
                             @payment
@@ -57,11 +63,11 @@
                             string total = totalBill.ToString();
                             if (totalBill == 0)
                             {
-                                <h4>Total : 0</h4>
+                                            <h4>Total : 0</h4>
                             }
                             else
                             {
-                                <h4>Total: @total</h4>
+                                            <h4>Total: @total</h4>
                             }
                         }
                     </td>
@@ -69,11 +75,11 @@
                         @{
                             if (totalBill <= 0)
                             {
-                                <button type="submit" class="btn btn-primary" asp-action="Create" asp-controller="Bills" hidden> Order</button>
+                                            <button type="submit" class="btn btn-primary" asp-action="Create" asp-controller="Bills" hidden> Order</button>
                             }
                             else
                             {
-                                <button type="submit" class="btn btn-primary" asp-action="Create" asp-controller="Bills"> Order</button>
+                                            <button type="submit" class="btn btn-primary" asp-action="Create" asp-controller="Bills"> Order</button>
                             }
                         }
                     </td>
@@ -92,3 +98,20 @@
         width: 200px;
     }
 </style>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(function () {
+            $(".quantity").on("change", function () {
+                var quan = $(this).val();
+                var bookId = $(this).data("book");
+                $(this).closest("tr").children().eq(3).html("Value");
+                $.post(, { quantity: quan, bookId: bookId }, function (data) {
+
+                })
+            })
+        })
+    </script>
+}

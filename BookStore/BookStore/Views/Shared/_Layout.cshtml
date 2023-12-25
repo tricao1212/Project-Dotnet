@@ -38,15 +38,15 @@
                 </div>
                 <div class="d-inline-flex align-items-center">
                     <partial name="_LoginPartial" />
-                    <button style="background-color:transparent;text-decoration:none; color:black; font-size:large; border:hidden">
+                    <a style="background-color:transparent;text-decoration:none; color:black; font-size:large; border:hidden" asp-action="Cart" asp-controller="Orders">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3" style="padding:0px;padding-top:100px">
             @RenderBody()
         </main>
     </div>

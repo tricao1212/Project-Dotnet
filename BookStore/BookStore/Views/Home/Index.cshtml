@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<BookStore.Models.Book>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<BookUser> SignInManager
 @{
 	ViewData["Title"] = "Home Page";
 	Layout = "_Layout";
@@ -99,9 +101,18 @@
 					<img class="img-fluid" src="@Html.DisplayFor(modelItem => item.ImgURL)">
 					<h4>@Html.DisplayFor(modelItem => item.Title)</h4>
 					<p>@Html.DisplayFor(modelItem => item.Price)</p>
-					<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
-					<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-					<a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
+
+					@if (item.Quantity != 0)
+					{
+						<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
+						<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+						<a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
+					}
+					else
+					{
+						<p class="text-danger">Out of stock</p>
+						<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+					}
 				</div>
 			</div>
 		}
@@ -125,18 +136,29 @@
 					<h4>@Html.DisplayFor(modelItem => item.Title)</h4>
 					<p>@Html.DisplayFor(modelItem => item.Price)</p>
 					<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
-					<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-					<a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
+					@if (item.Quantity != 0)
+					{
+						<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+						<a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
+					}
+					else
+					{
+						<p class="text-danger">Out of stock</p>
+					}
 				</div>
 			</div>
 		}
 	</div>
 </div>
-<div class="signup-banner">
-	<div class="banner-content">
-		<h1>Sign up for our Newsletter</h1>
-		<p>Tell us what books you love</p>
+@if (!SignInManager.IsSignedIn(User))
+{
+	<div class="signup-banner">
+		<div class="banner-content">
+			<h1>Sign up for our Newsletter</h1>
+			<p>Tell us what books you love</p>
+		</div>
+		<a asp-controller="Account" asp-action="Register">SIGN UP</a>
 	</div>
-	<a asp-controller="Account" asp-action="Register">SIGN UP</a>
-</div>
+}
+
 

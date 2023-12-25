@@ -52,12 +52,6 @@
                         }
                     </dd>
                     <dt class="col-sm-3">
-                        Remain
-                    </dt>
-                    <dd class="col-sm-9">
-                        @Html.DisplayFor(model => model.Quantity)
-                    </dd>
-                    <dt class="col-sm-3">
                         @Html.DisplayNameFor(model => model.Author)
                     </dt>
                     <dd class="col-sm-9">
@@ -75,25 +69,41 @@
                     <dd class="col-sm-9">
                         @Html.DisplayFor(model => model.PublicDate)
                     </dd>
+                    @if (Model.Quantity > 0)
+                    {
+                        <dt class="col-sm-3">
+                            Remain
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Quantity)
+                        </dd>
+                    }
                 </dl>
-                <form asp-action="Order" asp-controller="Orders" asp-route-id="@Model.Id" method="post">
-                    <div class="row">
-                        <div class="col-3" id="button-form">
-                            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                            <input class="quantity" min="1" name="quantity" value="1" type="number" id="number" max="@ViewBag.Quantity">
-                            <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                @if (Model.Quantity > 0)
+                {
+                    <form asp-action="Order" asp-controller="Orders" asp-route-id="@Model.Id" method="post">
+                        <div class="row">
+                            <div class="col-3" id="button-form">
+                                <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                                <input class="quantity" min="1" name="quantity" value="1" type="number" id="number" max="@ViewBag.Quantity">
+                                <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                            </div>
+                            @{
+                                decimal total = ViewBag.Price;
+                                string tol = total.ToString();
+                            }
+                            <h4 class="col-9">Total: <span id="total">$@tol</span> </h4>
                         </div>
-                        @{
-                            decimal total = ViewBag.Price;
-                            string tol = total.ToString();
-                        }
-                        <h4 class="col-9">Total: <span id="total">$@tol</span> </h4>
-                    </div>
-                    <div style="margin-top:20px">
-                        <input type="submit" value="Add to Cart"  class="btn btn-outline-warning" />
-                    </div>
-                </form>
-                
+                        <div style="margin-top:20px">
+                            <input type="submit" value="Add to Cart" class="btn btn-outline-warning" />
+                        </div>
+                    </form>
+                }
+                else
+                {
+                    <h3 class="text-danger">Sorry, this product is out of stock</h3>
+                }
+
             </div>
             
         </div>
