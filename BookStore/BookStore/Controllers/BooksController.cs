@@ -9,9 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using BookStore.Data;
 using BookStore.Models;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Controllers
 {
+	[Authorize(Roles = "admin")]
 	public class BooksController : Controller
 	{
 		private readonly BookStoreContext _context;

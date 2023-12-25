@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using BookStore.Data;
 using BookStore.Models;
 using BookStore.Models.Binding_Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Controllers
 {
+    [Authorize]
     public class BillsController : Controller
     {
         private readonly BookStoreContext _context;
