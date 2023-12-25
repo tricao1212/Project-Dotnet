@@ -5,11 +5,11 @@
 
 	int pageSize = 4; // Số mục trên mỗi trang
 	int currentPage = 1; // Trang hiện tại (bạn có thể lấy từ controller)
-	var newRelease = Model.OrderByDescending(m=>m.PublicDate).Skip((currentPage - 1) * pageSize).Take(pageSize);
 	var items = Model.Skip((currentPage - 1) * pageSize).Take(pageSize);
 	// Tính tổng số trang
 	int totalPages = (int)Math.Ceiling((double)Model.Count() / pageSize);
 	bool showPaging = totalPages > 1;
+	var newRelease = Model.OrderByDescending(m => m.PublicDate).Skip((currentPage - 1) * pageSize).Take(pageSize);
 }
 <style>
 	.card-item {
@@ -18,10 +18,10 @@
 		border-radius: 5%;
 	}
 
-		.card-item img {
-			max-height: 300px;
-			min-height: 300px;
-		}
+	.card-item img {
+		max-height: 300px;
+		min-height: 300px;
+	}
 
 	.block-item {
 		padding-bottom: 10vh;

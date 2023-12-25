@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Controllers
 {
-    [Authorize(Roles ="admin")]
-    public class AdminController : Controller
+	[Authorize(Roles = "admin")]
+	public class AdminController : Controller
     {
 		private readonly BookStoreContext _context;
 		public AdminController(BookStoreContext context)

@@ -12,8 +12,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Controllers
 {
-    [Authorize]
-    public class BillsController : Controller
+	[Authorize(Roles = "admin")]
+	public class BillsController : Controller
     {
         private readonly BookStoreContext _context;
 
@@ -49,6 +49,7 @@ namespace BookStore.Controllers
         }
 
         // GET: Bills/Create
+        [Authorize]
         public async Task<IActionResult> Create()
         {
             String userName = User.Identity.Name;
