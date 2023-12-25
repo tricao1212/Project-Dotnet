@@ -21,6 +21,18 @@
       "PackagePath": "staticwebassets\\images\\avatar\\214e31bb-c862-4b5f-ac35-6bf7e4ee4078.jpg"
     },
     {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\47c8dade-2291-4aab-83eb-3fc67c268319.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\47c8dade-2291-4aab-83eb-3fc67c268319.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\4937cce0-0e12-4e67-830a-1f0003d2cfee.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\4937cce0-0e12-4e67-830a-1f0003d2cfee.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\6c030f2a-dedb-4203-b31e-d0a9cdee568d.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\6c030f2a-dedb-4203-b31e-d0a9cdee568d.jpg"
+    },
+    {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\9957f3df-4fa1-4ee6-85cb-f077abe3e9c6.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\9957f3df-4fa1-4ee6-85cb-f077abe3e9c6.jpg"
     },
@@ -37,12 +49,32 @@
       "PackagePath": "staticwebassets\\images\\book\\04a0690f-9e2e-4e82-9fe6-02b827608d3f.jpg"
     },
     {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\08c76595-f7ae-4de1-a8fa-0804ac7741a8.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\08c76595-f7ae-4de1-a8fa-0804ac7741a8.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\0b24346f-d4a7-4a79-918b-43dc959ad3c2.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\0b24346f-d4a7-4a79-918b-43dc959ad3c2.jpg"
+    },
+    {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\0d8296c7-7154-4b75-ba27-c49c276fb515.jpg",
       "PackagePath": "staticwebassets\\images\\book\\0d8296c7-7154-4b75-ba27-c49c276fb515.jpg"
     },
     {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\0f2dfcd1-0e95-4b2e-83a4-02d5048b0452.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\0f2dfcd1-0e95-4b2e-83a4-02d5048b0452.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\127fa67a-3f08-4669-ad3c-d5cec4062683.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\127fa67a-3f08-4669-ad3c-d5cec4062683.jpg"
+    },
+    {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\13b912b7-204a-4a8f-9326-c59a340d7e23.jpg",
       "PackagePath": "staticwebassets\\images\\book\\13b912b7-204a-4a8f-9326-c59a340d7e23.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\24f49f1a-28d0-4be0-b984-2396ab1dd3f6.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\24f49f1a-28d0-4be0-b984-2396ab1dd3f6.jpg"
     },
     {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\272363c6-a3ba-4afe-aedc-b065dd263a7b.jpg",
@@ -57,16 +89,44 @@
       "PackagePath": "staticwebassets\\images\\book\\2c3067ec-72d5-4d6e-aebc-1634831dc029.jpg"
     },
     {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\3610f8e1-0fb7-4630-b5ce-80318152a590.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\3610f8e1-0fb7-4630-b5ce-80318152a590.jpg"
+    },
+    {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\37d05dca-b10a-4880-93dd-5b28d6e89996.jpg",
       "PackagePath": "staticwebassets\\images\\book\\37d05dca-b10a-4880-93dd-5b28d6e89996.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\38fbcbd4-86e3-42f8-b080-68a009c4a76d.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\38fbcbd4-86e3-42f8-b080-68a009c4a76d.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\41183713-52e2-4c11-86c9-4d2f75fac521.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\41183713-52e2-4c11-86c9-4d2f75fac521.jpg"
     },
     {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\43223f14-2c41-499c-944e-0e31bc839cdb.jpg",
       "PackagePath": "staticwebassets\\images\\book\\43223f14-2c41-499c-944e-0e31bc839cdb.jpg"
     },
     {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\44c51cdb-9f52-45cb-804f-6e83eba72cbf.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\44c51cdb-9f52-45cb-804f-6e83eba72cbf.jpg"
+    },
+    {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\5deeb9cf-eabe-41cd-95cb-2f5d59c8c3ff.jpg",
       "PackagePath": "staticwebassets\\images\\book\\5deeb9cf-eabe-41cd-95cb-2f5d59c8c3ff.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\6fd1d586-3b61-481b-a845-1bc1049bc4e9.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\6fd1d586-3b61-481b-a845-1bc1049bc4e9.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\705fbb5e-2e9e-4a98-a709-a2ae648691e2.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\705fbb5e-2e9e-4a98-a709-a2ae648691e2.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\74158e7b-e93c-4622-a3a0-703afd660706.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\74158e7b-e93c-4622-a3a0-703afd660706.jpg"
     },
     {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\79cde5e6-149f-4f1c-afa0-1eacb1d6af59.jpg",
@@ -77,12 +137,32 @@
       "PackagePath": "staticwebassets\\images\\book\\87848adc-62fa-4580-b1df-5dc096537b9a.jpg"
     },
     {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\94e8e730-bcd9-4a71-9a31-9817de6ad710.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\94e8e730-bcd9-4a71-9a31-9817de6ad710.jpg"
+    },
+    {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\a01da4ab-1e02-4e67-86c4-97e792b572d6.jpg",
       "PackagePath": "staticwebassets\\images\\book\\a01da4ab-1e02-4e67-86c4-97e792b572d6.jpg"
     },
     {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\a3e72cdc-8b26-483d-b99d-d5e7ba764036.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\a3e72cdc-8b26-483d-b99d-d5e7ba764036.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\aba1b952-6333-4284-8e89-afbe265e67fa.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\aba1b952-6333-4284-8e89-afbe265e67fa.jpg"
+    },
+    {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\b925e88f-1e6c-4732-8aa1-3d7b55864b7d.jpg",
       "PackagePath": "staticwebassets\\images\\book\\b925e88f-1e6c-4732-8aa1-3d7b55864b7d.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\c185ffa3-d3f6-45f6-89f5-9aa244af0758.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\c185ffa3-d3f6-45f6-89f5-9aa244af0758.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\d16545f6-8581-41d1-ad79-82946554e7dc.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\d16545f6-8581-41d1-ad79-82946554e7dc.jpg"
     },
     {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\d57d58a2-5267-46da-b1d8-1998cb057f7f.jpg",
@@ -99,6 +179,14 @@
     {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\e964f623-fb6d-40f5-bf56-b56572af790f.jpg",
       "PackagePath": "staticwebassets\\images\\book\\e964f623-fb6d-40f5-bf56-b56572af790f.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\eb6ecd98-ad9f-4062-a87f-dec7a0ec6816.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\eb6ecd98-ad9f-4062-a87f-dec7a0ec6816.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\f09cf202-fcbe-4b5d-8212-4f9c661dc628.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\f09cf202-fcbe-4b5d-8212-4f9c661dc628.jpg"
     },
     {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\f6591684-b7b5-4be6-a069-b06325854795.jpg",

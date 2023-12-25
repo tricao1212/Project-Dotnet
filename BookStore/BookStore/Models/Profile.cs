@@ -32,6 +32,7 @@ namespace BookStore.Models
 
         [Required]
         [Display(Name = "Phone number")]
+        [RegularExpression("[0-9]{10}")]
         public string PhoneNumber { get; set; }
     }
 }

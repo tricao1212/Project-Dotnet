@@ -23,7 +23,7 @@ namespace BookStore.Controllers
         public IActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-			return View();
+            return View();
         }
         public IActionResult AccessDenied()
         {
@@ -58,7 +58,7 @@ namespace BookStore.Controllers
         public IActionResult Register(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-			return View();
+            return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
