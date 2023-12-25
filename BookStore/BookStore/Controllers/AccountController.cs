@@ -76,11 +76,14 @@ namespace BookStore.Controllers
 
                 if (result.Succeeded)
                 {
-                    var userId = await userManager.GetUserIdAsync(user);
-                    var code = await userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    var profile = new Profile
+                    {
+                        UserId = user.Id,
+                    };
+                    _context.Profile.Add(profile);
+                    await _context.SaveChangesAsync();
 
-                    if (userManager.Options.SignIn.RequireConfirmedAccount)
+					if (userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = model.Email, returnUrl = returnUrl });
                     }
