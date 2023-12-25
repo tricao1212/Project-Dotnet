@@ -28,10 +28,12 @@ namespace BookStore.Models
         }
 
         [Required]
+        [StringLength(maximumLength: 100, MinimumLength = 15)]
         public string Address { get; set; }
 
         [Required]
         [Display(Name = "Phone number")]
+        [RegularExpression("[0-9]{10}")]
         public string PhoneNumber { get; set; }
     }
 }

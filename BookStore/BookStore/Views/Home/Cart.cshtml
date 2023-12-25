@@ -74,11 +74,11 @@
                         @{
                             if (totalBill <= 0)
                             {
-                                <button type="submit" class="btn btn-primary" asp-action="Create" asp-controller="Bills" hidden> Order</button>
+                                <button type="submit" class="btn btn-primary" asp-action="Order" asp-controller="Orders" hidden> Order</button>
                             }
                             else
                             {
-                                <button type="submit" class="btn btn-primary" asp-action="Create" asp-controller="Bills"> Order</button>
+                                <button type="submit" class="btn btn-primary" asp-action="Order" asp-controller="Orders"> Order</button>
                             }
                         }
                     </td>

@@ -10,6 +10,8 @@ namespace BookStore.Models
         public int UserId { get; set; }
         public BookUser User { get; set; }
 
+        public int IndexTemp { get; set; }
+
         public ICollection<Order_Details> OrderDetails { get; set; }
     }
 }

@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\images\\avatar\\9957f3df-4fa1-4ee6-85cb-f077abe3e9c6.jpg"
     },
     {
+      "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\a949ed10-5f7e-4d52-92f4-46ba498ece23.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\a949ed10-5f7e-4d52-92f4-46ba498ece23.jpg"
+    },
+    {
       "Id": "E:\\DOTNET\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\default.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\default.jpg"
     },

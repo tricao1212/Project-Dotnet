@@ -22,11 +22,12 @@ namespace BookStore.Controllers
 			var book = await _context.Book.FindAsync(id);
 			var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == User.Identity.Name);
 			var userId = user.Id;
-			var cart = _context.Cart.Include(o => o.OrderDetails).FirstOrDefault(c => c.UserId == user.Id);
+			var cart = _context.Cart.Include(o => o.OrderDetails).FirstOrDefault(c => c.IndexTemp == user.Id);
 
 			if (cart == null)
 			{
 				cart = new Cart { UserId = user.Id, OrderDetails = new List<Order_Details>() };
+				cart.IndexTemp = cart.UserId;
 				_context.Cart.Add(cart);
 			}
 
@@ -55,6 +56,7 @@ namespace BookStore.Controllers
 				{
 					CartId = cart.Id,
 					BookId = book.Id,
+					IndexTemp = cart.UserId,
 					Book = book,
 					Quantity = quantity,
 					TotalPrice = totalPrice,
@@ -67,6 +69,7 @@ namespace BookStore.Controllers
 				{
 					CartId = cart.Id,
 					BookId = book.Id,
+					IndexTemp = cart.UserId,
 					Book = book,
 					Quantity = quantity,
 					TotalPrice = totalPrice,
@@ -79,7 +82,7 @@ namespace BookStore.Controllers
 		public async Task<IActionResult> Delete(int CartId, int BookId)
 		{
 			var CartItem = await _context.Order_Details.Include(o => o.Book).Where(x => x.CartId == CartId && x.BookId == BookId).FirstOrDefaultAsync();
-				
+
 			if (CartItem == null)
 			{
 				return NotFound();

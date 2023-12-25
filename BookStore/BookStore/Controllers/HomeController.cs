@@ -47,7 +47,7 @@ namespace BookStore.Controllers
 			decimal totalBill = 0;
 			var cart = await _context.Cart.Include(x => x.OrderDetails)
 										  .ThenInclude(d => d.Book)
-										  .FirstOrDefaultAsync(o => o.UserId == user.Id);
+										  .FirstOrDefaultAsync(o => o.IndexTemp == user.Id);
 			if (cart == null)
 			{
 				ViewBag.CartOrder = new List<Order_Details>();
@@ -67,11 +67,12 @@ namespace BookStore.Controllers
 			var book = await _context.Book.FindAsync(id);
 			var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == User.Identity.Name);
 			var userId = user.Id;
-			var cart = _context.Cart.Include(o => o.OrderDetails).FirstOrDefault(c => c.UserId == user.Id);
+			var cart = _context.Cart.Include(o => o.OrderDetails).FirstOrDefault(c => c.IndexTemp == user.Id);
 
 			if (cart == null)
 			{
 				cart = new Cart { UserId = user.Id, OrderDetails = new List<Order_Details>() };
+				cart.IndexTemp = cart.UserId;
 				_context.Cart.Add(cart);
 			}
 
@@ -96,6 +97,7 @@ namespace BookStore.Controllers
 				{
 					CartId = cart.Id,
 					BookId = book.Id,
+					IndexTemp = cart.UserId,
 					Book = book,
 					Quantity = 1,
 					TotalPrice = book.Price,
@@ -107,6 +109,7 @@ namespace BookStore.Controllers
 				{
 					CartId = cart.Id,
 					BookId = book.Id,
+					IndexTemp = cart.UserId,
 					Book = book,
 					Quantity = 1,
 					TotalPrice = book.Price,

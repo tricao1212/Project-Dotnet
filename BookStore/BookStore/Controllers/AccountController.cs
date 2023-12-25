@@ -76,9 +76,10 @@ namespace BookStore.Controllers
 
                 if (result.Succeeded)
                 {
-                    var userId = await userManager.GetUserIdAsync(user);
-                    var code = await userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    var profile = new Profile
+                    {
+                        UserId = user.Id,
+                    };
 
                     if (userManager.Options.SignIn.RequireConfirmedAccount)
                     {

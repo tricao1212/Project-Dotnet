@@ -4,6 +4,7 @@ using BookStore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStore.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    partial class BookStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20231225141136_addORderBinding")]
+    partial class addORderBinding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -172,9 +175,6 @@ namespace BookStore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("IndexTemp")
-                        .HasColumnType("int");
-
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -239,7 +239,7 @@ namespace BookStore.Migrations
                     b.Property<int>("CartId")
                         .HasColumnType("int");
 
-                    b.Property<int>("IndexTemp")
+                    b.Property<int?>("Order_InfoId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -254,7 +254,22 @@ namespace BookStore.Migrations
 
                     b.HasIndex("CartId");
 
+                    b.HasIndex("Order_InfoId");
+
                     b.ToTable("Order_Details");
+                });
+
+            modelBuilder.Entity("BookStore.Models.Order_Info", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Order_Info");
                 });
 
             modelBuilder.Entity("BookStore.Models.Orders", b =>
@@ -265,27 +280,12 @@ namespace BookStore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CartId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Note")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("OrderInfoId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
@@ -294,6 +294,8 @@ namespace BookStore.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OrderInfoId");
 
                     b.HasIndex("UserId");
 
@@ -307,8 +309,7 @@ namespace BookStore.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Avatar")
                         .HasColumnType("nvarchar(max)");
@@ -545,6 +546,10 @@ namespace BookStore.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BookStore.Models.Order_Info", null)
+                        .WithMany("Details")
+                        .HasForeignKey("Order_InfoId");
+
                     b.Navigation("Book");
 
                     b.Navigation("Cart");
@@ -552,11 +557,17 @@ namespace BookStore.Migrations
 
             modelBuilder.Entity("BookStore.Models.Orders", b =>
                 {
+                    b.HasOne("BookStore.Models.Order_Info", "OrderInfo")
+                        .WithMany()
+                        .HasForeignKey("OrderInfoId");
+
                     b.HasOne("BookStore.Models.BookUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("OrderInfo");
 
                     b.Navigation("User");
                 });
@@ -636,6 +647,11 @@ namespace BookStore.Migrations
             modelBuilder.Entity("BookStore.Models.Cart", b =>
                 {
                     b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("BookStore.Models.Order_Info", b =>
+                {
+                    b.Navigation("Details");
                 });
 
             modelBuilder.Entity("BookStore.Models.Publisher", b =>

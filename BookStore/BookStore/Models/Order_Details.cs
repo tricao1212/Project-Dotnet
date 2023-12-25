@@ -10,6 +10,7 @@ namespace BookStore.Models
         [ForeignKey(nameof(Cart))]
         public int CartId { get; set; }
         public Cart Cart { get; set; }
+        public int IndexTemp { get; set; }
 
         [ForeignKey(nameof(Book))]
         public int BookId { get; set; }
