@@ -32,21 +32,21 @@ namespace BookStore.Controllers
         // GET: Bills/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Bill == null)
-            {
-                return NotFound();
-            }
+			String userName = User.Identity.Name;
+			var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
+			var profile = user.Profile;
+			ViewBag.UserName = profile?.FirstName == null || profile?.LastName == null ? userName : profile.FullName;
+			var bill = await _context.Bill.Include(x => x.OrderDetails)
+			   .ThenInclude(x => x.Book)
+			   .SingleOrDefaultAsync(or => or.Id == id);
 
-            var bill = await _context.Bill
-                .Include(b => b.User)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (bill == null)
-            {
-                return NotFound();
-            }
+			if (bill == null)
+			{
+				return NotFound();
+			}
 
-            return View(bill);
-        }
+			return View(bill);
+		}
 
         // GET: Bills/Create
         [Authorize]
@@ -167,7 +167,7 @@ namespace BookStore.Controllers
             {
                 return NotFound();
             }
-
+            
             return View(bill);
         }
 

@@ -90,9 +90,10 @@
                             </div>
                             @{
                                 decimal total = ViewBag.Price;
-                                string tol = total.ToString();
+                                total = Convert.ToDecimal(total);
+                                string tol = String.Format("{0:C}", total);
                             }
-                            <h4 class="col-9">Total: <span id="total">$@tol</span> </h4>
+                            <h4 class="col-9">Total: <span id="total">@tol</span> </h4>
                         </div>
                         <div style="margin-top:20px">
                             <input type="submit" value="Add to Cart" class="btn btn-outline-warning" />
@@ -184,6 +185,10 @@
         quantity = document.getElementById('number').value;
 
         var total = quantity * (@ViewBag.Price);
-        document.getElementById('total').textContent ="$" + total.toFixed(2);
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        })
+        document.getElementById('total').textContent = formatter.format(total)
     }
 </script>

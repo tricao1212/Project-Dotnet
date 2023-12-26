@@ -60,7 +60,7 @@
                     <td>
                         @{
                             decimal totalBill = @ViewBag.Total;
-                            string total = totalBill.ToString();
+                            string total = String.Format("{0:C}", totalBill);
                             if (totalBill == 0)
                             {
                                             <h4>Total : 0</h4>
