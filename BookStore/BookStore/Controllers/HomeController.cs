@@ -49,13 +49,86 @@ namespace BookStore.Controllers
             ViewData["Genres"] = book.Genres.ToList();
             return View(book);
         }
-		public async Task<IActionResult> Items()
-		{
-			return View(await _context.Book.Include(m => m.Genres)
-										   .Include(m => m.Author)
-                                           .Include(m => m.Publisher).ToListAsync());
-		}
-		public async Task<IActionResult> Cart(int id)
+        [AllowAnonymous]
+        public async Task<IActionResult> Items(string sort,string currentSort,string sortOrder,string currentOrder,
+        string currentFilter,string searchString,int? pageNumber,int[] sortGenres,int[] sortAuthors,int[] sortPublishers)
+        {
+
+            if (sortOrder != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                sortOrder = currentOrder;
+            }
+            if (sort != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                sort = currentSort;
+            }
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewData["CurrentFilter"] = searchString;
+            ViewData["CurrentSort"] = sort;
+            ViewData["CurrentOrder"] = sortOrder;
+            ViewData["sortGenres"] = System.Text.Json.JsonSerializer.Serialize(sortGenres);
+            ViewData["sortAuthors"] = System.Text.Json.JsonSerializer.Serialize(sortAuthors);
+            ViewData["sortPublishers"] = System.Text.Json.JsonSerializer.Serialize(sortPublishers);
+            var books = from s in _context.Book
+                        select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(s => s.Title.Contains(searchString));
+            }
+            if (!String.IsNullOrEmpty(sort))
+            {
+                string value = sort + sortOrder;
+                switch (value)
+                {
+                    case "aphalbeticalascending":
+                        books = books.OrderBy(s => s.Title);
+                        break;
+                    case "aphalbeticaldescending":
+                        books = books.OrderByDescending(s => s.Title);
+                        break;
+                    case "priceascending":
+                        books = books.OrderBy(s => s.Price);
+                        break;
+                    case "pricedescending":
+                        books = books.OrderByDescending(s => s.Price);
+                        break;
+                }
+            }
+            foreach (var genreId in sortGenres)
+            {
+                books = books.Where(s => s.Genres.Any(g => g.Id == genreId));
+            }
+            foreach (var authorId in sortAuthors)
+            {
+                books = books.Where(s => s.Author.Id == authorId);
+            }
+            foreach (var publisherId in sortPublishers)
+            {
+                books = books.Where(s => s.Publisher.Id == publisherId);
+            }
+            int pageSize = 12;
+            ViewBag.Genres = _context.Genre.ToList();
+            ViewBag.Authors = _context.Author.ToList();
+            ViewBag.Publishers = _context.Publisher.ToList();
+            return View(await PaginatedList<Book>.CreateAsync(books.Include(x => x.Genres).Include(x => x.Author)
+                        .Include(x => x.Publisher).AsNoTracking(), pageNumber ?? 1, pageSize));
+        }
+        public async Task<IActionResult> Cart(int id)
         {
             var book = await _context.Book.FindAsync(id);
 			var user = await _context.Users.Include(u => u.Profile).SingleOrDefaultAsync(u => u.UserName == User.Identity.Name);

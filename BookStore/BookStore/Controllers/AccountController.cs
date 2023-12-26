@@ -1,11 +1,13 @@
 ﻿using BookStore.Data;
 using BookStore.Models;
+using BookStore.Models.Binding_Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BookStore.Controllers
 {
@@ -105,8 +107,17 @@ namespace BookStore.Controllers
         {
             var username = User.Identity.Name;
             var currentUser = await _context.Users.Include(x => x.Profile).FirstOrDefaultAsync(x => x.UserName == username);
-
-            return View(currentUser.Profile);
+            var model = new ProfileBinding
+            {
+                UserId = currentUser.Profile.UserId,
+                Avatar = currentUser.Profile.Avatar,
+                User = currentUser,
+                FirstName = currentUser.Profile.FirstName,
+                LastName = currentUser.Profile.LastName,
+                PhoneNumber = currentUser.Profile.PhoneNumber,
+                Address = currentUser.Profile.Address,
+            };
+            return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

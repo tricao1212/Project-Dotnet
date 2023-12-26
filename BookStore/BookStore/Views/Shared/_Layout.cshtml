@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -13,7 +15,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md bg-body-tertiary shadow pb-0 mb-3" style="height:120px;font-size:x-large;">
+        <nav class="navbar navbar-expand-md bg-body-tertiary shadow pb-0 mb-3" style="height:100px;font-size:x-large;">
             <div class="container">
                 <div>
                     <img src="https://uxwing.com/wp-content/themes/uxwing/download/education-school/read-book-icon.png" style="height:50px; width:50px"  />
@@ -28,11 +30,17 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
-                        </li>
+                        @if (User.IsInRole("admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Items">Full Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Bills" asp-action="History">My Order</a>
                         </li>
                     </ul>
                 </div>
@@ -45,8 +53,8 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3" style="padding:0px;padding-top:100px">
+    <div class="container-fluid" style="padding: 0px;padding-top:100px">
+        <main role="main">
             @RenderBody()
         </main>
     </div>

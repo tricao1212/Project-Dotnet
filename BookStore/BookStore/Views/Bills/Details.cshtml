@@ -11,77 +11,67 @@
     <hr />
     <h3>User Information: </h3>
     <p>Name: @ViewBag.UserName</p>
-    <p>Phone: @Model.Phone</p>
-    <p>Address: @Model.Address</p>
+    <p>Phone Number: @Model.Phone</p>
+    <p>Ship to: @Model.Address</p>
+    <p>Note: <span>@Model.Note</span></p>
 </div>
-<div>
-    <h3>Items List </h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                   #
-                </th>
-                <th>
-
-                </th>
-                <th>
-                    Book
-                </th>
-                <th>
-                    Quantity
-                </th>
-                <th>
-                    Payment
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @{
-                var orderDetails = Model.OrderDetails.ToList();
-            }
-            @for (var i = 0; i < Model.OrderDetails.Count; ++i)
-            {
-                var detail = Model.OrderDetails.ElementAt(i);
-                string payment = String.Format("{0:C}", detail.Payment);
-                var image = "/images/book/default.jpg";
-                if (detail.Book != null)
-                {
-                    string img = detail.Book.ImgURL.Replace("\\", "/");
-                    image = "/" + img;
-                }
+<div class="row">
+    <div class="col-md-8">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td style="width: 10px">
-                       @(i+1)
-                    </td>
-                    <td style="width: 100px">
-                        <img id="image" src="@(image)" />
-                    </td>
-                    <td >
-                        @detail.Book.Title
-                    </td>
-                    <td >
-                       @detail.Quantity
-                    </td>
-                    <td>
-                        @payment
-                    </td>
+                    <th></th>
+                    <th>Book</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @{
+                    var orderDetails = Model.OrderDetails.ToList();
+                }
+                @for (var i = 0; i < Model.OrderDetails.Count; ++i)
+                {
+                    var detail = Model.OrderDetails.ElementAt(i);
+                    string payment = String.Format("{0:C}", detail.Payment);
+                    var image = "/images/book/default.jpg";
+                    if (detail.Book != null)
+                    {
+                        string img = detail.Book.ImgURL.Replace("\\", "/");
+                        image = "/" + img;
+                    }
+                    <tr>
+                        <td style="width: 100px">
+                            <img id="image" src="@(image)" />
+                        </td>
+                        <td>
+                            @detail.Book.Title
+                        </td>
+                        <td>
+                            @detail.Book.Price
+                        </td>
+                        <td>
+                            @detail.Quantity
+                        </td>
+                        <td>
+                            @payment
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        @{
+            decimal t = (decimal)Model.Payment;
+            var total = String.Format("{0:C}", t);
+        }
+        <h3>Total Price:</h3> <h2>@total</h2>
+    </div>
 </div>
-<div>
 
-    @{
-        decimal t= (decimal) Model.Payment;
-        var total = String.Format("{0:C}", t);
-    }
-    <h3 style="text-align: right; font-weight: bold">Total: @total</h3>
-    <h4 style="font-style: italic">Note: @Model.Note</h4>
-    <a asp-action="Index" asp-controller="Home">Back to Home</a>
-</div>
+
 <style>
     h3{
         color: darkslateblue
@@ -89,5 +79,9 @@
     #image{
         width: 70px;
     }
+    span {
+        font-weight: normal;
+    }
 </style>
+
              

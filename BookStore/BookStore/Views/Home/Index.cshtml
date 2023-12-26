@@ -106,7 +106,10 @@
 					{
 						<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
 						<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-						<a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
+						@Html.AjaxActionLink("Add to cart", "Cart", new {id=item.Id},
+							new AjaxOptions{
+							HttpMethod = "GET",
+							},new { @class = "btn btn-outline-warning"})
 					}
 					else
 					{
@@ -139,7 +142,12 @@
 					@if (item.Quantity != 0)
 					{
 						<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-						<a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
+						@Html.AjaxActionLink("Add to cart", "Cart", new {id=item.Id},
+						new AjaxOptions{
+						UpdateTargetId = "bubble",
+						HttpMethod = "GET",
+						InsertionMode = InsertionMode.Replace,
+						},new { @class = "btn btn-outline-warning"})
 					}
 					else
 					{

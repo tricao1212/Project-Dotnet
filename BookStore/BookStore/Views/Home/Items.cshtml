@@ -1,77 +1,166 @@
-﻿@model IEnumerable<BookStore.Models.Book>
+﻿@model PaginatedList<BookStore.Models.Book>
 @{
     ViewData["Title"] = "Items";
     Layout = "_Layout";
 
-    int pageSize = 4; // Số mục trên mỗi trang
-    int currentPage = 1; // Trang hiện tại (bạn có thể lấy từ controller)
-    var items = Model.Skip((currentPage - 1) * pageSize).Take(pageSize);
-    // Tính tổng số trang
-    int totalPages = (int)Math.Ceiling((double)Model.Count() / pageSize);
-    bool showPaging = totalPages > 1;
 }
 
-<div class="itemcontainer d-flex">
-    <div class="d-inline-flex w-100">
-        <div class="setting justify-content-center align-items-center">
-            <div>
-                <text>Filter</text>
-                <select>
-                    <option>Category</option>
-                    <option>Author</option>
-                    <option>Price</option>
-                </select>
-            </div>
-            
-            
-        </div>
-        <div class="mainitemdiv d-flex flex-column">
-            <div class="totalBookdiv">
-                <text style="font-weight:bold">Books (@Model.Count() books)</text>
-            </div>
-            <div class="sortdiv d-inline-flex">
-                <div class="w-25">
-                    <div style="">
-                        <text>sort</text>
-                        <select style="width:80%">
-                        </select>
+<div class="container d-flex mt-4 pb-4">
+    <form asp-action="Items" method="get">
+        <div class="d-inline-flex w-100">
+            <div class="setting">
+                <text class="fw-bold">Filter</text>
+                <div class="form-group">
+                    <text class="fw-bold">Genre</text>
+                    <div class="flex-column d-flex">
+                        @{
+                            List<Genre> genres = ViewBag.Genres;
+                        }
+                        @foreach (var item in genres)
+                        {
+                            <div class="col-md-3 d-inline-flex">
+                                <input value="@item.Id" type="checkbox" name="sortGenres">
+                                <label>@item.Name</label>
+                            </div>
+                        }
                     </div>
                 </div>
-                <div class="w-25">
-                    <text>By</text>
-                    <select style="width:80%">
-                    </select>
-                </div>
-            </div>
-            <div class="itemdiv">
-                <div class="row">
-                    @foreach (var item in items)
-                    {
-                        <div class="col-md-3">
-                            <div class="container item">
-                                <div class="imgdiv">
-                                    <img class="img-fluid" src="/@Html.DisplayFor(modelItem => item.ImgURL)">
-                                </div>
-                                <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
-                                <p>@Html.DisplayFor(modelItem => item.Price)</p>
-                                <p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
-                                <button class="btn btn-primary">Detail</button>
-                                <button class="btn btn-outline-warning">Add to cart</button>
+                <div class="form-group">
+                    <text class="fw-bold">Author</text>
+                    <div class="flex-column d-flex">
+                        @{
+                            List<Author> authors = ViewBag.Authors;
+                        }
+                        @foreach (var item in authors)
+                        {
+                            <div class="col-md-3 d-inline-flex">
+                                <input value="@item.Id" type="checkbox" name="sortAuthors">
+                                <label>@item.Name</label>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    <text class="fw-bold">Publisher</text>
+                    <div class="flex-column d-flex">
+                        @{
+                            List<Publisher> publishers = ViewBag.Publishers;
+                        }
+                        @foreach (var item in publishers)
+                        {
+                            <div class="col-md-3 d-inline-flex">
+                                <input value="@item.Id" type="checkbox" name="sortPublishers">
+                                <label>@item.Name</label>
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
+            <div class="mainitemdiv d-flex flex-column">
+                <div class="totalBookdiv">
+                    <text style="font-weight:bold">Books (@Model.Count() books)</text>
+                </div>
+                <div class="sortdiv d-inline-flex">
+                    <div class="w-25">
+                        <div style="">
+                            <text>Search:</text>
+                            <input style="width:80%" type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                        </div>
+                    </div>
+                    <div class="w-25">
+                        <div style="">
+                            <text>Sort:</text>
+                            <select style="width:80%" name="sort">
+                                <option value="">Default</option>
+                                <option value="aphalbetical">Aphalbetical</option>
+                                <option value="price">Price</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="w-25">
+                        <text>By:</text>
+                        <select style="width:80%" name="sortOrder">
+                            <option value="">Default</option>
+                            <option value="ascending">Ascending</option>
+                            <option value="descending">Descending</option>
+                        </select>
+                    </div>
+                    <input type="submit" value="Go" class="btn btn-default border-1 border-dark" />
+                </div>
+                <div class="itemdiv">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-3">
+                                <div class="container item d-flex">
+                                    <div class="imgdiv align-self-center">
+                                        <img class="img-fluid" src="/@Html.DisplayFor(modelItem => item.ImgURL)">
+                                    </div>
+                                    <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+                                    <p>@Html.DisplayFor(modelItem => item.Price)</p>
+                                    <p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
+                                    <div class="d-inline-flex justify-content-evenly">
+                                        <a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+                                        <a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
+                                    </div>
 
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                @{
+                    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+                }
+                <div class="align-self-end">
+                    <a asp-action="Items"
+                       asp-route-currentSort="@ViewData["CurrentSort"]"
+                       asp-route-currentOrder="@ViewData["CurrentOrder"]"
+                       asp-route-pageNumber="@(Model.PageIndex - 1)"
+                       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                       class="btn btn-default border-1 border-dark @prevDisabled">
+                        Previous
+                    </a>
+                    <a asp-action="Items"
+                       asp-route-currentSort="@ViewData["CurrentSort"]"
+                       asp-route-currentOrder="@ViewData["CurrentOrder"]"
+                       asp-route-pageNumber="@(Model.PageIndex + 1)"
+                       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                       class="btn btn-default border-1 border-dark @nextDisabled">
+                        Next
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 
+<script>
+    $(document).ready(function () {
+        var currentSort = '@ViewData["CurrentSort"]';
+        $('select[name="sort"] option[value="' + currentSort + '"]').attr('selected', 'selected');
+
+        var currentOrder = '@ViewData["CurrentOrder"]';
+        $('select[name="sortOrder"] option[value="' + currentOrder + '"]').attr('selected', 'selected');
+
+        var currentGenres = JSON.parse('@ViewData["sortGenres"]');
+        var currentAuthors = JSON.parse('@ViewData["sortAuthors"]');
+        var currentPublishers = JSON.parse('@ViewData["sortPublishers"]');
+        for (var i = 0; i < currentGenres.length; i++) {
+            $('input[name="sortGenres"][value="' + currentGenres[i] + '"]').attr('checked', 'checked');
+        }
+        for (var i = 0; i < currentAuthors.length; i++) {
+            $('input[name="sortAuthors"][value="' + currentAuthors[i] + '"]').attr('checked', 'checked');
+        }
+        for (var i = 0; i < currentPublishers.length; i++) {
+            $('input[name="sortPublishers"][value="' + currentPublishers[i] + '"]').attr('checked', 'checked');
+        }
+    });
+
+</script>
+
 <style>
-    .itemcontainer {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 
     .setting {
         padding: 10px;
@@ -88,11 +177,11 @@
 
     .mainitemdiv {
         width: 100%;
+        margin-left: 10px;
     }
 
     .totalBookdiv {
         padding: 10px;
-        margin-left: 10px;
         margin-bottom: 10px;
         width: 100%;
         border-width: 1px;
@@ -105,8 +194,8 @@
     }
 
     .sortdiv {
+        align-items: center;
         padding: 10px;
-        margin-left: 10px;
         margin-bottom: 10px;
         width: 100%;
         border-width: 1px;
@@ -121,7 +210,6 @@
 
     .itemdiv {
         padding: 10px;
-        margin-left: 10px;
         margin-bottom: 10px;
         width: 100%;
         border-width: 1px;
@@ -134,11 +222,17 @@
     }
 
     .item {
+        margin: 10px;
         padding: 10px;
-        width: 270px;
+        width: 220px;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        border-radius: 10px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba(121, 121, 121, 1);
+        -moz-box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+        -webkit-box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
+        box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.34901960784313724);
     }
 
     .imgdiv {
