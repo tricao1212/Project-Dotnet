@@ -54,7 +54,7 @@ namespace BookStore.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,discount")] Rank rank)
+        public async Task<IActionResult> Create([Bind("Id,Name,discount,threadhold")] Rank rank)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace BookStore.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,discount")] Rank rank)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,discount,threadhold")] Rank rank)
         {
             if (id != rank.Id)
             {

@@ -76,11 +76,14 @@ namespace BookStore.Controllers
 
                 if (result.Succeeded)
                 {
-                    var userId = await userManager.GetUserIdAsync(user);
-                    var code = await userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    var profile = new Profile
+                    {
+                        UserId = user.Id,
+                    };
+                    _context.Profile.Add(profile);
+                    await _context.SaveChangesAsync();
 
-                    if (userManager.Options.SignIn.RequireConfirmedAccount)
+					if (userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = model.Email, returnUrl = returnUrl });
                     }
@@ -185,7 +188,6 @@ namespace BookStore.Controllers
             }
             return View(profile);
         }
-
         public IActionResult ManageRole([FromServices] BookStoreContext context)
         {
             var users = context.Users.Include(x => x.Profile).ToList();
@@ -204,14 +206,16 @@ namespace BookStore.Controllers
 
             await userManager.RemoveFromRolesAsync(user, roles.ToArray());
             await userManager.AddToRoleAsync(user, role.Name);
+            ViewBag.User = user;
+            ViewBag.Role = role;
             return View("UpdateRoleResult");
         }
-
         public IActionResult GetRole(int id, [FromServices] BookStoreContext context, [FromServices] RoleManager<IdentityRole<int>> roleManager)
         {
             var users = context.Users.SingleOrDefault(x => x.Id == id);
             var roles = roleManager.Roles.ToList();
             var currentRole = context.UserRoles.FirstOrDefault(x => x.UserId == id);
+            ViewBag.UserName = users.UserName;
             ViewBag.UserId = id;
             ViewBag.Roles = new SelectList(roles, "Id", "Name", currentRole?.RoleId);
             return PartialView("_RoleForm", currentRole);

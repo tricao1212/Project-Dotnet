@@ -8,10 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using BookStore.Data;
 using BookStore.Models;
 using BookStore.Models.Binding_Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Controllers
 {
-    public class BillsController : Controller
+	[Authorize(Roles = "admin")]
+	public class BillsController : Controller
     {
         private readonly BookStoreContext _context;
 
@@ -30,30 +32,36 @@ namespace BookStore.Controllers
         // GET: Bills/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Bill == null)
-            {
-                return NotFound();
-            }
+			String userName = User.Identity.Name;
+			var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
+			var profile = user.Profile;
+			ViewBag.UserName = profile?.FirstName == null || profile?.LastName == null ? userName : profile.FullName;
+			var bill = await _context.Bill.Include(x => x.OrderDetails)
+			   .ThenInclude(x => x.Book)
+			   .SingleOrDefaultAsync(or => or.Id == id);
 
-            var bill = await _context.Bill
-                .Include(b => b.User)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (bill == null)
-            {
-                return NotFound();
-            }
+			if (bill == null)
+			{
+				return NotFound();
+			}
 
-            return View(bill);
-        }
+			return View(bill);
+		}
 
         // GET: Bills/Create
+        [AllowAnonymous]
         public async Task<IActionResult> Create()
         {
             String userName = User.Identity.Name;
             var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
             var profile = user.Profile;
             ViewBag.UserName = profile?.FirstName == null || profile?.LastName == null ? userName : profile.FullName;
-            ViewBag.Ranks = user.Profile.Rank.Name;
+            if (profile.Rank == null)
+            {
+				profile.Rank = _context.Ranks.FirstAsync().Result;
+                _context.SaveChanges();
+			}
+            ViewBag.Ranks = user.Profile.Rank;
             int userId = user.Id;
 
             var bill = await _context.Bill.Include(x => x.OrderDetails)
@@ -61,9 +69,25 @@ namespace BookStore.Controllers
                 .SingleOrDefaultAsync(or => or.UserId == profile.UserId && or.Status == OrderStatus.Cart);
             decimal total = bill.OrderDetails.Sum(x => x.Payment);
             ViewBag.Total = total.ToString();
-            //var rank = _context.Ranks.SingleOrDefault(r => r.Id == user.Profile.RankId);
-            //decimal discount = total * (rank.DiscountRate);
-            decimal payment = total;
+
+            //calculate discount
+            var rank = profile.Rank;
+            decimal discount = total * (rank.discount) / 100;
+            //calculate payment
+            decimal payment = total - discount;
+            //add totalspent
+            profile.TotalSpent += payment;
+            //update rank
+            List<Rank> ranks = _context.Ranks.ToList();
+            foreach (var r in ranks)
+            {
+                if (profile.TotalSpent >= r.threadhold)
+                {
+                    profile.Rank = r;
+                    _context.SaveChanges();
+                }
+            }
+
             //Console.WriteLine(rank.DiscountRate.ToString());
             var model = new BillBindingModel
             {
@@ -74,7 +98,7 @@ namespace BookStore.Controllers
                 Note = bill.Note,
                 UserId = userId,
                 OrderDetails = bill.OrderDetails,
-                discount = 0,
+                discount = discount,
                 Payment = payment
             };
             return View(model);
@@ -93,6 +117,7 @@ namespace BookStore.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", bill.UserId);
             return View(bill);
         }
@@ -165,7 +190,7 @@ namespace BookStore.Controllers
             {
                 return NotFound();
             }
-
+            
             return View(bill);
         }
 

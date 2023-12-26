@@ -11,6 +11,7 @@ namespace BookStore.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int discount { get; set; } = 0;
+        public decimal threadhold { get; set; } = 0;
 
         public static void EnsureSeedData(DbContext context)
         {

@@ -181,8 +181,9 @@ namespace BookStore.Controllers
         {
             Book book = await _context.Book.FindAsync(id);
             orderDetail.Book = book;
-            var oldOrder = _context.Order.Include(x => x.Book).FirstOrDefault(x => x.Book.Id == id);
             var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == User.Identity.Name);
+            var bill = await _context.Bill.SingleOrDefaultAsync(order => order.UserId == user.Id && order.Status == OrderStatus.Cart);
+            var oldOrder = _context.Order.Include(x => x.Book).Where(x=>x.BillId==bill.Id).FirstOrDefault(x => x.Book.Id == id);
 
             if (ModelState.IsValid)
             {
@@ -199,12 +200,10 @@ namespace BookStore.Controllers
                 
                 orderDetail.Payment = (payment * quantity);
                 
-                var bill = await _context.Bill.SingleOrDefaultAsync(order => order.UserId == user.Id && order.Status == OrderStatus.Cart);
                 if (bill != null)
                 {
                     if (oldOrder != null)
                     {
-
                         _context.Order.Update(oldOrder);
                     } 
                     else

@@ -1050,3 +1050,5 @@ D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensio
 D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
 D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
 D:\GitHub\project-dotnet\BookStore\BookStore\obj\Debug\net7.0\BookStore.MvcApplicationPartsAssemblyInfo.cs
+D:\CSE 443\Project\Final\BookStore\BookStore\bin\Debug\net7.0\AspNetCore.Unobtrusive.Ajax.dll
+D:\GitHub\project-dotnet\BookStore\BookStore\bin\Debug\net7.0\AspNetCore.Unobtrusive.Ajax.dll

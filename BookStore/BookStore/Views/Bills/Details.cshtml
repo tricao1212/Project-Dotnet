@@ -1,67 +1,93 @@
 ﻿@model BookStore.Models.Bill
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Bill Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1 style="color: green">Order Successfully</h1>
 
 <div>
-    <h4>Bill</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Payment)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Payment)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Quantity)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Note)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Note)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-    </dl>
+    <h3>User Information: </h3>
+    <p>Name: @ViewBag.UserName</p>
+    <p>Phone: @Model.Phone</p>
+    <p>Address: @Model.Address</p>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <h3>Items List </h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                   #
+                </th>
+                <th>
+
+                </th>
+                <th>
+                    Book
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Payment
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var orderDetails = Model.OrderDetails.ToList();
+            }
+            @for (var i = 0; i < Model.OrderDetails.Count; ++i)
+            {
+                var detail = Model.OrderDetails.ElementAt(i);
+                string payment = String.Format("{0:C}", detail.Payment);
+                var image = "/images/book/default.jpg";
+                if (detail.Book != null)
+                {
+                    string img = detail.Book.ImgURL.Replace("\\", "/");
+                    image = "/" + img;
+                }
+                <tr>
+                    <td style="width: 10px">
+                       @(i+1)
+                    </td>
+                    <td style="width: 100px">
+                        <img id="image" src="@(image)" />
+                    </td>
+                    <td >
+                        @detail.Book.Title
+                    </td>
+                    <td >
+                       @detail.Quantity
+                    </td>
+                    <td>
+                        @payment
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
+<div>
+
+    @{
+        decimal t= (decimal) Model.Payment;
+        var total = String.Format("{0:C}", t);
+    }
+    <h3 style="text-align: right; font-weight: bold">Total: @total</h3>
+    <h4 style="font-style: italic">Note: @Model.Note</h4>
+    <a asp-action="Index" asp-controller="Home">Back to Home</a>
+</div>
+<style>
+    h3{
+        color: darkslateblue
+    }
+    #image{
+        width: 70px;
+    }
+</style>
+             

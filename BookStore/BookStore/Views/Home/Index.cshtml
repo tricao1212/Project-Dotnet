@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<BookStore.Models.Book>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<BookUser> SignInManager
 @{
 	ViewData["Title"] = "Home Page";
 	Layout = "_Layout";
@@ -9,6 +11,7 @@
 	// Tính tổng số trang
 	int totalPages = (int)Math.Ceiling((double)Model.Count() / pageSize);
 	bool showPaging = totalPages > 1;
+	var newRelease = Model.OrderByDescending(m => m.PublicDate).Skip((currentPage - 1) * pageSize).Take(pageSize);
 }
 <style>
 	.card-item {
@@ -17,10 +20,10 @@
 		border-radius: 5%;
 	}
 
-		.card-item img {
-			max-height: 300px;
-			min-height: 300px;
-		}
+	.card-item img {
+		max-height: 300px;
+		min-height: 300px;
+	}
 
 	.block-item {
 		padding-bottom: 10vh;
@@ -91,16 +94,25 @@
 <div class="container block-item">
 	<h1>New Release</h1>
 	<div class="row">
-		@foreach (var item in items)
+		@foreach (var item in newRelease)
 		{
 			<div class="col-md-3">
 				<div class="container card-item">
 					<img class="img-fluid" src="@Html.DisplayFor(modelItem => item.ImgURL)">
 					<h4>@Html.DisplayFor(modelItem => item.Title)</h4>
 					<p>@Html.DisplayFor(modelItem => item.Price)</p>
-					<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
-					<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-					<a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
+
+					@if (item.Quantity != 0)
+					{
+						<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
+						<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+						<a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
+					}
+					else
+					{
+						<p class="text-danger">Out of stock</p>
+						<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+					}
 				</div>
 			</div>
 		}
@@ -124,18 +136,29 @@
 					<h4>@Html.DisplayFor(modelItem => item.Title)</h4>
 					<p>@Html.DisplayFor(modelItem => item.Price)</p>
 					<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
-					<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-					<a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
+					@if (item.Quantity != 0)
+					{
+						<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+						<a class="btn btn-outline-warning" asp-action="Cart" asp-route-id="@item.Id">Add to cart</a>
+					}
+					else
+					{
+						<p class="text-danger">Out of stock</p>
+					}
 				</div>
 			</div>
 		}
 	</div>
 </div>
-<div class="signup-banner">
-	<div class="banner-content">
-		<h1>Sign up for our Newsletter</h1>
-		<p>Tell us what books you love</p>
+@if (!SignInManager.IsSignedIn(User))
+{
+	<div class="signup-banner">
+		<div class="banner-content">
+			<h1>Sign up for our Newsletter</h1>
+			<p>Tell us what books you love</p>
+		</div>
+		<a asp-controller="Account" asp-action="Register">SIGN UP</a>
 	</div>
-	<a asp-controller="Account" asp-action="Register">SIGN UP</a>
-</div>
+}
+
 

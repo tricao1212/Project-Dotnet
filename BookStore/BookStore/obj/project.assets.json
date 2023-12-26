@@ -2,6 +2,25 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "AspNetCore.Unobtrusive.Ajax/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Embedded": "6.0.1"
+        },
+        "compile": {
+          "lib/net6.0/AspNetCore.Unobtrusive.Ajax.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/AspNetCore.Unobtrusive.Ajax.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Azure.Core/1.25.0": {
         "type": "package",
         "dependencies": {
@@ -4007,6 +4026,30 @@
     }
   },
   "libraries": {
+    "AspNetCore.Unobtrusive.Ajax/2.0.0": {
+      "sha512": "hFzcqL7PWw1shrtFlm/2vUlToGruTXSijq60M4FI+0C5KKI+q2oRk0InPcO8jyuC9/nEtsLX20D1sDwhLNFeNw==",
+      "type": "package",
+      "path": "aspnetcore.unobtrusive.ajax/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aspnetcore.unobtrusive.ajax.2.0.0.nupkg.sha512",
+        "aspnetcore.unobtrusive.ajax.nuspec",
+        "icon.png",
+        "lib/net5.0/AspNetCore.Unobtrusive.Ajax.dll",
+        "lib/net5.0/AspNetCore.Unobtrusive.Ajax.xml",
+        "lib/net6.0/AspNetCore.Unobtrusive.Ajax.dll",
+        "lib/net6.0/AspNetCore.Unobtrusive.Ajax.xml",
+        "lib/netcoreapp2.1/AspNetCore.Unobtrusive.Ajax.dll",
+        "lib/netcoreapp2.1/AspNetCore.Unobtrusive.Ajax.xml",
+        "lib/netcoreapp2.2/AspNetCore.Unobtrusive.Ajax.dll",
+        "lib/netcoreapp2.2/AspNetCore.Unobtrusive.Ajax.xml",
+        "lib/netcoreapp3.0/AspNetCore.Unobtrusive.Ajax.dll",
+        "lib/netcoreapp3.0/AspNetCore.Unobtrusive.Ajax.xml",
+        "lib/netcoreapp3.1/AspNetCore.Unobtrusive.Ajax.dll",
+        "lib/netcoreapp3.1/AspNetCore.Unobtrusive.Ajax.xml"
+      ]
+    },
     "Azure.Core/1.25.0": {
       "sha512": "X8Dd4sAggS84KScWIjEbFAdt2U1KDolQopTPoHVubG2y3CM54f9l6asVrP5Uy384NWXjsspPYaJgz5xHc+KvTA==",
       "type": "package",
@@ -11612,6 +11655,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "AspNetCore.Unobtrusive.Ajax >= 2.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.12",
       "Microsoft.AspNetCore.Identity.UI >= 7.0.12",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.12",
@@ -11658,6 +11702,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "AspNetCore.Unobtrusive.Ajax": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[7.0.12, )"
