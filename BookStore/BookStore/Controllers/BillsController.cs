@@ -53,6 +53,7 @@ namespace BookStore.Controllers
             var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
             var profile = user.Profile;
             ViewBag.UserName = profile?.FirstName == null || profile?.LastName == null ? userName : profile.FullName;
+            ViewBag.Ranks = user.Profile.Rank.Name;
             int userId = user.Id;
 
             var bill = await _context.Bill.Include(x => x.OrderDetails)

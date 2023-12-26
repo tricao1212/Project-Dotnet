@@ -301,7 +301,15 @@ namespace BookStore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("RankId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalSpent")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("UserId");
+
+                    b.HasIndex("RankId");
 
                     b.ToTable("Profile");
                 });
@@ -321,6 +329,25 @@ namespace BookStore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Publisher");
+                });
+
+            modelBuilder.Entity("BookStore.Models.Rank", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("discount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Ranks");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -522,11 +549,17 @@ namespace BookStore.Migrations
 
             modelBuilder.Entity("BookStore.Models.Profile", b =>
                 {
+                    b.HasOne("BookStore.Models.Rank", "Rank")
+                        .WithMany()
+                        .HasForeignKey("RankId");
+
                     b.HasOne("BookStore.Models.BookUser", "User")
                         .WithOne("Profile")
                         .HasForeignKey("BookStore.Models.Profile", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Rank");
 
                     b.Navigation("User");
                 });

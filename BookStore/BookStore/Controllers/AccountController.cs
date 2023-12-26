@@ -102,6 +102,11 @@ namespace BookStore.Controllers
         {
             var username = User.Identity.Name;
             var currentUser = await _context.Users.Include(x => x.Profile).FirstOrDefaultAsync(x => x.UserName == username);
+            if (currentUser.Profile.Rank == null)
+            {
+                currentUser.Profile.Rank = _context.Ranks.FirstOrDefault(x => x.Id == 1);
+            }
+            ViewBag.Ranks = _context.Ranks.ToList();
 
             return View(currentUser.Profile);
         }

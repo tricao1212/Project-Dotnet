@@ -11,6 +11,19 @@
             <input asp-for="Avatar" type="file" accept="image/*" onchange="loadFile(event)" class="form-control" />
             <div id="preview-container"> <img id="preview" src="/@(Model?.Avatar??defaultAva)" /></div>
         </div>
+        <div>
+            <label asp-for="Rank" class="control-label"></label>
+            <select disabled class="form-control" name="Rank">
+                @{
+                    List<Rank> ranks = new List<Rank>();
+                    ranks = ViewBag.Ranks;
+                }
+                @foreach (var rank in ranks)
+                {
+                    <option value="@rank.Id">@rank.Name</option>
+                }
+            </select>
+        </div>
         <div class="form-group">
             <label asp-for="FirstName" class="control-label">First Name</label>
             <input asp-for="FirstName" class="form-control" />
@@ -57,6 +70,11 @@
     }
     <script src="~/lib/inputmask/jquery.inputmask.bundle.min.js"></script>
     <script>
+        $(document).ready(function () {
+            var rank = @Model.Rank.Id ;
+            $('select[name="Rank"] option[value="' + rank + '"]').prop('selected', true);
+        });
+
         var loadFile = function (event) {
             var reader = new FileReader();
             reader.onload = function () {

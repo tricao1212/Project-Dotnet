@@ -1,7 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BookStore.Data;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace BookStore.Models
 {
+    
     public class Profile
     {
         [Key]
@@ -34,5 +38,9 @@ namespace BookStore.Models
         [Display(Name = "Phone number")]
         [RegularExpression("[0-9]{10}")]
         public string PhoneNumber { get; set; }
+        public Rank Rank { get; set; }
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal TotalSpent { get; set; } = 0;
     }
 }

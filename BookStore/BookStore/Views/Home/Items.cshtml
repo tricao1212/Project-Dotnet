@@ -18,7 +18,7 @@
                         }
                         @foreach (var item in genres)
                         {
-                            <div class="col-md-3 d-inline-flex">
+                            <div class="col-md-3 d-inline-flex w-auto">
                                 <input value="@item.Id" type="checkbox" name="sortGenres">
                                 <label>@item.Name</label>
                             </div>
@@ -27,13 +27,13 @@
                 </div>
                 <div class="form-group">
                     <text class="fw-bold">Author</text>
-                    <div class="flex-column d-flex">
+                    <div class="flex-column d-lg-flex w-auto">
                         @{
                             List<Author> authors = ViewBag.Authors;
                         }
                         @foreach (var item in authors)
                         {
-                            <div class="col-md-3 d-inline-flex">
+                            <div class="col-md-3 d-inline-flex w-auto">
                                 <input value="@item.Id" type="checkbox" name="sortAuthors">
                                 <label>@item.Name</label>
                             </div>
@@ -48,7 +48,7 @@
                         }
                         @foreach (var item in publishers)
                         {
-                            <div class="col-md-3 d-inline-flex">
+                            <div class="col-md-3 d-inline-flex w-auto">
                                 <input value="@item.Id" type="checkbox" name="sortPublishers">
                                 <label>@item.Name</label>
                             </div>
@@ -64,7 +64,7 @@
                     <div class="w-25">
                         <div style="">
                             <text>Search:</text>
-                            <input style="width:80%" type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                            <input style="width:60%" type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
                         </div>
                     </div>
                     <div class="w-25">
@@ -91,7 +91,7 @@
                     <div class="row">
                         @foreach (var item in Model)
                         {
-                            <div class="col-md-3">
+                            <div class="col-md-3 w-auto">
                                 <div class="container item d-flex">
                                     <div class="imgdiv align-self-center">
                                         <img class="img-fluid" src="/@Html.DisplayFor(modelItem => item.ImgURL)">
