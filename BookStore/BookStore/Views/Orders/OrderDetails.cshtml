@@ -1,0 +1,77 @@
+﻿@model BookStore.Models.Orders
+
+@{
+	ViewData["Title"] = "Order Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+	span{
+		font-weight:normal;
+	}
+</style>
+<div class="container">
+	<h1>Order Details</h1>
+
+	<div>
+		<h3>Oder Id: <span>@Model.Id</span></h3>
+		<h3>Ordered at: <span>@Model.CreatedAt</span></h3>
+		<h3>User Name: <span>@Model.FullName</span></h3>
+		<h3>Ship to: <span>@Model.Address</span></h3>
+		<h3>Phone number: <span>@Model.Phone</span></h3>
+		<h3>Note: <span>@Model.Note</span></h3>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							Book Image
+						</th>
+						<th>
+							Title
+						</th>
+						<th>
+							Price
+						</th>
+						<th>Quantity</th>
+						<th>Total Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					@{
+						ICollection<Order_Details> CartOrder = ViewBag.OrderDetails;
+					}
+					@foreach (var item in CartOrder)
+					{
+						<tr>
+							<td id="img-container">
+								<img id="image" src="/@Html.DisplayFor(modelItem => item.Book.ImgURL)" />
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Book.Title)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Book.Price)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Quantity)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.TotalPrice)
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-4" style="text-align:center">
+			<h3>Total Price: </h3><h2>@Model.TotalPrice</h2>
+		</div>
+	</div>
+</div>
+<style>
+	#image {
+		width: 10rem;
+	}
+</style>

@@ -8,8 +8,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BookStoreContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BookStoreContext") ?? throw new InvalidOperationException("Connection string 'BookStoreContext' not found.")));
-builder.Services.AddDefaultIdentity<BookUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<BookStoreContext>();
+builder.Services.AddIdentity<BookUser, IdentityRole<int>>(options => options.SignIn.RequireConfirmedAccount = false)
+	.AddEntityFrameworkStores<BookStoreContext>()
+	.AddRoles<IdentityRole<int>>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.Configure<IdentityOptions>(options =>

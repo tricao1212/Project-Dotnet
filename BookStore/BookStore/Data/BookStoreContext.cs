@@ -11,7 +11,7 @@ namespace BookStore.Data
 {
     public class BookStoreContext : IdentityDbContext<BookUser, IdentityRole<int>, int>
     {
-        public BookStoreContext (DbContextOptions<BookStoreContext> options)
+        public BookStoreContext(DbContextOptions<BookStoreContext> options)
             : base(options)
         {
         }
@@ -27,5 +27,8 @@ namespace BookStore.Data
         public DbSet<BookStore.Models.Coupon> Coupon { get; set; }
 
         public DbSet<BookStore.Models.Profile> Profile { get; set; }
+        public DbSet<BookStore.Models.Orders> Orders { get; set; }
+        public DbSet<BookStore.Models.Cart> Cart { get; set; }
+        public DbSet<BookStore.Models.Order_Details> Order_Details { get; set; }
     }
 }

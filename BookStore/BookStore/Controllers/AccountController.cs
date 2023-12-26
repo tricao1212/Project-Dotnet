@@ -1,5 +1,6 @@
 ﻿using BookStore.Data;
 using BookStore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -76,9 +77,12 @@ namespace BookStore.Controllers
 
                 if (result.Succeeded)
                 {
-                    var userId = await userManager.GetUserIdAsync(user);
-                    var code = await userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    Profile profile = new Profile
+                    {
+                        UserId = user.Id,
+                    };
+                    await _context.AddAsync(profile);
+                    await _context.SaveChangesAsync();
 
                     if (userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -98,6 +102,7 @@ namespace BookStore.Controllers
 
             return View(model);
         }
+        [Authorize]
         public async Task<IActionResult> EditProfile()
         {
             var username = User.Identity.Name;

@@ -27,21 +27,24 @@
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 						</li>
+						@if (User.IsInRole("admin"))
+						{
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+							</li>
+						}
 						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+							<a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="OrdersHistory">My Order</a>
 						</li>
 					</ul>
 				</div>
 				<div class="d-inline-flex align-items-center">
 					<partial name="_LoginPartial" />
-					@* <button style="background-color:transparent;text-decoration:none; color:black; border:hidden">
-					<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-					</button> *@
 					<div id="cart">
 						<div id="cart-icon">
-							<button style="background-color:transparent;text-decoration:none; color:black; border:hidden">
+							<a asp-controller="Home" asp-action="Cart" style="background-color:transparent;text-decoration:none; color:black; border:hidden">
 								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-							</button>
+							</a>
 							<div id="bubble">0</div>
 						</div>
 					</div>
