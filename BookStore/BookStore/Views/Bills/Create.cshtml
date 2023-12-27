@@ -5,14 +5,14 @@
     ViewData["Title"] = "Create Bill";
 }
 <div class="container">
-    <h4>Bill</h4>
+    <h2>Bill</h2>
     <hr />
     <div class="row">
         <div class="col-md-12">
-            <form asp-action="Create">
                 @{
                     var quantity = 0;
                 }
+            <form asp-action="Create" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <h3>Name: @ViewBag.UserName</h3>
                 <h4>Rank:  @ViewBag.Ranks </h4>
@@ -64,7 +64,7 @@
                                         <img id="image" src="@(image)" />
                                     </td>
                                     <td>@(detail.Book.Title)</td>
-                                    <td>@(detail.Book.Price)</td>
+                                    <td>@(String.Format("{0:C}", detail.Book.Price))</td>
                                     <td>@detail.Quantity</td>
                                     <td>@(String.Format("{0:C}",detail.Payment))</td>
                                 </tr>
@@ -73,30 +73,54 @@
                     </table>
                 </div>
                 <div>
-                    <h4>Total: <span>@ViewBag.Total</span></h4>
+                    
                 </div>
                 <div>
-                    @{
-                        decimal dis = Model.discount;
-                        string discount = dis.ToString();
-                    }
-                    <h4>Discount: <span>@discount</span></h4>
+                    
                 </div>
-                <div class="form-group">
-                    @{
-                        decimal pay = Model.Payment;
-                        var payment = pay.ToString();
-                    }
-                    <h4>Total: <span>@payment</span></h4>
-                    <input asp-for="Payment" class="form-control" type="hidden" value="@Model.Payment" />
-                </div>
-                <div class="form-group">
-                    <button asp-action="Create" asp-controller="Bills" asp-route-id="@Model.Id">Order</button>
-                </div>
-                <div class="form-group">
-                    <input asp-for="Quantity" class="form-control" type="hidden" value="@quantity" />
+                <input asp-for="Quantity" class="form-control" type="hidden" value="@quantity" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Total: <span>@ViewBag.Total</span></h4>
+                        @{
+                            decimal dis = Model.Discount;
+                            string discount = String.Format("{0:C}", dis);
+                        }
+                        <h4>Discount by rank: -<span>@discount</span></h4>
+                        @{
+                            decimal pay = Model.Payment;
+                            var payment = String.Format("{0:C}", pay);
+                        }
+                        <div id="response">
+                            <h4>Total: <span>@payment</span></h4>
+                        </div>
+                        <input id="paymentField" asp-for="Payment" class="form-control" type="hidden" value="@Model.Payment" />
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-primary" asp-action="Create" asp-controller="Bills" asp-route-id="@Model.Id">Order</button>
+                    </div>
                 </div>
             </form>
+                @using(Html.AjaxBeginForm("GetCoupon", "Bills", new AjaxOptions
+                {
+                HttpMethod = "post",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "response",
+                OnSuccess = "updatePaymentValue"
+                }))
+                {
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control" placeholder="Enter giftcode" name="code" />
+                        <input class="form-control" type="hidden" name="price" value="@Model.Payment" />
+                        <input class="form-control" type="hidden" name="oldDiscount" value="@Model.Discount" />
+                    </div>
+                    <div class="col-md-8">
+                        <input type="submit" value="Checkout" class="btn btn-success" />
+                    </div>
+               
+                </div>
+                }
         </div>
     </div>
     <div>
@@ -104,13 +128,16 @@
     </div>
 </div>
 
-
-
-
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script>
+        function updatePaymentValue() {
+            var newPaymentValue = $('#newPaymentValue').val();
+            $('#paymentField').val(newPaymentValue);
+        }
+    </script>
 }
 <style>
     #image {

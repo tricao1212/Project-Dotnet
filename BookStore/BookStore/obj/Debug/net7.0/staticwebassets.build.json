@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oAqBsJMfTzUAacqG/2TPKLm7B+KNepO5sMVu6NEl2Tw=",
+  "Hash": "a47iJGavPnPULmWxainhTO5P5l1iZI+Vx4KikvRJn6g=",
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -1537,6 +1537,25 @@
       "OriginalItemSpec": "wwwroot\\images\\book\\0f2dfcd1-0e95-4b2e-83a4-02d5048b0452.jpg"
     },
     {
+      "Identity": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\11e9b62c-db83-41de-8d71-73a18d75c87c.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "images/book/11e9b62c-db83-41de-8d71-73a18d75c87c.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\book\\11e9b62c-db83-41de-8d71-73a18d75c87c.jpg"
+    },
+    {
       "Identity": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\127fa67a-3f08-4669-ad3c-d5cec4062683.jpg",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
@@ -1860,6 +1879,25 @@
       "OriginalItemSpec": "wwwroot\\images\\book\\5deeb9cf-eabe-41cd-95cb-2f5d59c8c3ff.jpg"
     },
     {
+      "Identity": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\6782f3b4-da61-4dcc-8934-d784f60225f6.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "images/book/6782f3b4-da61-4dcc-8934-d784f60225f6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\book\\6782f3b4-da61-4dcc-8934-d784f60225f6.jpg"
+    },
+    {
       "Identity": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\6fd1d586-3b61-481b-a845-1bc1049bc4e9.jpg",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
@@ -1917,6 +1955,25 @@
       "OriginalItemSpec": "wwwroot\\images\\book\\74158e7b-e93c-4622-a3a0-703afd660706.jpg"
     },
     {
+      "Identity": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\7690f03e-a171-48a0-9eb0-71e3e7e4490e.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "images/book/7690f03e-a171-48a0-9eb0-71e3e7e4490e.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\book\\7690f03e-a171-48a0-9eb0-71e3e7e4490e.jpg"
+    },
+    {
       "Identity": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\87848adc-62fa-4580-b1df-5dc096537b9a.jpg",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
@@ -1934,6 +1991,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\book\\87848adc-62fa-4580-b1df-5dc096537b9a.jpg"
+    },
+    {
+      "Identity": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\9356a910-102d-4d0c-9573-0c4a3cd4c86f.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "images/book/9356a910-102d-4d0c-9573-0c4a3cd4c86f.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\book\\9356a910-102d-4d0c-9573-0c4a3cd4c86f.jpg"
     },
     {
       "Identity": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\94e8e730-bcd9-4a71-9a31-9817de6ad710.jpg",

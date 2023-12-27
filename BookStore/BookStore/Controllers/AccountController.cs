@@ -78,13 +78,14 @@ namespace BookStore.Controllers
 
                 if (result.Succeeded)
                 {
-                    var profile = new Profile
-                    {
-                        UserId = user.Id,
-                        Rank = _context.Ranks.FirstOrDefault(x => x.Id == 1)
-                    };
-                    
-                    _context.Profile.Add(profile);
+					var ranks = await _context.Ranks.SingleOrDefaultAsync(x => x.Name == "bronze");
+					var profile = new Profile
+					{
+						UserId = user.Id,
+						RankId = ranks.Id
+					};
+
+					_context.Profile.Add(profile);
                     await _context.SaveChangesAsync();
 
 					if (userManager.Options.SignIn.RequireConfirmedAccount)

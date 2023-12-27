@@ -1,0 +1,15 @@
+﻿@model BookStore.Models.Coupon
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+    <h4>Congratulation! You have discount @Model.Discount %. Discount by Coupon:-@ViewBag.Payment</h4>
+    <input id="newPaymentValue" type="hidden" value="@ViewBag.temp" />
+    <h4>Total: @ViewBag.NewTotal</h4>
+}else
+{
+    <p>Sorry! Your code is not valid</p>
+    <input id="newPaymentValue" type="hidden" value="@ViewBag.temp" />
+    <h4>Total: @ViewBag.OldTotal</h4>
+}

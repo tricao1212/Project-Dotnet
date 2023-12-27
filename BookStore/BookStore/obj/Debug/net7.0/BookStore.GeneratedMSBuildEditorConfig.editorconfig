@@ -142,6 +142,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/GitHub/project-dotnet/BookStore/BookStore/Views/Bills/GetCoupon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbHNcR2V0Q291cG9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/GitHub/project-dotnet/BookStore/BookStore/Views/Bills/History.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbHNcSGlzdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

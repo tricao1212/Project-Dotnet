@@ -10,11 +10,12 @@ using BookStore.Models;
 using BookStore.Models.Binding_Model;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using System.Net;
 
 namespace BookStore.Controllers
 {
-	[Authorize]
-	public class BillsController : Controller
+    [Authorize]
+    public class BillsController : Controller
     {
         private readonly BookStoreContext _context;
 
@@ -24,7 +25,7 @@ namespace BookStore.Controllers
         }
 
         // GET: Bills
-        [Authorize(Roles ="admin")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Index()
         {
             var bookStoreContext = _context.Bill.Include(b => b.User).Where(x => x.Status != OrderStatus.Cart);
@@ -34,21 +35,21 @@ namespace BookStore.Controllers
         // GET: Bills/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-			String userName = User.Identity.Name;
-			var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
-			var profile = user.Profile;
-			ViewBag.UserName = profile?.FirstName == null || profile?.LastName == null ? userName : profile.FullName;
-			var bill = await _context.Bill.Include(x => x.OrderDetails)
-			   .ThenInclude(x => x.Book)
-			   .SingleOrDefaultAsync(or => or.Id == id);
+            String userName = User.Identity.Name;
+            var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
+            var profile = user.Profile;
+            ViewBag.UserName = profile?.FirstName == null || profile?.LastName == null ? userName : profile.FullName;
+            var bill = await _context.Bill.Include(x => x.OrderDetails)
+               .ThenInclude(x => x.Book)
+               .SingleOrDefaultAsync(or => or.Id == id);
 
-			if (bill == null)
-			{
-				return NotFound();
-			}
+            if (bill == null)
+            {
+                return NotFound();
+            }
 
-			return View(bill);
-		}
+            return View(bill);
+        }
         public async Task<IActionResult> History()
         {
             String userName = User.Identity.Name;
@@ -65,18 +66,18 @@ namespace BookStore.Controllers
         public async Task<IActionResult> Create()
         {
             String userName = User.Identity.Name;
-            var user =  _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
+            var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
             var profile = user.Profile;
             var rankId = profile.RankId;
             var userRank = await _context.Ranks.FindAsync(rankId);
             ViewBag.UserName = profile?.FirstName == null || profile?.LastName == null ? userName : profile.FullName;
             ViewBag.Ranks = userRank.Name;
             int userId = user.Id;
-            var bill = await _context.Bill.Include(x => x.OrderDetails).ThenInclude(x=>x.Book)
+            var bill = await _context.Bill.Include(x => x.OrderDetails).ThenInclude(x => x.Book)
             .SingleOrDefaultAsync(or => or.UserId == profile.UserId && or.Status == OrderStatus.Cart);
-            
+
             decimal total = bill.OrderDetails.Sum(x => x.Payment);
-            ViewBag.Total = total.ToString();
+            ViewBag.Total = String.Format("{0:C}", total);
             //calculate discount
             decimal discount = total * (userRank.discount) / 100;
             //calculate payment
@@ -94,7 +95,7 @@ namespace BookStore.Controllers
                 }
             }
 
-            
+
             var model = new BillBindingModel
             {
                 Id = bill.Id,
@@ -104,12 +105,31 @@ namespace BookStore.Controllers
                 Note = bill.Note,
                 UserId = userId,
                 OrderDetails = bill.OrderDetails,
-                discount = discount,
+                Discount = discount,
                 Payment = payment
             };
             return View(model);
-            
-           
+        }
+        public async Task<IActionResult> GetCoupon(string code, decimal price)
+        {
+            var coupon = await _context.Coupon.SingleOrDefaultAsync(x => x.Giftcode.Equals(code));
+            if (coupon != null)
+            {
+                if (coupon.ExpireDate > DateTime.Now)
+                {
+                    decimal discount = (price * coupon.Discount) / 100;
+                    ViewBag.Payment = String.Format("{0:C}", discount);
+                    decimal temp = price - discount;
+                    ViewBag.temp = temp;
+                    ViewBag.NewTotal = String.Format("{0:C}", temp);
+                }
+            }
+            else
+            {
+                ViewBag.temp = price;
+                ViewBag.OldTotal = String.Format("{0:C}", price);
+            }
+            return PartialView(coupon);
         }
 
         // POST: Bills/Create
@@ -260,7 +280,7 @@ namespace BookStore.Controllers
             {
                 return NotFound();
             }
-            
+
             return View(bill);
         }
 
@@ -278,14 +298,14 @@ namespace BookStore.Controllers
             {
                 _context.Bill.Remove(bill);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BillExists(int id)
         {
-          return _context.Bill.Any(e => e.Id == id);
+            return _context.Bill.Any(e => e.Id == id);
         }
     }
 }

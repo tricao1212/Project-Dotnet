@@ -157,7 +157,10 @@
                     }
                     else
                     {
+                        <div>
                         <p class="text-danger">Out of stock</p>
+                        <a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+                        </div>
                     }
                 </div>
             </div>
