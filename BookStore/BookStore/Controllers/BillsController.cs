@@ -10,6 +10,7 @@ using BookStore.Models;
 using BookStore.Models.Binding_Model;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using System.Net;
 
 namespace BookStore.Controllers
 {
@@ -76,7 +77,7 @@ namespace BookStore.Controllers
             .SingleOrDefaultAsync(or => or.UserId == profile.UserId && or.Status == OrderStatus.Cart);
             
             decimal total = bill.OrderDetails.Sum(x => x.Payment);
-            ViewBag.Total = total.ToString();
+            ViewBag.Total = String.Format("{0:C}", total);
             //calculate discount
             decimal discount = total * (userRank.discount) / 100;
             //calculate payment
@@ -104,12 +105,25 @@ namespace BookStore.Controllers
                 Note = bill.Note,
                 UserId = userId,
                 OrderDetails = bill.OrderDetails,
-                discount = discount,
+                Discount = discount,
                 Payment = payment
             };
             return View(model);
-            
-           
+        }
+        public async Task<IActionResult> GetCoupon(string code, decimal price, decimal oldDiscount)
+        {
+            var coupon = await _context.Coupon.SingleOrDefaultAsync(x=>x.Giftcode.Equals(code));
+            if (coupon != null)
+            {
+                if (coupon.ExpireDate > DateTime.Now)
+                {
+                    int discount = (int)(oldDiscount * 100 / price);
+                    discount += coupon.Discount;
+                    decimal newPayment = 0;
+                    ViewBag.Payment = newPayment;
+                }
+            }
+            return PartialView(coupon);
         }
 
         // POST: Bills/Create

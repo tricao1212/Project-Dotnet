@@ -1,0 +1,12 @@
+﻿@model BookStore.Models.Coupon
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+    <p>Congratulation! You have discount of @Model.Discount . New payment is @ViewBag.Payment</p>
+    <input id="newPaymentValue" type="hidden" value="@ViewBag.Payment" />
+}else
+{
+    <p>Sorry! Your code is not valid</p>
+}

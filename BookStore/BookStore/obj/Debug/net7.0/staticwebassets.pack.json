@@ -1,507 +1,507 @@
 {
   "Files": [
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BookStore.bundle.scp.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BookStore.bundle.scp.css",
       "PackagePath": "staticwebassets\\BookStore.bundle.scp.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\css\\site.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\css\\style.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\favicon.ico",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\214e31bb-c862-4b5f-ac35-6bf7e4ee4078.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\avatar\\214e31bb-c862-4b5f-ac35-6bf7e4ee4078.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\214e31bb-c862-4b5f-ac35-6bf7e4ee4078.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\42967720-8005-4997-a67e-7c99ce880e74.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\avatar\\42967720-8005-4997-a67e-7c99ce880e74.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\42967720-8005-4997-a67e-7c99ce880e74.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\47c8dade-2291-4aab-83eb-3fc67c268319.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\avatar\\47c8dade-2291-4aab-83eb-3fc67c268319.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\47c8dade-2291-4aab-83eb-3fc67c268319.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\4937cce0-0e12-4e67-830a-1f0003d2cfee.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\avatar\\4937cce0-0e12-4e67-830a-1f0003d2cfee.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\4937cce0-0e12-4e67-830a-1f0003d2cfee.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\6c030f2a-dedb-4203-b31e-d0a9cdee568d.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\avatar\\6c030f2a-dedb-4203-b31e-d0a9cdee568d.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\6c030f2a-dedb-4203-b31e-d0a9cdee568d.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\9957f3df-4fa1-4ee6-85cb-f077abe3e9c6.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\avatar\\9957f3df-4fa1-4ee6-85cb-f077abe3e9c6.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\9957f3df-4fa1-4ee6-85cb-f077abe3e9c6.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\c3848b2f-aab3-493c-86af-7d9e1b496d70.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\avatar\\c3848b2f-aab3-493c-86af-7d9e1b496d70.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\c3848b2f-aab3-493c-86af-7d9e1b496d70.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\d9de7441-7f22-4e39-83a7-17fe63bf4de7.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\avatar\\d9de7441-7f22-4e39-83a7-17fe63bf4de7.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\d9de7441-7f22-4e39-83a7-17fe63bf4de7.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\default.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\avatar\\default.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\default.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\banners\\banner.png",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\banners\\banner.png",
       "PackagePath": "staticwebassets\\images\\banners\\banner.png"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\04a0690f-9e2e-4e82-9fe6-02b827608d3f.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\04a0690f-9e2e-4e82-9fe6-02b827608d3f.jpg",
       "PackagePath": "staticwebassets\\images\\book\\04a0690f-9e2e-4e82-9fe6-02b827608d3f.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\08c76595-f7ae-4de1-a8fa-0804ac7741a8.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\08c76595-f7ae-4de1-a8fa-0804ac7741a8.jpg",
       "PackagePath": "staticwebassets\\images\\book\\08c76595-f7ae-4de1-a8fa-0804ac7741a8.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\0933b48d-77ff-4919-a7a2-da250f122968.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\0933b48d-77ff-4919-a7a2-da250f122968.jpg",
       "PackagePath": "staticwebassets\\images\\book\\0933b48d-77ff-4919-a7a2-da250f122968.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\0b24346f-d4a7-4a79-918b-43dc959ad3c2.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\0b24346f-d4a7-4a79-918b-43dc959ad3c2.jpg",
       "PackagePath": "staticwebassets\\images\\book\\0b24346f-d4a7-4a79-918b-43dc959ad3c2.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\0f2dfcd1-0e95-4b2e-83a4-02d5048b0452.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\0f2dfcd1-0e95-4b2e-83a4-02d5048b0452.jpg",
       "PackagePath": "staticwebassets\\images\\book\\0f2dfcd1-0e95-4b2e-83a4-02d5048b0452.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\127fa67a-3f08-4669-ad3c-d5cec4062683.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\127fa67a-3f08-4669-ad3c-d5cec4062683.jpg",
       "PackagePath": "staticwebassets\\images\\book\\127fa67a-3f08-4669-ad3c-d5cec4062683.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\13b912b7-204a-4a8f-9326-c59a340d7e23.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\13b912b7-204a-4a8f-9326-c59a340d7e23.jpg",
       "PackagePath": "staticwebassets\\images\\book\\13b912b7-204a-4a8f-9326-c59a340d7e23.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\19778348-f528-4c41-b636-4f4ed68186d8.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\19778348-f528-4c41-b636-4f4ed68186d8.jpg",
       "PackagePath": "staticwebassets\\images\\book\\19778348-f528-4c41-b636-4f4ed68186d8.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\24f49f1a-28d0-4be0-b984-2396ab1dd3f6.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\24f49f1a-28d0-4be0-b984-2396ab1dd3f6.jpg",
       "PackagePath": "staticwebassets\\images\\book\\24f49f1a-28d0-4be0-b984-2396ab1dd3f6.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\272363c6-a3ba-4afe-aedc-b065dd263a7b.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\272363c6-a3ba-4afe-aedc-b065dd263a7b.jpg",
       "PackagePath": "staticwebassets\\images\\book\\272363c6-a3ba-4afe-aedc-b065dd263a7b.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\2afd21be-57e9-44e4-9f1f-474c67bed0b0.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\2afd21be-57e9-44e4-9f1f-474c67bed0b0.jpg",
       "PackagePath": "staticwebassets\\images\\book\\2afd21be-57e9-44e4-9f1f-474c67bed0b0.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\2c3067ec-72d5-4d6e-aebc-1634831dc029.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\2c3067ec-72d5-4d6e-aebc-1634831dc029.jpg",
       "PackagePath": "staticwebassets\\images\\book\\2c3067ec-72d5-4d6e-aebc-1634831dc029.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\2efab50c-48c3-4153-a69c-c0d77c4359b1.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\2efab50c-48c3-4153-a69c-c0d77c4359b1.jpg",
       "PackagePath": "staticwebassets\\images\\book\\2efab50c-48c3-4153-a69c-c0d77c4359b1.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\3610f8e1-0fb7-4630-b5ce-80318152a590.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\3610f8e1-0fb7-4630-b5ce-80318152a590.jpg",
       "PackagePath": "staticwebassets\\images\\book\\3610f8e1-0fb7-4630-b5ce-80318152a590.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\37d05dca-b10a-4880-93dd-5b28d6e89996.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\37d05dca-b10a-4880-93dd-5b28d6e89996.jpg",
       "PackagePath": "staticwebassets\\images\\book\\37d05dca-b10a-4880-93dd-5b28d6e89996.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\38fbcbd4-86e3-42f8-b080-68a009c4a76d.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\38fbcbd4-86e3-42f8-b080-68a009c4a76d.jpg",
       "PackagePath": "staticwebassets\\images\\book\\38fbcbd4-86e3-42f8-b080-68a009c4a76d.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\41183713-52e2-4c11-86c9-4d2f75fac521.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\41183713-52e2-4c11-86c9-4d2f75fac521.jpg",
       "PackagePath": "staticwebassets\\images\\book\\41183713-52e2-4c11-86c9-4d2f75fac521.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\42cf344e-8fbf-48af-a2a8-e249a3d8cdd3.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\42cf344e-8fbf-48af-a2a8-e249a3d8cdd3.jpg",
       "PackagePath": "staticwebassets\\images\\book\\42cf344e-8fbf-48af-a2a8-e249a3d8cdd3.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\44c51cdb-9f52-45cb-804f-6e83eba72cbf.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\44c51cdb-9f52-45cb-804f-6e83eba72cbf.jpg",
       "PackagePath": "staticwebassets\\images\\book\\44c51cdb-9f52-45cb-804f-6e83eba72cbf.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\5deeb9cf-eabe-41cd-95cb-2f5d59c8c3ff.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\5deeb9cf-eabe-41cd-95cb-2f5d59c8c3ff.jpg",
       "PackagePath": "staticwebassets\\images\\book\\5deeb9cf-eabe-41cd-95cb-2f5d59c8c3ff.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\6fd1d586-3b61-481b-a845-1bc1049bc4e9.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\6fd1d586-3b61-481b-a845-1bc1049bc4e9.jpg",
       "PackagePath": "staticwebassets\\images\\book\\6fd1d586-3b61-481b-a845-1bc1049bc4e9.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\705fbb5e-2e9e-4a98-a709-a2ae648691e2.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\705fbb5e-2e9e-4a98-a709-a2ae648691e2.jpg",
       "PackagePath": "staticwebassets\\images\\book\\705fbb5e-2e9e-4a98-a709-a2ae648691e2.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\74158e7b-e93c-4622-a3a0-703afd660706.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\74158e7b-e93c-4622-a3a0-703afd660706.jpg",
       "PackagePath": "staticwebassets\\images\\book\\74158e7b-e93c-4622-a3a0-703afd660706.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\87848adc-62fa-4580-b1df-5dc096537b9a.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\87848adc-62fa-4580-b1df-5dc096537b9a.jpg",
       "PackagePath": "staticwebassets\\images\\book\\87848adc-62fa-4580-b1df-5dc096537b9a.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\94e8e730-bcd9-4a71-9a31-9817de6ad710.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\94e8e730-bcd9-4a71-9a31-9817de6ad710.jpg",
       "PackagePath": "staticwebassets\\images\\book\\94e8e730-bcd9-4a71-9a31-9817de6ad710.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\9659597f-f185-4fad-b381-d47b51e149f4.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\9659597f-f185-4fad-b381-d47b51e149f4.jpg",
       "PackagePath": "staticwebassets\\images\\book\\9659597f-f185-4fad-b381-d47b51e149f4.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\a3e72cdc-8b26-483d-b99d-d5e7ba764036.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\a3e72cdc-8b26-483d-b99d-d5e7ba764036.jpg",
       "PackagePath": "staticwebassets\\images\\book\\a3e72cdc-8b26-483d-b99d-d5e7ba764036.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\aba1b952-6333-4284-8e89-afbe265e67fa.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\aba1b952-6333-4284-8e89-afbe265e67fa.jpg",
       "PackagePath": "staticwebassets\\images\\book\\aba1b952-6333-4284-8e89-afbe265e67fa.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\c185ffa3-d3f6-45f6-89f5-9aa244af0758.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\c185ffa3-d3f6-45f6-89f5-9aa244af0758.jpg",
       "PackagePath": "staticwebassets\\images\\book\\c185ffa3-d3f6-45f6-89f5-9aa244af0758.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\d16545f6-8581-41d1-ad79-82946554e7dc.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\d16545f6-8581-41d1-ad79-82946554e7dc.jpg",
       "PackagePath": "staticwebassets\\images\\book\\d16545f6-8581-41d1-ad79-82946554e7dc.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\default.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\default.jpg",
       "PackagePath": "staticwebassets\\images\\book\\default.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\e64e2196-63a9-41c5-8336-0a05aad27613.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\e64e2196-63a9-41c5-8336-0a05aad27613.jpg",
       "PackagePath": "staticwebassets\\images\\book\\e64e2196-63a9-41c5-8336-0a05aad27613.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\e964f623-fb6d-40f5-bf56-b56572af790f.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\e964f623-fb6d-40f5-bf56-b56572af790f.jpg",
       "PackagePath": "staticwebassets\\images\\book\\e964f623-fb6d-40f5-bf56-b56572af790f.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\eb6ecd98-ad9f-4062-a87f-dec7a0ec6816.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\eb6ecd98-ad9f-4062-a87f-dec7a0ec6816.jpg",
       "PackagePath": "staticwebassets\\images\\book\\eb6ecd98-ad9f-4062-a87f-dec7a0ec6816.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\f09cf202-fcbe-4b5d-8212-4f9c661dc628.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\f09cf202-fcbe-4b5d-8212-4f9c661dc628.jpg",
       "PackagePath": "staticwebassets\\images\\book\\f09cf202-fcbe-4b5d-8212-4f9c661dc628.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\ff83908a-b35c-485a-9ede-925a65cff454.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\book\\ff83908a-b35c-485a-9ede-925a65cff454.jpg",
       "PackagePath": "staticwebassets\\images\\book\\ff83908a-b35c-485a-9ede-925a65cff454.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\carousels\\carousels-1.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\carousels\\carousels-1.jpg",
       "PackagePath": "staticwebassets\\images\\carousels\\carousels-1.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\carousels\\carousels-2.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\carousels\\carousels-2.jpg",
       "PackagePath": "staticwebassets\\images\\carousels\\carousels-2.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\carousels\\carousels-3.jpg",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\carousels\\carousels-3.jpg",
       "PackagePath": "staticwebassets\\images\\carousels\\carousels-3.jpg"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\kisspng-login-google-account-computer-icons-user-activity-5ac6bbe74aa7f1.6157264215229736713058.png",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\kisspng-login-google-account-computer-icons-user-activity-5ac6bbe74aa7f1.6157264215229736713058.png",
       "PackagePath": "staticwebassets\\images\\kisspng-login-google-account-computer-icons-user-activity-5ac6bbe74aa7f1.6157264215229736713058.png"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\transparent-books-plant-succulent-stack-pot-stack-of-books-with-colorful-and-varied-size653439eaa31a04.8165691216979215146681.png",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\transparent-books-plant-succulent-stack-pot-stack-of-books-with-colorful-and-varied-size653439eaa31a04.8165691216979215146681.png",
       "PackagePath": "staticwebassets\\images\\transparent-books-plant-succulent-stack-pot-stack-of-books-with-colorful-and-varied-size653439eaa31a04.8165691216979215146681.png"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\—Pngtree—hand painted day a stack_3837609.png",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\images\\—Pngtree—hand painted day a stack_3837609.png",
       "PackagePath": "staticwebassets\\images\\—Pngtree—hand painted day a stack_3837609.png"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\js\\script.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\js\\site.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\bindings\\inputmask.binding.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\bindings\\inputmask.binding.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\bindings\\inputmask.binding.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.jqlite.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.jqlite.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.jqlite.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.jquery.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.jquery.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\dependencyLibs\\inputmask.dependencyLib.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\global\\window.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\global\\window.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\global\\window.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.date.extensions.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.date.extensions.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\inputmask.date.extensions.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.extensions.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.extensions.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\inputmask.extensions.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\inputmask.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.numeric.extensions.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\inputmask.numeric.extensions.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\inputmask.numeric.extensions.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\jquery.inputmask.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\inputmask\\jquery.inputmask.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\inputmask\\jquery.inputmask.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\jquery.inputmask.bundle.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\inputmask\\jquery.inputmask.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\inputmask\\jquery.inputmask.bundle.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\CSE 443\\Project\\Final\\BookStore\\BookStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

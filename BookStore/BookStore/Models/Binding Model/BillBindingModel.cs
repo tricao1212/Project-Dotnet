@@ -20,6 +20,6 @@ namespace BookStore.Models.Binding_Model
         [ForeignKey(nameof(Order))]
         public ICollection<Order> OrderDetails { get; set; }
         public int UserId { get; set; }
-        public decimal discount { get; set; }
+        public decimal Discount { get; set; }
     }
 }
