@@ -6,7 +6,8 @@
 <div class="container">
 
     <h1>@ViewData["Title"]</h1>
-
+    
+    <h2>Total spend: @ViewBag.Total</h2>
     <table class="table">
         <thead>
             <tr>
@@ -46,8 +47,8 @@
                     </td>
                     <td>
                         @{
-                            decimal payment = item.Payment;
-                            var pay = String.Format("{0:C}", payment);
+                            decimal payment = Convert.ToDecimal(item.Payment);
+                            string pay = String.Format("{0:C}", payment);
                         }
                         @pay
                     </td>

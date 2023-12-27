@@ -3,31 +3,34 @@
     Layout = "_Layout";
 }
 <style>
+    .row{
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
     .frame {
         display: flex;
         width: 100%;
         height: 500px;
-        margin: 20px;
         justify-content: center;
         align-items: center;
         border: 2px solid lightgray;
         border-radius: 10px;
     }
+
     .content {
         width: 100%;
-        height: 480px;
-        margin: 25px;
+        height: 500px;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0.1rem 2rem rgba(30,30,30,0.1);
     }
 </style>
 <div class="container">
-    <h1 class="title">@Html.DisplayFor(m=>m.Title)</h1>
     <div class="row">
+        <h1 class="title">@Html.DisplayFor(m => m.Title)</h1>
         <div class="col-md-6">
             <div class="frame">
-                <img src="/@Html.DisplayFor(model => model.ImgURL)" style="width:50%"/>
+                <img src="/@Html.DisplayFor(model => model.ImgURL)" style="width:50%" />
             </div>
         </div>
         <div class="col-md-6">
@@ -48,7 +51,7 @@
                         }
                         @foreach (var genre in genres)
                         {
-                            @Html.Raw(Model?.Genres!=null&&Model.Genres.Any(x=>x.Id==genre.Id)?genre.Name+" ":"")
+                            @Html.Raw(Model?.Genres != null && Model.Genres.Any(x => x.Id == genre.Id) ? genre.Name + " " : "")
                         }
                     </dd>
                     <dt class="col-sm-3">
@@ -106,11 +109,11 @@
                 }
 
             </div>
-            
+
         </div>
+        <h3>Description</h3>
+        <p>@Html.DisplayFor(model => model.Description)</p>
     </div>
-    <h3>Description</h3>
-    <p>@Html.DisplayFor(model => model.Description)</p>
 </div>
 <style>
     .value-button {

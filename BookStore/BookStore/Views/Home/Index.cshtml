@@ -2,171 +2,177 @@
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<BookUser> SignInManager
 @{
-	ViewData["Title"] = "Home Page";
-	Layout = "_Layout";
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
 
-	int pageSize = 4; // Số mục trên mỗi trang
-	int currentPage = 1; // Trang hiện tại (bạn có thể lấy từ controller)
-	var items = Model.Skip((currentPage - 1) * pageSize).Take(pageSize);
-	// Tính tổng số trang
-	int totalPages = (int)Math.Ceiling((double)Model.Count() / pageSize);
-	bool showPaging = totalPages > 1;
-	var newRelease = Model.OrderByDescending(m => m.PublicDate).Skip((currentPage - 1) * pageSize).Take(pageSize);
+    int pageSize = 4; // Số mục trên mỗi trang
+    int currentPage = 1; // Trang hiện tại (bạn có thể lấy từ controller)
+    var items = Model.Skip((currentPage - 1) * pageSize).Take(pageSize);
+    // Tính tổng số trang
+    int totalPages = (int)Math.Ceiling((double)Model.Count() / pageSize);
+    bool showPaging = totalPages > 1;
+    var newRelease = Model.OrderByDescending(m => m.PublicDate).Skip((currentPage - 1) * pageSize).Take(pageSize);
 }
 <style>
-	.card-item {
-		box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-		padding: 1rem;
-		border-radius: 5%;
-	}
+    .card-item {
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        padding: 1rem;
+        border-radius: 5%;
+    }
 
-	.card-item img {
-		max-height: 300px;
-		min-height: 300px;
-	}
+        .card-item img {
+            max-height: 300px;
+            min-height: 300px;
+        }
 
-	.block-item {
-		padding-bottom: 10vh;
-		padding-top: 10vh;
-	}
+    .block-item {
+        padding-bottom: 10vh;
+        padding-top: 10vh;
+    }
 
-	.block-item h1 {
-		background-color: antiquewhite;
-		margin-bottom: 3vh;
-		padding: 1rem;
-	}
+        .block-item h1 {
+            background-color: antiquewhite;
+            margin-bottom: 3vh;
+            padding: 1rem;
+        }
 
-	.carousel-inner img {
-		width: 100%;
-		height: 700px;
-	}
+    .carousel-inner img {
+        width: 100%;
+        height: 700px;
+    }
 
-	.signup-banner {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 300px;
-		background-color: antiquewhite;
-	}
+    .signup-banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        background-color: antiquewhite;
+    }
 
-		.signup-banner a {
-			border: 1px solid black;
-			border-radius: 9999px;
-			width: 13%;
-			height: 15%;
-			text-align: center;
-			text-decoration: none;
-			background-color: #4826a6;
-			color: white;
-			padding-top: 8px;
-			font-weight: bold;
-			margin-left: 5rem;
-		}
+        .signup-banner a {
+            border: 1px solid black;
+            border-radius: 9999px;
+            width: 13%;
+            height: 15%;
+            text-align: center;
+            text-decoration: none;
+            background-color: #4826a6;
+            color: white;
+            padding-top: 8px;
+            font-weight: bold;
+            margin-left: 5rem;
+        }
 </style>
 <div id="carouselExampleIndicators" class="carousel slide">
-	<div class="carousel-indicators">
-		<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-		<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-		<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-	</div>
-	<div class="carousel-inner">
-		<div class="carousel-item active">
-			<img src="/images/carousels/carousels-1.jpg" class="d-block" alt="...">
-		</div>
-		<div class="carousel-item">
-			<img src="/images/carousels/carousels-2.jpg" class="d-block" alt="...">
-		</div>
-		<div class="carousel-item">
-			<img src="/images/carousels/carousels-3.jpg" class="d-block" alt="...">
-		</div>
-	</div>
-	<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		<span class="visually-hidden">Previous</span>
-	</button>
-	<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-		<span class="carousel-control-next-icon" aria-hidden="true"></span>
-		<span class="visually-hidden">Next</span>
-	</button>
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/images/carousels/carousels-1.jpg" class="d-block" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/images/carousels/carousels-2.jpg" class="d-block" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/images/carousels/carousels-3.jpg" class="d-block" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
 
 <div class="container block-item">
-	<h1>New Release</h1>
-	<div class="row">
-		@foreach (var item in newRelease)
-		{
-			<div class="col-md-3">
-				<div class="container card-item">
-					<img class="img-fluid" src="@Html.DisplayFor(modelItem => item.ImgURL)">
-					<h4>@Html.DisplayFor(modelItem => item.Title)</h4>
-					<p>@Html.DisplayFor(modelItem => item.Price)</p>
+    <h1>New Release</h1>
+    <div class="row">
+        @foreach (var item in newRelease)
+        {
+            <div class="col-md-3">
+                <div class="container card-item">
+                    <a style="text-decoration: none; background-color: none" asp-route-id="@item.Id" asp-action="Detail">
+                        <img class="img-fluid" src="@Html.DisplayFor(modelItem => item.ImgURL)">
+                        <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+                    </a>
+                    <p>@Html.DisplayFor(modelItem => item.Price)</p>
 
-					@if (item.Quantity != 0)
-					{
-						<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
-						<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-						@Html.AjaxActionLink("Add to cart", "Cart", new {id=item.Id},
-							new AjaxOptions{
-							HttpMethod = "GET",
-							},new { @class = "btn btn-outline-warning"})
-					}
-					else
-					{
-						<p class="text-danger">Out of stock</p>
-						<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-					}
-				</div>
-			</div>
-		}
-	</div>
+                    @if (item.Quantity != 0)
+                    {
+                        <p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
+                        <a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+                        @Html.AjaxActionLink("Add to cart", "Cart", new { id = item.Id },
+                                 new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                }, new { @class = "btn btn-outline-warning" })
+                    }
+                    else
+                    {
+                        <p class="text-danger">Out of stock</p>
+                        <a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+                    }
+                </div>
+            </div>
+        }
+    </div>
 </div>
 <div class="container">
-	<hr />
-	<div class="row" style="justify-content:center;align-items:center;margin:20px">
-		<img src="/images/banners/banner.png" style="width:80%;" />
-	</div>
-	<hr />
+    <hr />
+    <div class="row" style="justify-content:center;align-items:center;margin:20px">
+        <img src="/images/banners/banner.png" style="width:80%;" />
+    </div>
+    <hr />
 </div>
 <div class="container block-item">
-	<h1>Featured Books</h1>
-	<div class="row">
-		@foreach (var item in items)
-		{
-			<div class="col-md-3">
-				<div class="container card-item">
-					<img class="img-fluid" src="@Html.DisplayFor(modelItem => item.ImgURL)">
-					<h4>@Html.DisplayFor(modelItem => item.Title)</h4>
-					<p>@Html.DisplayFor(modelItem => item.Price)</p>
-					<p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
-					@if (item.Quantity != 0)
-					{
-						<a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-						@Html.AjaxActionLink("Add to cart", "Cart", new {id=item.Id},
-						new AjaxOptions{
-						UpdateTargetId = "bubble",
-						HttpMethod = "GET",
-						InsertionMode = InsertionMode.Replace,
-						},new { @class = "btn btn-outline-warning"})
-					}
-					else
-					{
-						<p class="text-danger">Out of stock</p>
-					}
-				</div>
-			</div>
-		}
-	</div>
+    <h1>Featured Books</h1>
+    <div class="row">
+        @foreach (var item in items)
+        {
+            <div class="col-md-3">
+                <div class="container card-item">
+                    <a style="text-decoration: none; background-color: none" asp-route-id="@item.Id" asp-action="Detail">
+                        <img class="img-fluid" src="@Html.DisplayFor(modelItem => item.ImgURL)">
+                        <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+                    </a>
+                    <p>@Html.DisplayFor(modelItem => item.Price)</p>
+                    <p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
+                    @if (item.Quantity != 0)
+                    {
+                        <a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+                        @Html.AjaxActionLink("Add to cart", "Cart", new { id = item.Id },
+                                 new AjaxOptions
+                {
+                    UpdateTargetId = "bubble",
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                }, new { @class = "btn btn-outline-warning" })
+                    }
+                    else
+                    {
+                        <p class="text-danger">Out of stock</p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
 </div>
 @if (!SignInManager.IsSignedIn(User))
 {
-	<div class="signup-banner">
-		<div class="banner-content">
-			<h1>Sign up for our Newsletter</h1>
-			<p>Tell us what books you love</p>
-		</div>
-		<a asp-controller="Account" asp-action="Register">SIGN UP</a>
-	</div>
+    <div class="signup-banner">
+        <div class="banner-content">
+            <h1>Sign up for our Newsletter</h1>
+            <p>Tell us what books you love</p>
+        </div>
+        <a asp-controller="Account" asp-action="Register">SIGN UP</a>
+    </div>
 }
 
 

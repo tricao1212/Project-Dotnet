@@ -56,6 +56,9 @@ namespace BookStore.Controllers
             var profile = user.Profile;
             ViewBag.UserName = profile?.FirstName == null || profile?.LastName == null ? userName : profile.FullName;
             var bills = await _context.Bill.Where(x => x.Status != OrderStatus.Cart && x.UserId == user.Id).OrderByDescending(x => x.CreatedDate).ToListAsync();
+            decimal total = bills.Sum(x => x.Payment);
+            string totalString = string.Format("{0:C}", total);
+            ViewBag.Total = totalString;
             return View(bills);
         }
         // GET: Bills/Create
