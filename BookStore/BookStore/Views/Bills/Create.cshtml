@@ -86,12 +86,14 @@
                             decimal dis = Model.Discount;
                             string discount = String.Format("{0:C}", dis);
                         }
-                        <h4>Discount: <span>@discount</span></h4>
+                        <h4>Discount by rank: -<span>@discount</span></h4>
                         @{
                             decimal pay = Model.Payment;
                             var payment = String.Format("{0:C}", pay);
                         }
-                        <h4>Total: <span>@payment</span></h4>
+                        <div id="response">
+                            <h4>Total: <span>@payment</span></h4>
+                        </div>
                         <input id="paymentField" asp-for="Payment" class="form-control" type="hidden" value="@Model.Payment" />
                     </div>
                     <div class="col-md-6">
@@ -116,7 +118,7 @@
                     <div class="col-md-8">
                         <input type="submit" value="Checkout" class="btn btn-success" />
                     </div>
-                    <div id="response"></div>
+               
                 </div>
                 }
         </div>
