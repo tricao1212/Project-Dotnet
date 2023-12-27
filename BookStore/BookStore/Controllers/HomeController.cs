@@ -23,6 +23,10 @@ namespace BookStore.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
+            if(_context.Ranks.Count() == 0)
+            {
+                Rank.EnsureSeedData(_context);
+            }
             return View(await _context.Book.Include(m => m.Genres)
                                            .Include(m => m.Author)
                                            .Include(m => m.Publisher).ToListAsync());

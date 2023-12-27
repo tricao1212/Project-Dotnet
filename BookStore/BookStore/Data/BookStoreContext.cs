@@ -15,7 +15,7 @@ namespace BookStore.Data
             : base(options)
         {
         }
-
+        public DbSet<BookStore.Models.Rank> Ranks { get; set; }
         public DbSet<BookStore.Models.Book> Book { get; set; } = default!;
 
         public DbSet<BookStore.Models.Author> Author { get; set; }
@@ -31,6 +31,5 @@ namespace BookStore.Data
         public DbSet<BookStore.Models.Order> Order { get; set; }
 
         public DbSet<BookStore.Models.Bill> Bill { get; set; }
-        public DbSet<BookStore.Models.Rank> Ranks { get; set; }
     }
 }

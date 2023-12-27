@@ -17,7 +17,7 @@ namespace BookStore.Models
         {
             if (!context.Set<Rank>().Any())
             {
-                context.Set<Rank>().Add(new Rank { Name = "Bronze", discount = 0 });
+                context.Set<Rank>().Add(new Rank { Name = "Bronze", discount = 0, threadhold=0 });
                 context.SaveChanges();
             }
         }
