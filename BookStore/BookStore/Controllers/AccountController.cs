@@ -107,7 +107,6 @@ namespace BookStore.Controllers
         {
             var username = User.Identity.Name;
             var currentUser = await _context.Users.Include(x => x.Profile).FirstOrDefaultAsync(x => x.UserName == username);
-
             return View(currentUser.Profile);
         }
         [HttpPost]
@@ -140,7 +139,8 @@ namespace BookStore.Controllers
                     }
                     catch (DbUpdateConcurrencyException)
                     { }
-                    return RedirectToAction(nameof(EditProfile));
+					TempData["SuccessMessage"] = "Update successful!";
+					return RedirectToAction(nameof(EditProfile));
                 }
                 else
                 {
@@ -178,8 +178,8 @@ namespace BookStore.Controllers
                             { }
                         }
                     }
-
-                    return RedirectToAction(nameof(EditProfile));
+					TempData["SuccessMessage"] = "Update successful!";
+					return RedirectToAction(nameof(EditProfile));
                 }
 
             }

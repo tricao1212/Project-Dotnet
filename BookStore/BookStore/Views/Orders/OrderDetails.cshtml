@@ -2,16 +2,37 @@
 
 @{
 	ViewData["Title"] = "Order Details";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+	if (User.IsInRole("admin"))
+	{
+		Layout = "~/Views/Shared/_Layout2.cshtml";
+	}
+	else
+	{
+		Layout = "~/Views/Shared/_Layout.cshtml";
+	}
 }
 <style>
-	span{
-		font-weight:normal;
+	span {
+		font-weight: normal;
 	}
 </style>
 <div class="container">
-	<h1>Order Details</h1>
+	<div class="row">
+		<div class="col-md-8">
+			<h1>Order Details</h1>
+		</div>
+		<div class="col-md-4">
+			@if (User.IsInRole("admin"))
+			{
+				<a style="font-size:x-large" asp-action="Index" asp-controller="Orders">Back to List</a>
 
+			}
+			else
+			{
+				<a style="font-size:x-large" asp-action="OrdersHistory" asp-controller="Orders">Back to List</a>
+			}
+		</div>
+	</div>
 	<div>
 		<h3>Oder Id: <span>@Model.Id</span></h3>
 		<h3>Ordered at: <span>@Model.CreatedAt</span></h3>

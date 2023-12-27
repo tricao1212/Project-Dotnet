@@ -44,14 +44,13 @@
                             @Html.DisplayFor(modelItem => item.Book.Price)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Quantity)
+                            <input class="quantity" value="@item.Quantity" type="number" name="quantity" id="@Model.Id" min="1" max="@item.Book.Quantity" data-book="@item.Book.Id" />
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.TotalPrice)
                         </td>
                         <td>
                             <a asp-controller="Carts" asp-action="Delete" asp-route-BookId="@item.BookId" asp-route-CartId="@item.CartId">Delete</a> |
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                         </td>
                     </tr>
                 }
@@ -98,3 +97,28 @@
         width: 200px;
     }
 </style>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $(".quantity").on("change", function () {
+                var bookId = $(this).data("book");
+                var quan = $(this).val();
+                var cartId = $(this).id;
+
+                // Make an AJAX request to update the quantity in the database
+                $.ajax({
+                    url: "/Orders/UpdateQuantity", // Replace with your controller action URL
+                    type: "POST",
+                    data: { bookId: bookId, quan: quan, cartId = cartId},
+                    success: function (result) {
+                        
+                    },
+                    error: function (error) {
+                        // Handle errors if any
+                        console.log("Error:", error);
+                    }
+                });
+            });
+        });
+    </script>
+}

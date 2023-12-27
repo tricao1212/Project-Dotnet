@@ -26,6 +26,8 @@ namespace BookStore.Models
 
         public string Note { get; set; }
 
+        public Coupon Coupon { get; set; }
+
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18,2)")]
         public decimal TotalPrice { get; set; }

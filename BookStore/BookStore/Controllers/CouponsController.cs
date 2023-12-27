@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookStore.Data;
 using BookStore.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Controllers
 {
-    public class CouponsController : Controller
+    [Authorize(Roles = "admin")]
+	public class CouponsController : Controller
     {
         private readonly BookStoreContext _context;
 

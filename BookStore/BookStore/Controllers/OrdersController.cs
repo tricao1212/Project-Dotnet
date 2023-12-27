@@ -16,10 +16,31 @@ namespace BookStore.Controllers
         {
             _context = context;
         }
+
+        [Authorize(Roles = "admin")]
         public IActionResult Index()
         {
             return View(_context.Orders.ToList());
         }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateQuantity(int bookId, int quan, int cartId)
+        {
+            var order = await _context.Order_Details.Include(o => o.Book).FirstOrDefaultAsync(o => o.CartId == cartId && o.BookId == bookId);
+            order.Quantity = quan;
+            order.TotalPrice = order.Quantity * order.Book.Price;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Cart", "Home");
+        }
+
+        [HttpPost]
+        public  IActionResult ApplyCoupon(/*string code, */string total)
+        {
+            //ViewBag.Code = code;
+			ViewBag.total = total;
+			return PartialView("_testPartial");
+        }
+
         public async Task<IActionResult> OrderDetails(int Id)
         {
             var order = await _context.Orders.FindAsync(Id);
@@ -35,7 +56,7 @@ namespace BookStore.Controllers
             return View(myOrder);
         }
 
-        public async Task<IActionResult> Order()
+		public async Task<IActionResult> Order()
         {
             var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == User.Identity.Name);
             Profile profile = await _context.Profile.FindAsync(user.Id);
@@ -65,12 +86,18 @@ namespace BookStore.Controllers
                 order.CreatedAt = DateTime.Now;
 
                 _context.Add(order);
-                var cart = await _context.Cart.FirstOrDefaultAsync(c => c.Id == order.CartId);
+                var cart = await _context.Cart.Include(c => c.OrderDetails).FirstOrDefaultAsync(c => c.Id == order.CartId);
                 cart.IndexTemp = -1;
+                var listBook = cart.OrderDetails.ToList();
+                foreach (var item in listBook)
+                {
+                    var book = await _context.Book.FirstOrDefaultAsync(b => b.Id == item.BookId);
+                    book.Quantity -= item.Quantity;
+                }
                 await _context.SaveChangesAsync();
                 return View("OrderResult");
             }
-            return View("OrderResult");
+            return View();
         }
     }
 }

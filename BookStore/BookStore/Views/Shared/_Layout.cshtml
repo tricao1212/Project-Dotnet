@@ -22,10 +22,13 @@
 						aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div style="font-size:x-large; text-align:center;">
+				<div style="font-size:x-large; padding-right:25%">
 					<ul class="navbar-nav flex-grow-1">
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Items">All Books</a>
 						</li>
 						@if (User.IsInRole("admin"))
 						{
@@ -33,9 +36,12 @@
 								<a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
 							</li>
 						}
-						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="OrdersHistory">My Order</a>
-						</li>
+						@if (User.Identity.IsAuthenticated)
+						{
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="OrdersHistory">My Order</a>
+							</li>
+						}
 					</ul>
 				</div>
 				<div class="d-inline-flex align-items-center">
@@ -45,7 +51,7 @@
 							<a asp-controller="Home" asp-action="Cart" style="background-color:transparent;text-decoration:none; color:black; border:hidden">
 								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 							</a>
-							<div id="bubble">0</div>
+							@* <div id="bubble">0</div> *@
 						</div>
 					</div>
 				</div>
@@ -64,8 +70,10 @@
 		</div>
 	</footer>
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	@Html.RenderUnobtrusiveAjaxScript()
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
 	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
