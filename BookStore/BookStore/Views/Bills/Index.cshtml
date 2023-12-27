@@ -46,10 +46,36 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                @Html.AjaxActionLink("Edit", "Edit", new {id=item.Id},
+                    new AjaxOptions{
+                    UpdateTargetId = "edit",
+                    LoadingElementId = "loading",
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                })
+                 |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
             </td>
         </tr>
 }
     </tbody>
 </table>
+<div class="container">
+    <div id="loading" style="display:none">Loading.................</div>
+    @using (Html.AjaxBeginForm("Edit", "Bills",new AjaxOptions
+     {
+         HttpMethod = "post",
+         InsertionMode = InsertionMode.Replace,
+         UpdateTargetId = "result",
+         OnSuccess = "reloadPage"
+     }))
+    {
+        <div class="form-group" id="edit">
+        </div>
+    }
+</div>
+<script>
+    function reloadPage() {
+        location.reload();
+    }
+</script>

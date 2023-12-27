@@ -9,6 +9,7 @@ using BookStore.Data;
 using BookStore.Models;
 using BookStore.Models.Binding_Model;
 using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace BookStore.Controllers
 {
@@ -175,7 +176,17 @@ namespace BookStore.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", bill.UserId);
+            var enumList = Enum.GetValues(typeof(OrderStatus))
+            .Cast<OrderStatus>()
+            .Where(status => status != OrderStatus.Cart)
+            .Select(status => new SelectListItem
+            {
+                Text = status.ToString(),
+                Value = ((int)status).ToString()
+            })
+            .ToList();
+
+            ViewBag.StatusList = enumList;
             return View(bill);
         }
 
@@ -190,7 +201,6 @@ namespace BookStore.Controllers
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 try
