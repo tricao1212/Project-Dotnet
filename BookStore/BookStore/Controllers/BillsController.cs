@@ -28,12 +28,29 @@ namespace BookStore.Controllers
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> Index()
         {
-            var bookStoreContext = _context.Bill.Include(b => b.User).Where(x => x.Status != OrderStatus.Cart);
+            var bookStoreContext = _context.Bill.Include(b => b.User).Where(x => x.Status != OrderStatus.Cart).OrderByDescending(x => x.CreatedDate);
             return View(await bookStoreContext.ToListAsync());
         }
 
         // GET: Bills/Details/5
         public async Task<IActionResult> Details(int? id)
+        {
+            String userName = User.Identity.Name;
+            var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
+            var profile = user.Profile;
+            ViewBag.UserName = profile?.FirstName == null || profile?.LastName == null ? userName : profile.FullName;
+            var bill = await _context.Bill.Include(x => x.OrderDetails)
+               .ThenInclude(x => x.Book)
+               .SingleOrDefaultAsync(or => or.Id == id);
+
+            if (bill == null)
+            {
+                return NotFound();
+            }
+
+            return View(bill);
+        }
+        public async Task<IActionResult> CreateSuccessful(int? id)
         {
             String userName = User.Identity.Name;
             var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
@@ -122,9 +139,15 @@ namespace BookStore.Controllers
                     decimal temp = price - discount;
                     ViewBag.temp = temp;
                     ViewBag.NewTotal = String.Format("{0:C}", temp);
+                    ViewBag.Coupon = coupon.Giftcode;
+                }else
+                {
+                    ViewBag.temp = price;
                 }
+            }else
+            {
+                ViewBag.temp = price;
             }
-            ViewBag.temp = price;
             ViewBag.OldTotal = String.Format("{0:C}", price);
             return PartialView(coupon);
         }
@@ -134,7 +157,7 @@ namespace BookStore.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CreatedDate,Payment,Quantity,Address,Phone,Note,UserId,Status")] Bill bill)
+        public async Task<IActionResult> Create([Bind("Id,CreatedDate,Payment,Quantity,Address,Phone,Note,UserId,Status")] Bill bill, string giftcode)
         {
             if (ModelState.IsValid)
             {
@@ -163,6 +186,11 @@ namespace BookStore.Controllers
                     findBill.Phone = bill.Phone;
                     List<Order> orderDetails = cart.OrderDetails.ToList();
                     findBill.OrderDetails = orderDetails;
+                    if (giftcode!=null)
+                    {
+                        var coupon = _context.Coupon.SingleOrDefault(x=>x.Giftcode.Equals(giftcode));
+                        _context.Coupon.Remove(coupon);
+                    }
                     if (await UpdateQuantity(orderDetails))
                     {
                         //List<Models.Rank> ranks = _context.Ranks.ToList();
@@ -173,12 +201,11 @@ namespace BookStore.Controllers
                         //_context.Update(profile);
                         _context.Update(findBill);
                         await _context.SaveChangesAsync();
-                        return RedirectToAction("Details", "Bills", new { id = findBill.Id });
+                        return RedirectToAction("CreateSuccessful", "Bills", new { id = findBill.Id });
                     }
                     else
                     {
                         return PartialView("CreateBillError");
-
                     }
                 }
             }

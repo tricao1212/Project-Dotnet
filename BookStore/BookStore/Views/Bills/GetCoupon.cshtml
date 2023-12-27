@@ -4,12 +4,24 @@
 }
 @if (Model != null)
 {
-    <h4>Congratulation! You have discount @Model.Discount %. Discount by Coupon:-@ViewBag.Payment</h4>
-    <input id="newPaymentValue" type="hidden" value="@ViewBag.temp" />
-    <h4>Total: @ViewBag.NewTotal</h4>
+    if (Model.ExpireDate > DateTime.Now)
+    {
+        <h4 class="text-success">Successfully! You have discount <span>@Model.Discount</span>%. Discount by Coupon: -@ViewBag.Payment</h4>
+        <input id="newPaymentValue" type="hidden" value="@ViewBag.temp" />
+        <input id="giftcode" type="hidden" value="@ViewBag.Coupon" />
+        <h4>Total: @ViewBag.NewTotal</h4>
+    }else
+    {
+        <h6 class="text-danger">Sorry! Your code is out of date</h6>
+        <input id="newPaymentValue" type="hidden" value="@ViewBag.temp" />
+        <input id="giftcode" type="hidden" />
+        <h4>Total: @ViewBag.OldTotal</h4>
+    }
+
 }else
 {
-    <p>Sorry! Your code is not valid</p>
+    <h6 class="text-danger">Sorry! Your code is not valid</h6>
     <input id="newPaymentValue" type="hidden" value="@ViewBag.temp" />
+    <input id="giftcode" type="hidden" />
     <h4>Total: @ViewBag.OldTotal</h4>
 }

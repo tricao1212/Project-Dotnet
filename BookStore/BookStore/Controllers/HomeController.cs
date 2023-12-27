@@ -23,6 +23,10 @@ namespace BookStore.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
+            if (_context.Ranks.Count() == 0)
+            {
+                Rank.EnsureSeedData(_context);
+            }
             return View(await _context.Book.Include(m => m.Genres)
                                            .Include(m => m.Author)
                                            .Include(m => m.Publisher).ToListAsync());
@@ -33,16 +37,16 @@ namespace BookStore.Controllers
         string currentSort,
         string sortOrder,
         string currentOrder,
-		string currentFilter,
-		string searchString,
-		int? pageNumber,
+        string currentFilter,
+        string searchString,
+        int? pageNumber,
         int[] sortGenres,
         int[] sortAuthors,
         int[] sortPublishers
         )
-		{
+        {
 
-            if(sortOrder != null)
+            if (sortOrder != null)
             {
                 pageNumber = 1;
             }
@@ -50,7 +54,7 @@ namespace BookStore.Controllers
             {
                 sortOrder = currentOrder;
             }
-            if(sort != null)
+            if (sort != null)
             {
                 pageNumber = 1;
             }
@@ -58,29 +62,29 @@ namespace BookStore.Controllers
             {
                 sort = currentSort;
             }
-			if (searchString != null)
-			{
-				pageNumber = 1;
-			}
-			else
-			{
-				searchString = currentFilter;
-			}
-			ViewData["CurrentFilter"] = searchString;
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewData["CurrentFilter"] = searchString;
             ViewData["CurrentSort"] = sort;
             ViewData["CurrentOrder"] = sortOrder;
             ViewData["sortGenres"] = System.Text.Json.JsonSerializer.Serialize(sortGenres);
             ViewData["sortAuthors"] = System.Text.Json.JsonSerializer.Serialize(sortAuthors);
             ViewData["sortPublishers"] = System.Text.Json.JsonSerializer.Serialize(sortPublishers);
-			var books = from s in _context.Book
-						   select s;
-			if (!String.IsNullOrEmpty(searchString))
-			{
-				books = books.Where(s => s.Title.Contains(searchString));
-			}
+            var books = from s in _context.Book
+                        select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(s => s.Title.Contains(searchString));
+            }
             if (!String.IsNullOrEmpty(sort))
             {
-                string value = sort+sortOrder;
+                string value = sort + sortOrder;
                 switch (value)
                 {
                     case "aphalbeticalascending":
@@ -109,13 +113,13 @@ namespace BookStore.Controllers
             {
                 books = books.Where(s => s.Publisher.Id == publisherId);
             }
-			int pageSize = 12;
+            int pageSize = 12;
             ViewBag.Genres = _context.Genre.ToList();
             ViewBag.Authors = _context.Author.ToList();
             ViewBag.Publishers = _context.Publisher.ToList();
-			return View(await PaginatedList<Book>.CreateAsync(books.Include(x=>x.Genres).Include(x => x.Author)
-						.Include(x => x.Publisher).AsNoTracking(), pageNumber ?? 1, pageSize));
-		}
+            return View(await PaginatedList<Book>.CreateAsync(books.Include(x => x.Genres).Include(x => x.Author)
+                        .Include(x => x.Publisher).AsNoTracking(), pageNumber ?? 1, pageSize));
+        }
         [AllowAnonymous]
         public async Task<IActionResult> Detail(int? id)
         {

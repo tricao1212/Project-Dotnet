@@ -98,16 +98,29 @@
                                     </div>
                                     <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
                                     <p>@Html.DisplayFor(modelItem => item.Price)</p>
-                                    <p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
-                                    <div class="d-inline-flex justify-content-evenly">
-                                        <a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-                                        @Html.AjaxActionLink("Add to cart", "Cart", new { id = item.Id },
-                                                 new AjaxOptions
+                                    @if (item.Quantity != 0)
+                                    {
+                                        <p>Remain: @Html.DisplayFor(modelItem => item.Quantity)</p>
+                                    }
+                                    <div class="d-inline-flex">
+                                        @if (item.Quantity != 0)
+                                        {
+                                            <a class="btn btn-primary me-1" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+                                            @Html.AjaxActionLink("Add to cart", "Cart", new { id = item.Id },
+                                                new AjaxOptions
                                                 {
-                                                    UpdateTargetId = "bubble",
-                                                    HttpMethod = "GET",
-                                                    InsertionMode = InsertionMode.Replace,
+                                                UpdateTargetId = "bubble",
+                                                HttpMethod = "GET",
+                                                InsertionMode = InsertionMode.Replace,
                                                 }, new { @class = "btn btn-outline-warning" })
+                                                }
+                                        else
+                                        {
+                                            <div class="align-items-lg-start">
+                                                <p class="text-danger">Out of stock</p>
+                                                <a class="btn btn-primary" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+                                            </div>
+                                        }
                                     </div>
 
                                 </div>
