@@ -6,7 +6,7 @@
                 @foreach (BookUser user in ViewBag.Users)
                 {
                     <div class="row">
-                        @Html.AjaxActionLink(user.Profile?.FullName??user.Email, "GetRole", new {id=user.Id},
+                        @Html.AjaxActionLink((user.Profile.FirstName==null&&user.Profile.LastName==null)?user.Email:user.Profile.FullName, "GetRole", new {id=user.Id},
                         new AjaxOptions{
                         UpdateTargetId = "form",
                         LoadingElementId = "loading",

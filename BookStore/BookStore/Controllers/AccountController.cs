@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -71,21 +72,21 @@ namespace BookStore.Controllers
             if (ModelState.IsValid)
             {
                 var user = model.CreateUser();
-
+                const string roleName = "user";
                 await userStore.SetUserNameAsync(user, model.Email, CancellationToken.None);
                 user.Email = model.Email;
                 var result = await userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
-					var ranks = await _context.Ranks.SingleOrDefaultAsync(x => x.Name == "bronze");
+					var ranks = await _context.Ranks.SingleOrDefaultAsync(x => x.Name == "Bronze");
 					var profile = new Profile
 					{
 						UserId = user.Id,
 						RankId = ranks.Id
 					};
-
-					_context.Profile.Add(profile);
+                    await userManager.AddToRoleAsync(user, roleName);
+                    _context.Profile.Add(profile);
                     await _context.SaveChangesAsync();
 
 					if (userManager.Options.SignIn.RequireConfirmedAccount)
