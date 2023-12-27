@@ -47,7 +47,7 @@
 </table>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    var drinkQuantities = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+    var bookQuantities = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
 
     // Lấy thẻ canvas và lưu trữ trong biến chartCanvas
     var chartCanvas1 = document.getElementById("LineChart");
@@ -55,10 +55,10 @@
     new Chart(chartCanvas1, {
         type: "line",
         data: {
-            labels: drinkQuantities.map(d => d.FormattedOrderDate),
+            labels: bookQuantities.map(d => d.FormattedOrderDate),
             datasets: [{
                 label: false,
-                data: drinkQuantities.map(d => d.Revenue),
+                data: bookQuantities.map(d => d.Revenue),
                 backgroundColor: "rgba(75, 192, 192, 1)",
                 borderColor: "rgba(75, 192, 192, 1)",
                 borderWidth: 0.1,
@@ -98,10 +98,10 @@
     new Chart(chartCanvas2, {
         type: "bar",
         data: {
-            labels: drinkQuantities.map(d => d.FormattedOrderDate),
+            labels: bookQuantities.map(d => d.FormattedOrderDate),
             datasets: [{
                 label: false,
-                data: drinkQuantities.map(d => d.OrderCount),
+                data: bookQuantities.map(d => d.OrderCount),
                 backgroundColor: "rgba(75, 192, 192, 2)",
                 borderColor: "rgba(75, 192, 192, 0.2)",
                 borderWidth: 0.1,

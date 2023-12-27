@@ -27,7 +27,7 @@
 					Image
 				</th>
 				<th>
-					Title
+					<a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Title</a>
 				</th>
 				<th>
 					Genres
@@ -42,7 +42,7 @@
 					Description
 				</th>
 				<th>
-					Public Date
+					<a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Public Date</a>
 				</th>
 				<th>
 					Author

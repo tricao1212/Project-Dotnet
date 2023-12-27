@@ -9,10 +9,11 @@ using BookStore.Data;
 using BookStore.Models;
 using BookStore.Models.Binding_Model;
 using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace BookStore.Controllers
 {
-	[Authorize(Roles = "admin")]
+	[Authorize]
 	public class BillsController : Controller
     {
         private readonly BookStoreContext _context;
@@ -23,9 +24,10 @@ namespace BookStore.Controllers
         }
 
         // GET: Bills
+        [Authorize(Roles ="admin")]
         public async Task<IActionResult> Index()
         {
-            var bookStoreContext = _context.Bill.Include(b => b.User);
+            var bookStoreContext = _context.Bill.Include(b => b.User).Where(x => x.Status != OrderStatus.Cart);
             return View(await bookStoreContext.ToListAsync());
         }
 
@@ -47,32 +49,33 @@ namespace BookStore.Controllers
 
 			return View(bill);
 		}
-
-        // GET: Bills/Create
-        [AllowAnonymous]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> History()
         {
             String userName = User.Identity.Name;
             var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
             var profile = user.Profile;
             ViewBag.UserName = profile?.FirstName == null || profile?.LastName == null ? userName : profile.FullName;
-            if (profile.Rank == null)
-            {
-				profile.Rank = _context.Ranks.FirstAsync().Result;
-                _context.SaveChanges();
-			}
-            ViewBag.Ranks = user.Profile.Rank;
+            var bills = await _context.Bill.Where(x => x.Status != OrderStatus.Cart && x.UserId == user.Id).OrderByDescending(x => x.CreatedDate).ToListAsync();
+            return View(bills);
+        }
+        // GET: Bills/Create
+        public async Task<IActionResult> Create()
+        {
+            String userName = User.Identity.Name;
+            var user =  _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
+            var profile = user.Profile;
+            var rankId = profile.RankId;
+            var userRank = await _context.Ranks.FindAsync(rankId);
+            ViewBag.UserName = profile?.FirstName == null || profile?.LastName == null ? userName : profile.FullName;
+            ViewBag.Ranks = userRank.Name;
             int userId = user.Id;
-
-            var bill = await _context.Bill.Include(x => x.OrderDetails)
-                .ThenInclude(x => x.Book)
-                .SingleOrDefaultAsync(or => or.UserId == profile.UserId && or.Status == OrderStatus.Cart);
+            var bill = await _context.Bill.Include(x => x.OrderDetails).ThenInclude(x=>x.Book)
+            .SingleOrDefaultAsync(or => or.UserId == profile.UserId && or.Status == OrderStatus.Cart);
+            
             decimal total = bill.OrderDetails.Sum(x => x.Payment);
             ViewBag.Total = total.ToString();
-
             //calculate discount
-            var rank = profile.Rank;
-            decimal discount = total * (rank.discount) / 100;
+            decimal discount = total * (userRank.discount) / 100;
             //calculate payment
             decimal payment = total - discount;
             //add totalspent
@@ -84,17 +87,17 @@ namespace BookStore.Controllers
                 if (profile.TotalSpent >= r.threadhold)
                 {
                     profile.Rank = r;
-                    _context.SaveChanges();
+                    await _context.SaveChangesAsync();
                 }
             }
 
-            //Console.WriteLine(rank.DiscountRate.ToString());
+            
             var model = new BillBindingModel
             {
                 Id = bill.Id,
-                Phone = bill.Phone,
+                Phone = profile.PhoneNumber,
                 Quantity = bill.Quantity,
-                Address = bill.Address,
+                Address = profile.Address,
                 Note = bill.Note,
                 UserId = userId,
                 OrderDetails = bill.OrderDetails,
@@ -102,6 +105,8 @@ namespace BookStore.Controllers
                 Payment = payment
             };
             return View(model);
+            
+           
         }
 
         // POST: Bills/Create
@@ -113,15 +118,68 @@ namespace BookStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(bill);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+                String userName = User.Identity.Name;
+                var users = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == userName);
+                var profile = users.Profile;
 
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", bill.UserId);
+                var findBill = await _context.Bill.SingleOrDefaultAsync(order => order.UserId == users.Id && order.Status == OrderStatus.Cart && order.Id == bill.Id);
+                if (findBill != null)
+                {
+                    var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == bill.UserId);
+                    var cart = await _context.Bill
+                               .Include(x => x.OrderDetails)
+                               .ThenInclude(d => d.Book)
+                               .FirstOrDefaultAsync(o => o.UserId == bill.UserId && o.Status == OrderStatus.Cart);
+                    var temp = bill.Payment;
+
+                    findBill.User = user;
+                    findBill.Payment = temp;
+                    findBill.Quantity = bill.Quantity;
+                    bill.Status = OrderStatus.Ordered;
+                    findBill.Status = bill.Status;
+                    findBill.CreatedDate = DateTime.Now;
+                    findBill.Address = bill.Address;
+                    findBill.Note = bill.Note;
+                    findBill.Phone = bill.Phone;
+                    List<Order> orderDetails = cart.OrderDetails.ToList();
+                    findBill.OrderDetails = orderDetails;
+                    if (await UpdateQuantity(orderDetails))
+                    {
+                        //List<Models.Rank> ranks = _context.Ranks.ToList();
+                        //Models.Rank rank = _context.Ranks.SingleOrDefault(r => r.Id == profile.RankId);
+
+                        //UpdateRank(rank, ranks, profile, findBill);
+                        //profile.TotalPayment += bill.Payment;
+                        //_context.Update(profile);
+                        _context.Update(findBill);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction("Details", "Bills", new { id = findBill.Id });
+                    }
+                    else
+                    {
+                        return PartialView("CreateBillError");
+
+                    }
+                }
+            }
             return View(bill);
         }
-
+        private async Task<Boolean> UpdateQuantity(List<Order> orderDetails)
+        {
+            foreach (var item in orderDetails)
+            {
+                Book book = item.Book;
+                if (book.Quantity < item.Quantity)
+                {
+                    _context.Order.Remove(item);
+                    await _context.SaveChangesAsync();
+                    return false;
+                }
+                book.Quantity -= item.Quantity;
+                _context.Update(book);
+            }
+            return true;
+        }
         // GET: Bills/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -135,7 +193,17 @@ namespace BookStore.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", bill.UserId);
+            var enumList = Enum.GetValues(typeof(OrderStatus))
+            .Cast<OrderStatus>()
+            .Where(status => status != OrderStatus.Cart)
+            .Select(status => new SelectListItem
+            {
+                Text = status.ToString(),
+                Value = ((int)status).ToString()
+            })
+            .ToList();
+
+            ViewBag.StatusList = enumList;
             return View(bill);
         }
 
@@ -150,7 +218,6 @@ namespace BookStore.Controllers
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 try

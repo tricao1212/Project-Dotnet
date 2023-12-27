@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BookStore.Models.Bill>
+
+@{
+    ViewData["Title"] = "Order History";
+}
+<div class="container">
+
+    <h1>@ViewData["Title"]</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th></th>
+                <th>
+                    Create At
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Payment)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Note)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var i = 0;
+                decimal total = 0;
+            }
+            @foreach (var item in Model)
+            {
+
+                total += item.Payment;
+                i++;
+                <tr>
+                    <td>
+                        @i
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @{
+                            decimal payment = item.Payment;
+                            var pay = String.Format("{0:C}", payment);
+                        }
+                        @pay
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Note)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -34,6 +34,8 @@ namespace BookStore.Models
         [Display(Name = "Phone number")]
         [RegularExpression("[0-9]{10}")]
         public string PhoneNumber { get; set; }
+        [ForeignKey(nameof(Rank))]
+        public int RankId { get; set; }
         public Rank Rank { get; set; }
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18,2)")]

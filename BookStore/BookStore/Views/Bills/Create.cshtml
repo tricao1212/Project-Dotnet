@@ -15,7 +15,7 @@
                 }
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <h3>Name: @ViewBag.UserName</h3>
-                <h4>Rank:  @ViewBag.Ranks.Name </h4>
+                <h4>Rank:  @ViewBag.Ranks </h4>
                 <div class="form-group">
                     <input asp-for="Id" class="form-control" type="hidden" value="@Model.Id" />
                 </div>
@@ -24,12 +24,12 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Address" class="control-label"></label>
-                    <input asp-for="Address" class="form-control" />
+                    <input asp-for="Address" class="form-control" value="@Model.Address"/>
                     <span asp-validation-for="Address" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Phone" class="control-label"></label>
-                    <input asp-for="Phone" class="form-control" type="tel" />
+                    <input asp-for="Phone" class="form-control" type="tel" value="@Model.Phone" />
                     <span asp-validation-for="Phone" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -41,17 +41,11 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>
-                                    #
-                                </th>
-                                <th>
-
-                                </th>
-                                <th>
-                                    Book
-                                </th>
-                                <th>Quantity</th>
+                                <th></th>
+                                <th>Book</th>
                                 <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,14 +60,13 @@
                                     image = "/" + img;
                                 }
                                 <tr>
-                                    <td>@(i + 1)</td>
                                     <td>
                                         <img id="image" src="@(image)" />
                                     </td>
                                     <td>@(detail.Book.Title)</td>
+                                    <td>@(detail.Book.Price)</td>
                                     <td>@detail.Quantity</td>
-
-                                    <td>@((detail.Payment).ToString())</td>
+                                    <td>@(String.Format("{0:C}",detail.Payment))</td>
                                 </tr>
                             }
                         </tbody>
@@ -89,13 +82,12 @@
                     }
                     <h4>Discount: <span>@discount</span></h4>
                 </div>
-                @*    <div class="form-group">        *@
                 <div class="form-group">
                     @{
                         decimal pay = Model.Payment;
                         var payment = pay.ToString();
                     }
-                    <h4>Payment: @payment</h4>
+                    <h4>Total: <span>@payment</span></h4>
                     <input asp-for="Payment" class="form-control" type="hidden" value="@Model.Payment" />
                 </div>
                 <div class="form-group">
@@ -108,7 +100,7 @@
         </div>
     </div>
     <div>
-        <a asp-action="Index" asp-controller="Home">Back to List</a>
+        <a asp-action="Cart" asp-controller="Home">Back to Cart</a>
     </div>
 </div>
 

@@ -2,14 +2,10 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 <h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -17,22 +13,13 @@
                 @Html.DisplayNameFor(model => model.CreatedDate)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Payment)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Note)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Status)
@@ -47,32 +34,48 @@
                 @Html.DisplayFor(modelItem => item.CreatedDate)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.User.Id)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Payment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Note)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                @Html.AjaxActionLink("Edit", "Edit", new {id=item.Id},
+                    new AjaxOptions{
+                    UpdateTargetId = "edit",
+                    LoadingElementId = "loading",
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                })
+                 |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<div class="container">
+    <div id="loading" style="display:none">Loading.................</div>
+    @using (Html.AjaxBeginForm("Edit", "Bills",new AjaxOptions
+     {
+         HttpMethod = "post",
+         InsertionMode = InsertionMode.Replace,
+         UpdateTargetId = "result",
+         OnSuccess = "reloadPage"
+     }))
+    {
+        <div class="form-group" id="edit">
+        </div>
+    }
+</div>
+<script>
+    function reloadPage() {
+        location.reload();
+    }
+</script>

@@ -21,7 +21,10 @@
 <div class="row justify-content-center">
     <div class="col-md-3 block-info" style="border-bottom-color: violet">
         <h3>Earnings</h3>
-        <p>$@ViewBag.Earn</p>
+            @{
+                var earning = String.Format("{0:C}", ViewBag.Earn);
+            }
+        <p>@earning</p>
     </div>
     <div class="col-md-3 block-info" style="border-bottom-color: aqua">
         <h3>Products</h3>

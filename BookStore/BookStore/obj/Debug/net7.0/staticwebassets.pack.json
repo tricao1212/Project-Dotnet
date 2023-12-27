@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\images\\avatar\\214e31bb-c862-4b5f-ac35-6bf7e4ee4078.jpg"
     },
     {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\42967720-8005-4997-a67e-7c99ce880e74.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\42967720-8005-4997-a67e-7c99ce880e74.jpg"
+    },
+    {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\47c8dade-2291-4aab-83eb-3fc67c268319.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\47c8dade-2291-4aab-83eb-3fc67c268319.jpg"
     },
@@ -35,6 +39,14 @@
     {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\9957f3df-4fa1-4ee6-85cb-f077abe3e9c6.jpg",
       "PackagePath": "staticwebassets\\images\\avatar\\9957f3df-4fa1-4ee6-85cb-f077abe3e9c6.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\c3848b2f-aab3-493c-86af-7d9e1b496d70.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\c3848b2f-aab3-493c-86af-7d9e1b496d70.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\d9de7441-7f22-4e39-83a7-17fe63bf4de7.jpg",
+      "PackagePath": "staticwebassets\\images\\avatar\\d9de7441-7f22-4e39-83a7-17fe63bf4de7.jpg"
     },
     {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\avatar\\default.jpg",
@@ -141,6 +153,10 @@
       "PackagePath": "staticwebassets\\images\\book\\94e8e730-bcd9-4a71-9a31-9817de6ad710.jpg"
     },
     {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\9659597f-f185-4fad-b381-d47b51e149f4.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\9659597f-f185-4fad-b381-d47b51e149f4.jpg"
+    },
+    {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\a3e72cdc-8b26-483d-b99d-d5e7ba764036.jpg",
       "PackagePath": "staticwebassets\\images\\book\\a3e72cdc-8b26-483d-b99d-d5e7ba764036.jpg"
     },
@@ -175,6 +191,10 @@
     {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\f09cf202-fcbe-4b5d-8212-4f9c661dc628.jpg",
       "PackagePath": "staticwebassets\\images\\book\\f09cf202-fcbe-4b5d-8212-4f9c661dc628.jpg"
+    },
+    {
+      "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\book\\ff83908a-b35c-485a-9ede-925a65cff454.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\ff83908a-b35c-485a-9ede-925a65cff454.jpg"
     },
     {
       "Id": "D:\\GitHub\\project-dotnet\\BookStore\\BookStore\\wwwroot\\images\\carousels\\carousels-1.jpg",

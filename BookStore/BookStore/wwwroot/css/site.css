@@ -7,6 +7,7 @@ html {
         font-size: 16px;
     }
 }
+
 .list-group-item {
     padding: 1rem;
 }
@@ -19,12 +20,15 @@ html {
     position: relative;
     min-height: 100%;
 }
-header{
-    position:fixed;
-    z-index:100;
-    width:100%;
-    background-color:white;
+
+header {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    background-color: white;
+    height: 100px;
 }
+
 body {
     margin-bottom: 60px;
 }
@@ -54,4 +58,3 @@ body {
     padding: 5px 10px;
     font-size: 14px;
 }
-

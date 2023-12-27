@@ -32,7 +32,7 @@ namespace BookStore.Controllers
             }
             ViewBag.Order = orders.Count;
 			ViewBag.Quantity = quantity;
-            ViewBag.Earn = earn.ToString();
+            ViewBag.Earn = earn;
             var dailyStats = await _context.Bill.Where(s => s.Status != 0).GroupBy(sale => sale.CreatedDate.Date)
                 .Select(group => new
                 {

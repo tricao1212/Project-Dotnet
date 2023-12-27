@@ -1,11 +1,10 @@
-﻿@model BookStore.Models.Order
+﻿@model List<Order>
 
 @{
     ViewData["Title"] = "Cart";
 }
 <div class="container">
     <h1>Cart</h1>
-    <form asp-action="Bill" method="get">
         <table class="table">
             <thead>
                 <tr>
@@ -28,12 +27,9 @@
                 </tr>
             </thead>
             <tbody>
-                @{
-                    List<Order> orderDetails = ViewBag.Order;
-                }
-                @foreach (var item in orderDetails)
+                @foreach (var item in Model)
                 {
-                    string payment = item.Payment.ToString();
+                string payment = String.Format("{0:C}",item.Payment);
                     <tr>
                         <td id="img-container">
                             <img id="image" src="/@Html.DisplayFor(modelItem => item.Book.ImgURL)" />
@@ -42,7 +38,12 @@
                             @Html.DisplayFor(modelItem => item.Book.Title)
                         </td>
                         <td>
-                            <input value="@item.Quantity" data-book = "@item.Book.Id" class="quantity" />
+                            <div class="row">
+                                <div class="value-button" id="decrease" value="Decrease Value">-</div>
+                                <input type="hidden" class="remain" value="@item.Book.Quantity">
+                            <input class="quantity" value="@item.Quantity" type="number" name="quantity" min="1" max="@item.Book.Quantity" data-book="@item.Book.Id" readonly />
+                                <div class="value-button" id="increase" value="Increase Value">+</div>
+                            </div>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Book.Price)
@@ -51,8 +52,7 @@
                             @payment
                         </td>
                         <td>
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                         </td>
                     </tr>
                 }
@@ -63,11 +63,11 @@
                             string total = String.Format("{0:C}", totalBill);
                             if (totalBill == 0)
                             {
-                                            <h4>Total : 0</h4>
+                                    <h4>Total : 0</h4>
                             }
                             else
                             {
-                                            <h4>Total: @total</h4>
+                                    <h4>Total: <span id="total">@total</span></h4>
                             }
                         }
                     </td>
@@ -75,11 +75,11 @@
                         @{
                             if (totalBill <= 0)
                             {
-                                            <button type="submit" class="btn btn-primary" asp-action="Create" asp-controller="Bills" hidden> Order</button>
+                                    <a class="btn btn-primary" asp-action="Create" asp-controller="Bills" hidden> Order</a>
                             }
                             else
                             {
-                                            <button type="submit" class="btn btn-primary" asp-action="Create" asp-controller="Bills"> Order</button>
+                                    <a class="btn btn-primary" asp-action="Create" asp-controller="Bills"> Order</a>
                             }
                         }
                     </td>
@@ -87,10 +87,53 @@
 
             </tbody>
         </table>
-    </form>
+        <a asp-action="Index" asp-controller="Home">Continue Shopping</a>
 </div>
-
 <style>
+    .value-button {
+        display: inline-block;
+        border: 1px solid #ddd;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        vertical-align: middle;
+        padding: 5px 5px 5px 5px;
+        background: #eee;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        line-height: 15px
+    }
+
+        .value-button:hover {
+            cursor: pointer;
+        }
+
+    #decrease {
+        border-radius: 8px 0 0 8px;
+    }
+
+    #increase {
+        border-radius: 0 8px 8px 0;
+    }
+
+    input[type=number] {
+        text-align: center;
+        border: none;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        margin: 0px;
+        width: 40px;
+        height: 30px;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
     #image {
         width: 80px;
     }
@@ -104,15 +147,60 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
     <script>
-        $(function () {
-            $(".quantity").on("change", function () {
-                var quan = $(this).val();
-                var bookId = $(this).data("book");
-                $(this).closest("tr").children().eq(3).html("Value");
-                $.post(, { quantity: quan, bookId: bookId }, function (data) {
+        $(document).ready(function () {
+            $(".row").on("click", "#decrease", function () {
+                var quantityValue = $(this).siblings('.quantity').val();
+                quantityValue < 2 ? quantityValue = 2 : '';
+                quantityValue--;
+                $element = $(this).siblings('.quantity');
+                $element.val(quantityValue);
+                var bookId = $element.data("book")
+                UpdateDB(bookId, quantityValue, $element);
+                // Perform further actions based on the quantity value
+            });
+            $(".row").on("click", "#increase", function () {
+                var quantityValue = $(this).siblings('.quantity').val();
+                var remain = $(this).siblings('.remain').val();
+                if (quantityValue === remain) {
+                    quantityValue = remain;
+                } else {
+                    quantityValue++;
+                    $element = $(this).siblings('.quantity');
+                    $element.val(quantityValue);
+                    var bookId = $element.data("book")
+                    UpdateDB(bookId, quantityValue,$element);
+                }
+                
+                // Perform further actions based on the quantity value
+            });
+            function UpdateDB(bookId, quantity, $element) {
+                var oldPrice = $element.closest("tr").children().eq(4).html();
+                var payment = Number(oldPrice.replace(/[^0-9.-]+/g, ""));
+                $.ajax({
+                    url: "/Orders/UpdateCart", // Replace with your controller action URL
+                    type: "POST",
+                    data: { id: bookId, quantity: quantity },
+                    success: function (data) {
+                        // Handle the result if needed
+                        const formatter = new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'USD',
+                        })
+                        var newPayment = formatter.format(data);
+                        $element.closest("tr").children().eq(4).html(newPayment);
 
-                })
-            })
-        })
+                        var total = $("#total").html();
+                        var price = Number(total.replace(/[^0-9.-]+/g, ""));
+                        price = price - payment + data;
+                        $("#total").html(formatter.format(price));
+                    },
+                    error: function (error) {
+                        // Handle errors if any
+                        console.log("Error:", error);
+                    }
+                });
+            }
+        });
+        
     </script>
 }

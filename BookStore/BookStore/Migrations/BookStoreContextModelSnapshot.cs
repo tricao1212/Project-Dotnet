@@ -34,7 +34,7 @@ namespace BookStore.Migrations
 
                     b.HasIndex("GenresId");
 
-                    b.ToTable("BookGenre");
+                    b.ToTable("BookGenre", (string)null);
                 });
 
             modelBuilder.Entity("BookStore.Models.Author", b =>
@@ -51,7 +51,7 @@ namespace BookStore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Author");
+                    b.ToTable("Author", (string)null);
                 });
 
             modelBuilder.Entity("BookStore.Models.Bill", b =>
@@ -90,7 +90,7 @@ namespace BookStore.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Bill");
+                    b.ToTable("Bill", (string)null);
                 });
 
             modelBuilder.Entity("BookStore.Models.Book", b =>
@@ -132,7 +132,7 @@ namespace BookStore.Migrations
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("Book");
+                    b.ToTable("Book", (string)null);
                 });
 
             modelBuilder.Entity("BookStore.Models.BookUser", b =>
@@ -223,7 +223,7 @@ namespace BookStore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Coupon");
+                    b.ToTable("Coupon", (string)null);
                 });
 
             modelBuilder.Entity("BookStore.Models.Genre", b =>
@@ -240,7 +240,7 @@ namespace BookStore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genre");
+                    b.ToTable("Genre", (string)null);
                 });
 
             modelBuilder.Entity("BookStore.Models.Order", b =>
@@ -272,7 +272,7 @@ namespace BookStore.Migrations
 
                     b.HasIndex("Order");
 
-                    b.ToTable("Order");
+                    b.ToTable("Order", (string)null);
                 });
 
             modelBuilder.Entity("BookStore.Models.Profile", b =>
@@ -307,7 +307,7 @@ namespace BookStore.Migrations
 
                     b.HasIndex("RankId");
 
-                    b.ToTable("Profile");
+                    b.ToTable("Profile", (string)null);
                 });
 
             modelBuilder.Entity("BookStore.Models.Publisher", b =>
@@ -324,7 +324,7 @@ namespace BookStore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Publisher");
+                    b.ToTable("Publisher", (string)null);
                 });
 
             modelBuilder.Entity("BookStore.Models.Rank", b =>
@@ -346,7 +346,7 @@ namespace BookStore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ranks");
+                    b.ToTable("Ranks", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>

@@ -1,11 +1,13 @@
 ﻿using BookStore.Data;
 using BookStore.Models;
+using BookStore.Models.Binding_Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BookStore.Controllers
 {
@@ -79,7 +81,9 @@ namespace BookStore.Controllers
                     var profile = new Profile
                     {
                         UserId = user.Id,
+                        Rank = _context.Ranks.FirstOrDefault(x => x.Id == 1)
                     };
+                    
                     _context.Profile.Add(profile);
                     await _context.SaveChangesAsync();
 
@@ -105,13 +109,20 @@ namespace BookStore.Controllers
         {
             var username = User.Identity.Name;
             var currentUser = await _context.Users.Include(x => x.Profile).FirstOrDefaultAsync(x => x.UserName == username);
-            if (currentUser.Profile.Rank == null)
-            {
-                currentUser.Profile.Rank = _context.Ranks.FirstOrDefault(x => x.Id == 1);
-            }
             ViewBag.Ranks = _context.Ranks.ToList();
-
-            return View(currentUser.Profile);
+            var model = new ProfileBinding
+            {
+                UserId = currentUser.Profile.UserId,
+                Avatar = currentUser.Profile.Avatar,
+                User = currentUser,
+                Rank = currentUser.Profile.Rank,
+                RankId = currentUser.Profile.RankId,
+                FirstName = currentUser.Profile.FirstName,
+                LastName = currentUser.Profile.LastName,
+                PhoneNumber = currentUser.Profile.PhoneNumber,
+                Address = currentUser.Profile.Address,
+            };
+            return View(model); 
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

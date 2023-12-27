@@ -9,6 +9,8 @@ using BookStore.Data;
 using BookStore.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
+using Azure;
+using System.Net;
 
 namespace BookStore.Controllers
 {
@@ -99,7 +101,27 @@ namespace BookStore.Controllers
             }
             return View(order);
         }
-
+        [HttpPost]
+        public async Task<IActionResult> UpdateCart(int id,int quantity)
+        {
+            var book = await _context.Book.FindAsync(id);
+            decimal payment = book.Price*quantity;
+            var user = _context.Users.Include(u => u.Profile).SingleOrDefault(u => u.UserName == User.Identity.Name);
+            var bill = await _context.Bill.SingleOrDefaultAsync(order => order.UserId == user.Id && order.Status == OrderStatus.Cart);
+            var order = _context.Order.Include(x => x.Book).Where(x => x.BillId == bill.Id).FirstOrDefault(x => x.Book.Id == id);
+            order.Payment = payment;
+            order.Quantity = quantity;
+            _context.Update(order);
+            await _context.SaveChangesAsync();
+            var cart = await _context.Bill
+                                .Include(x => x.OrderDetails)
+                                .ThenInclude(d => d.Book)
+                                .FirstOrDefaultAsync(o => o.UserId == user.Id && o.Status == OrderStatus.Cart);
+            List < Order > carts = cart.OrderDetails.ToList();
+            decimal totalBill = cart.OrderDetails.Sum(x => x.Payment);
+            ViewBag.Total = totalBill;
+            return Json(payment);
+        }
         // GET: Orders/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -152,17 +174,14 @@ namespace BookStore.Controllers
                                 .Include(x => x.OrderDetails)
                                 .ThenInclude(d => d.Book)
                                 .FirstOrDefaultAsync(o => o.UserId == userId && o.Status == OrderStatus.Cart);
-            if (cart == null)
+            var carts = new List<Order>();
+            if (cart != null)
             {
-                ViewBag.Order = new List<Order>();
-            }
-            else
-            {
-                ViewBag.Order = cart.OrderDetails.ToList();
-                totalBill = cart.OrderDetails.Sum(x => x.Payment);
+               carts = cart.OrderDetails.ToList();
+               totalBill = cart.OrderDetails.Sum(x => x.Payment);
             }
             ViewBag.Total = totalBill;
-            return View();
+            return View(carts);
         }
 
         public async Task<IActionResult> Order(int id)
