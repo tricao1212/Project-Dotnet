@@ -20,13 +20,6 @@ html {
     position: relative;
     min-height: 100%;
 }
-<<<<<<< HEAD
-header{
-    position:fixed;
-    z-index:100;
-    width:100%;
-    background-color:white;
-=======
 
 header {
     position: fixed;
@@ -34,7 +27,6 @@ header {
     width: 100%;
     background-color: white;
     height: 100px;
->>>>>>> phuc
 }
 
 body {
