@@ -1,0 +1,29 @@
+﻿@model BookStore.Models.Bill
+
+@{
+    Layout = null;
+}
+<div class="form-group">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" value="@Model.Id" />
+    <input type="hidden" asp-for="CreatedDate" value="@Model.CreatedDate" />
+    <input type="hidden" asp-for="UserId" value="@Model.UserId" />
+    <input type="hidden" asp-for="Payment" value="@Model.Payment" />
+    <input type="hidden" asp-for="Quantity" value="@Model.Quantity" />
+    <input type="hidden" asp-for="Address" value="@Model.Address" />
+    <input type="hidden" asp-for="Phone" value="@Model.Phone" />
+    <input type="hidden" asp-for="Note" value="@Model.Note" />
+
+    <div class="form-group">
+        <label class="control-label">Status:</label>
+        <select class="form-control" asp-items="@((List<SelectListItem>)ViewBag.StatusList)" asp-for="Status">
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

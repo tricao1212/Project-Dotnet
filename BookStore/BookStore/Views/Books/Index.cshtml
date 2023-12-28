@@ -1,5 +1,4 @@
 ﻿@model PaginatedList<BookStore.Models.Book>
-@* @model IEnumerable<BookStore.Models.Book> *@
 
 @{
 	ViewData["Title"] = "Index";
@@ -25,39 +24,30 @@
 		<thead>
 			<tr>
 				<th>
-					@* @Html.DisplayNameFor(model => model.ImgURL) *@
 					Image
 				</th>
 				<th>
-					@* @Html.DisplayNameFor(model => model.Title) *@
-					Title
+					<a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Title</a>
 				</th>
 				<th>
-					@* @Html.DisplayNameFor(model => model.Genres) *@
 					Genres
 				</th>
 				<th>
-					@* @Html.DisplayNameFor(model => model.Price) *@
 					Price
 				</th>
 				<th>
-					@* @Html.DisplayNameFor(model => model.Quantity) *@
 					Quantity
 				</th>
 				<th>
-					@* @Html.DisplayNameFor(model => model.Description) *@
 					Description
 				</th>
 				<th>
-					@* @Html.DisplayNameFor(model => model.PublicDate) *@
-					Public Date
+					<a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Public Date</a>
 				</th>
 				<th>
-					@* @Html.DisplayNameFor(model => model.Author) *@
 					Author
 				</th>
 				<th>
-					@* @Html.DisplayNameFor(model => model.Publisher) *@
 					Publisher
 				</th>
 				<th></th>

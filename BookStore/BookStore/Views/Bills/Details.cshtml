@@ -1,0 +1,93 @@
+﻿@model BookStore.Models.Bill
+
+@{
+    ViewData["Title"] = "Bill Details";
+    if (User.IsInRole("admin"))
+    {
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml"; 
+    }
+}
+<div class="container">
+
+    <div>
+        <h3>User Information: </h3>
+        <p>Name: @ViewBag.UserName</p>
+        <p>Phone Number: @Model.Phone</p>
+        <p>Ship to: @Model.Address</p>
+        <p>Note: <span>@Model.Note</span></p>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Book</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var orderDetails = Model.OrderDetails.ToList();
+                    }
+                    @for (var i = 0; i < Model.OrderDetails.Count; ++i)
+                    {
+                        var detail = Model.OrderDetails.ElementAt(i);
+                        string payment = String.Format("{0:C}", detail.Payment);
+                        var image = "/images/book/default.jpg";
+                        if (detail.Book != null)
+                        {
+                            string img = detail.Book.ImgURL.Replace("\\", "/");
+                            image = "/" + img;
+                        }
+                        <tr>
+                            <td style="width: 100px">
+                                <img id="image" src="@(image)" />
+                            </td>
+                            <td>
+                                @detail.Book.Title
+                            </td>
+                            <td>
+                                @detail.Book.Price
+                            </td>
+                            <td>
+                                @detail.Quantity
+                            </td>
+                            <td>
+                                @payment
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4" style="text-align:center">
+            @{
+                decimal t = (decimal)Model.Payment;
+                var total = String.Format("{0:C}", t);
+            }
+            <h3>Total Price:</h3> <h2>@total</h2>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    h3{
+        color: darkslateblue
+    }
+    #image{
+        width: 70px;
+    }
+    span {
+        font-weight: normal;
+    }
+</style>
+
+             

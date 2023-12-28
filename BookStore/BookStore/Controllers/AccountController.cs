@@ -1,11 +1,14 @@
 ﻿using BookStore.Data;
 using BookStore.Models;
+using BookStore.Models.Binding_Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BookStore.Controllers
 {
@@ -23,7 +26,7 @@ namespace BookStore.Controllers
         public IActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-			return View();
+            return View();
         }
         public IActionResult AccessDenied()
         {
@@ -58,7 +61,7 @@ namespace BookStore.Controllers
         public IActionResult Register(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-			return View();
+            return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -69,18 +72,24 @@ namespace BookStore.Controllers
             if (ModelState.IsValid)
             {
                 var user = model.CreateUser();
-
+                const string roleName = "user";
                 await userStore.SetUserNameAsync(user, model.Email, CancellationToken.None);
                 user.Email = model.Email;
                 var result = await userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
-                    var userId = await userManager.GetUserIdAsync(user);
-                    var code = await userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+					var ranks = await _context.Ranks.SingleOrDefaultAsync(x => x.Name == "Bronze");
+					var profile = new Profile
+					{
+						UserId = user.Id,
+						RankId = ranks.Id
+					};
+                    await userManager.AddToRoleAsync(user, roleName);
+                    _context.Profile.Add(profile);
+                    await _context.SaveChangesAsync();
 
-                    if (userManager.Options.SignIn.RequireConfirmedAccount)
+					if (userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = model.Email, returnUrl = returnUrl });
                     }
@@ -102,8 +111,20 @@ namespace BookStore.Controllers
         {
             var username = User.Identity.Name;
             var currentUser = await _context.Users.Include(x => x.Profile).FirstOrDefaultAsync(x => x.UserName == username);
-
-            return View(currentUser.Profile);
+            ViewBag.Ranks = _context.Ranks.ToList();
+            var model = new ProfileBinding
+            {
+                UserId = currentUser.Profile.UserId,
+                Avatar = currentUser.Profile.Avatar,
+                User = currentUser,
+                Rank = currentUser.Profile.Rank,
+                RankId = currentUser.Profile.RankId,
+                FirstName = currentUser.Profile.FirstName,
+                LastName = currentUser.Profile.LastName,
+                PhoneNumber = currentUser.Profile.PhoneNumber,
+                Address = currentUser.Profile.Address,
+            };
+            return View(model); 
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -180,7 +201,6 @@ namespace BookStore.Controllers
             }
             return View(profile);
         }
-
         public IActionResult ManageRole([FromServices] BookStoreContext context)
         {
             var users = context.Users.Include(x => x.Profile).ToList();
@@ -199,14 +219,16 @@ namespace BookStore.Controllers
 
             await userManager.RemoveFromRolesAsync(user, roles.ToArray());
             await userManager.AddToRoleAsync(user, role.Name);
+            ViewBag.User = user;
+            ViewBag.Role = role;
             return View("UpdateRoleResult");
         }
-
         public IActionResult GetRole(int id, [FromServices] BookStoreContext context, [FromServices] RoleManager<IdentityRole<int>> roleManager)
         {
             var users = context.Users.SingleOrDefault(x => x.Id == id);
             var roles = roleManager.Roles.ToList();
             var currentRole = context.UserRoles.FirstOrDefault(x => x.UserId == id);
+            ViewBag.UserName = users.UserName;
             ViewBag.UserId = id;
             ViewBag.Roles = new SelectList(roles, "Id", "Name", currentRole?.RoleId);
             return PartialView("_RoleForm", currentRole);

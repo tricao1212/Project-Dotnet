@@ -1,4 +1,4 @@
-﻿@model BookStore.Models.Profile
+﻿@model BookStore.Models.Binding_Model.ProfileBinding
 @{
     ViewData["Title"] = "Update Profile";
     var defaultAva = "images/avatar/default.jpg";
@@ -8,8 +8,21 @@
     <form asp-action="EditProfile" enctype="multipart/form-data" method="post">
         <div class="form-group">
             <label asp-for="Avatar" class="control-label"></label>
-            <input asp-for="Avatar" type="file" accept="image/*" onchange="loadFile(event)" class="form-control" />
+            <input asp-for="Avatar" type="file" accept="image/*" onchange="loadFile(event)"/>
             <div id="preview-container"> <img id="preview" src="/@(Model?.Avatar??defaultAva)" /></div>
+        </div>
+        <div>
+            <label asp-for="Rank" class="control-label"></label>
+            <select disabled class="form-control" name="Rank">
+                @{
+                    List<Rank> ranks = new List<Rank>();
+                    ranks = ViewBag.Ranks;
+                }
+                @foreach (var rank in ranks)
+                {
+                    <option value="@rank.Id">@rank.Name</option>
+                }
+            </select>
         </div>
         <div class="form-group">
             <label asp-for="FirstName" class="control-label">First Name</label>
@@ -36,11 +49,11 @@
 </div>
 
 <style>
-    /* input[type=file] {
+    input[type=file] {
         width: 0px;
         height: 0px;
         overflow: hidden;
-    } */
+    }
     #preview-container {
         height: 100px;
     }
@@ -57,6 +70,11 @@
     }
     <script src="~/lib/inputmask/jquery.inputmask.bundle.min.js"></script>
     <script>
+        $(document).ready(function () {
+            var rank = @Model.RankId ;
+            $('select[name="Rank"] option[value="' + rank + '"]').prop('selected', true);
+        });
+
         var loadFile = function (event) {
             var reader = new FileReader();
             reader.onload = function () {

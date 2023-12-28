@@ -1,0 +1,53 @@
+﻿<div class="container">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-5">
+                <div>All Users</div>
+                @foreach (BookUser user in ViewBag.Users)
+                {
+                    <div class="row">
+                        @Html.AjaxActionLink((user.Profile.FirstName==null&&user.Profile.LastName==null)?user.Email:user.Profile.FullName, "GetRole", new {id=user.Id},
+                        new AjaxOptions{
+                        UpdateTargetId = "form",
+                        LoadingElementId = "loading",
+                        HttpMethod = "GET",
+                        InsertionMode = InsertionMode.Replace,
+                        OnSuccess = "clearResult"
+                    })
+                    </div>
+                }
+            </div>
+            <div class="col-md-5">
+                <div id="loading" style="display:none">
+                    Loading.........................
+                </div>
+                @using (Html.AjaxBeginForm(new AjaxOptions
+                {
+                    HttpMethod = "post",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "result",
+                    OnSuccess = "clearForm"
+                }))
+                {
+                    <div class="form-group" id="form">
+                    </div>
+                }
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function clearForm() {
+        var formElement = document.getElementById('form');
+        if (formElement) {
+            formElement.innerHTML = '';
+        }
+    }
+    function clearResult() {
+        var formElement = document.getElementById('result');
+        if (formElement) {
+            formElement.innerHTML = '';
+        }
+    }
+</script>

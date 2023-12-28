@@ -1,0 +1,166 @@
+﻿@using Microsoft.AspNetCore.Mvc.ViewFeatures
+@using Microsoft.AspNetCore.Html
+@{
+    Layout = "_Layout2";
+}
+
+@model List<BookStore.Models.DailyStatisticsViewModel>
+<h2>Daily Order Statistics </h2>
+<form method="GET">
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate" />
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate" />
+
+    <button type="submit" asp-action="DailyStatistics">Submit</button>
+</form>
+<div id="chartContainer" style="height: 300px; width: 100%;">
+    <div class="chart-wrapper">
+        <h6>REVENUE FOR EACH DAY</h6>
+        <canvas id="LineChart"></canvas>
+    </div>
+
+    <div class="chart-wrapper">
+        <h6>ORDER FOR EACH DAY</h6>
+        <canvas id="columnChart"></canvas>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order Date</th>
+            <th>Revenue</th>
+            <th>Number of Orders</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FormattedOrderDate</td>
+                <td>@item.Revenue.ToString("C")</td>
+                <td>@item.OrderCount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var bookQuantities = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+
+    // Lấy thẻ canvas và lưu trữ trong biến chartCanvas
+    var chartCanvas1 = document.getElementById("LineChart");
+    // Retrieve the data from the model
+    new Chart(chartCanvas1, {
+        type: "line",
+        data: {
+            labels: bookQuantities.map(d => d.FormattedOrderDate),
+            datasets: [{
+                label: false,
+                data: bookQuantities.map(d => d.Revenue),
+                backgroundColor: "rgba(75, 192, 192, 1)",
+                borderColor: "rgba(75, 192, 192, 1)",
+                borderWidth: 0.1,
+                borderWidth: 1, // Độ dày đường viền
+                barThickness: 30
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    position: 'left',
+
+                },
+                x: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false
+                    }
+                },
+
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Daily Statitis of Revenue"
+                }
+                , legend: {
+                    display: false // Ẩn nhãn (label) của dataset
+                }
+            }
+        }
+    });
+    var chartCanvas2 = document.getElementById("columnChart");
+    // Retrieve the data from the model
+    new Chart(chartCanvas2, {
+        type: "bar",
+        data: {
+            labels: bookQuantities.map(d => d.FormattedOrderDate),
+            datasets: [{
+                label: false,
+                data: bookQuantities.map(d => d.OrderCount),
+                backgroundColor: "rgba(75, 192, 192, 2)",
+                borderColor: "rgba(75, 192, 192, 0.2)",
+                borderWidth: 0.1,
+                borderWidth: 1, // Độ dày đường viền
+                barThickness: 30
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+
+                y: {
+                    beginAtZero: true,
+
+                }
+
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Daily Statitics of quantity of Orders"
+                },
+                legend: {
+                    display: false // Ẩn nhãn (label) của dataset
+                }
+            }
+        }
+    });
+</script>
+<style>
+    .chart-wrapper {
+        float: left;
+        width: 50%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    table {
+        text-align: center;
+    }
+
+    th, td {
+        vertical-align: middle;
+    }
+
+    .table th, .table td {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    .table thead th {
+        background-color: #f2f2f2;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .table tbody tr:hover {
+        background-color: #eaf7ff;
+    }
+</style>

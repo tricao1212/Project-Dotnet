@@ -1,4 +1,8 @@
-﻿@model int;
+﻿@using Microsoft.AspNetCore.Mvc.ViewFeatures
+@using Microsoft.AspNetCore.Html
+
+@model List<BookStore.Models.DailyStatisticsViewModel>
+@* @model int; *@
 @{
     ViewData["Title"] = "Home";
     Layout = "_Layout2";
@@ -12,20 +16,140 @@
         margin: 25px;
     }
 </style>
+<div>
 <h1 class="text-center">Admin Home</h1>
 <div class="row justify-content-center">
     <div class="col-md-3 block-info" style="border-bottom-color: violet">
         <h3>Earnings</h3>
-        <p>100$</p>
+            @{
+                var earning = String.Format("{0:C}", ViewBag.Earn);
+            }
+        <p>@earning</p>
     </div>
     <div class="col-md-3 block-info" style="border-bottom-color: aqua">
         <h3>Products</h3>
-        <p>@Model</p>
+        <p>@ViewBag.Quantity</p>
     </div>
     <div class="col-md-3 block-info" style="border-bottom-color: orange">
-        <h3>Oders</h3>
-        <p>100</p>
+        <h3>Orders</h3>
+        <p>@ViewBag.Order</p>
     </div>
+        <div class="col-md-5">
+            <a asp-action="DailyStatistics">
+                <canvas id="LineChart"></canvas>
+            </a>
+        </div>
+
+        <div class="col-md-5">
+            <a asp-action="TopProducts">
+                <canvas id="columnChart"></canvas>
+            </a>
+        </div>
 </div>
-<div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var BookQuantities = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+
+    // Lấy thẻ canvas và lưu trữ trong biến chartCanvas
+    var chartCanvas1 = document.getElementById("LineChart");
+    // Retrieve the data from the model
+    new Chart(chartCanvas1, {
+        type: "line",
+        data: {
+            labels: BookQuantities.map(d => d.FormattedOrderDate),
+            datasets: [{
+                label: false,
+                data: BookQuantities.map(d => d.Revenue),
+                backgroundColor: "rgba(75, 192, 192, 1)",
+                borderColor: "rgba(75, 192, 192, 1)",
+                borderWidth: 0.1,
+                borderWidth: 1, // Độ dày đường viền
+                barThickness: 30
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    position: 'left',
+
+                },
+                x: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false
+                    }
+                },
+
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Revenue for Each Day"
+                }
+                , legend: {
+                    display: false // Ẩn nhãn (label) của dataset
+                }
+            }
+        }
+    });
+    var bookQuantities = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ChartData));
+
+    // Lấy thẻ canvas và lưu trữ trong biến chartCanvas
+    var chartCanvas = document.getElementById("columnChart");
+    var maxData = Math.max(...bookQuantities.map(d => d.Value));
+
+    // Tìm các mục có giá trị cao nhất
+    var highestDataItems = bookQuantities.filter(d => d.Value === maxData);
+    // Tạo biểu đồ cột
+    new Chart(chartCanvas, {
+        type: "bar",
+        data: {
+            labels: bookQuantities.map(d => d.Label),
+            datasets: [{
+                label: false,
+                data: bookQuantities.map(d => d.Value),
+                backgroundColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(192, 75, 75, 1)',
+                    'rgba(75, 192, 75, 1)',
+                    'rgba(192, 75, 192, 1)',
+                    'rgba(75, 75, 192, 1)',
+                    'rgba(192, 192, 75, 1)',
+                    'rgba(192, 102, 75, 1)',
+                    'rgba(100, 102, 75, 1)',
+                    'rgba(130, 182, 75, 1)'
+                ],
+
+                borderWidth: 0.1,
+                borderWidth: 1, // Độ dày đường viền
+                barThickness: 30
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false // Bỏ đường kẻ dọc ngang
+                    }
+                },
+                x: {
+
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Order Statistics"
+                }
+                ,
+                legend: {
+                    display: false // Ẩn nhãn (label) của dataset
+                }
+            }
+        }
+    });
+</script>

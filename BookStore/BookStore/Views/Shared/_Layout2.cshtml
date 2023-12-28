@@ -29,6 +29,9 @@
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Items">Full Books</a>
+						</li>
 					</ul>
 				</div>
 				<div class="me-3">
@@ -48,11 +51,12 @@
 					<div class="list-group">
 						<a class="list-group-item list-group-item-action" asp-controller="Admin" asp-action="Index">Home</a>
 						<a class="list-group-item list-group-item-action" asp-controller="Books" asp-action="Index">All Books</a>
-						<a class="list-group-item list-group-item-action" id="Oders">Oders</a>
+						<a class="list-group-item list-group-item-action" asp-controller="Bills" asp-action="Index">Orders</a>
 						<a class="list-group-item list-group-item-action" asp-controller="Coupons" asp-action="Index">Coupons</a>
 						<a class="list-group-item list-group-item-action" asp-controller="Authors" asp-action="Index">Authors</a>
 						<a class="list-group-item list-group-item-action" asp-controller="Publishers" asp-action="Index">Publishers</a>
 						<a class="list-group-item list-group-item-action" asp-controller="Genres" asp-action="Index">Genres</a>
+						<a class="list-group-item list-group-item-action" asp-controller="Ranks" asp-action="Index">Ranks</a>
 					</div>
 				</div>
 				<div class="col-md-9" id="PartialContainer">
@@ -65,5 +69,6 @@
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
 	@await RenderSectionAsync("Scripts", required: false)
+	@Html.RenderUnobtrusiveAjaxScript()
 </body>
 </html>

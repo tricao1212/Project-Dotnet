@@ -8,7 +8,7 @@ namespace BookStore.Models
         [Required]
         public string Giftcode { get; set; }
         [Required]
-        public double Discount { get; set; }
+        public int Discount { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime ExpireDate { get; set; }

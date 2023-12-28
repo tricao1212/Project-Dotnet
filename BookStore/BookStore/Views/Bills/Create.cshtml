@@ -1,0 +1,149 @@
+﻿@model BookStore.Models.Binding_Model.BillBindingModel
+
+
+@{
+    ViewData["Title"] = "Create Bill";
+}
+<div class="container">
+    <h2>Bill</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+                @{
+                    var quantity = 0;
+                }
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <h3>Name: @ViewBag.UserName</h3>
+                <h4>Rank:  @ViewBag.Ranks </h4>
+                <div class="form-group">
+                    <input asp-for="Id" class="form-control" type="hidden" value="@Model.Id" />
+                </div>
+                <div class="form-group">
+                    <input asp-for="UserId" class="form-control" type="hidden" value="@Model.UserId" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" value="@Model.Address"/>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" type="tel" value="@Model.Phone" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Note" class="control-label"></label>
+                    <input asp-for="Note" class="form-control" />
+                    <span asp-validation-for="Note" class="text-danger"></span>
+                </div>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Book</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (var i = 0; i < Model.OrderDetails.Count; ++i)
+                            {
+                                var detail = Model.OrderDetails.ElementAt(i);
+                                quantity += detail.Quantity;
+                                var image = "/images/book/default.jpg";
+                                if (detail.Book.ImgURL != null)
+                                {
+                                    string img = detail.Book.ImgURL.Replace("\\", "/");
+                                    image = "/" + img;
+                                }
+                                <tr>
+                                    <td>
+                                        <img id="image" src="@(image)" />
+                                    </td>
+                                    <td>@(detail.Book.Title)</td>
+                                    <td>@(String.Format("{0:C}", detail.Book.Price))</td>
+                                    <td>@detail.Quantity</td>
+                                    <td>@(String.Format("{0:C}",detail.Payment))</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    
+                </div>
+                <div>
+                    
+                </div>
+                <input asp-for="Quantity" class="form-control" type="hidden" value="@quantity" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Total: <span>@ViewBag.Total</span></h4>
+                        @{
+                            decimal dis = Model.Discount;
+                            string discount = String.Format("{0:C}", dis);
+                        }
+                        <h4>Discount by rank: -<span>@discount</span></h4>
+                        @{
+                            decimal pay = Model.Payment;
+                            var payment = String.Format("{0:C}", pay);
+                        }
+                        <div id="response">
+                            <h4>Total: <span>@payment</span></h4>
+                        </div>
+                        <input id="paymentField" asp-for="Payment" class="form-control" type="hidden" value="@Model.Payment" />
+                        <input id="codeDiscount" name="giftcode" type="hidden" />
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-primary" asp-action="Create" asp-controller="Bills" asp-route-id="@Model.Id">Order</button>
+                    </div>
+                </div>
+            </form>
+                @using(Html.AjaxBeginForm("GetCoupon", "Bills", new AjaxOptions
+                {
+                HttpMethod = "post",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "response",
+                OnSuccess = "updatePaymentValue"
+                }))
+                {
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control" placeholder="Enter giftcode" name="code" />
+                        <input class="form-control" type="hidden" name="price" value="@Model.Payment" />
+                        <input class="form-control" type="hidden" name="oldDiscount" value="@Model.Discount" />
+                    </div>
+                    <div class="col-md-8">
+                        <input type="submit" value="Checkout" class="btn btn-success" />
+                    </div>
+               
+                </div>
+                }
+        </div>
+    </div>
+    <div>
+        <a asp-action="Cart" asp-controller="Home">Back to Cart</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        function updatePaymentValue() {
+            var newPaymentValue = $('#newPaymentValue').val();
+            $('#paymentField').val(newPaymentValue);
+            var newCode = $('#giftcode').val();
+            $('#codeDiscount').val(newCode);
+        }
+    </script>
+}
+<style>
+    #image {
+        width: 50px;
+    }
+</style>

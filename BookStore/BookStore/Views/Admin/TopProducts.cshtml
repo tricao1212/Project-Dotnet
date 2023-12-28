@@ -1,0 +1,212 @@
+﻿@using Microsoft.AspNetCore.Mvc.ViewFeatures
+@using Microsoft.AspNetCore.Html
+
+@model List<BookStore.Models.ChartItem>
+
+@{
+    ViewBag.Title = "Order Statistics";
+    Layout = "_Layout2";
+}
+
+<h2>Order Statistics</h2>
+<form method="GET">
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate" />
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate" />
+
+    <button type="submit" asp-action="TopProducts">Submit</button>
+</form>
+
+<div id="chartContainer" style="height: 300px; width: 100%;">
+
+    <div class="chart-wrapper">
+        <canvas id="columnChart1"></canvas>
+    </div>
+
+    <div class="chart-wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Label</td>
+                        <td>@item.Value</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<div id="highestDataReport"></div>
+<div style="height: 300px; width: 100%; display: flex; justify-content: center; align-items: center;">
+    <canvas id="columnChart2"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Dữ liệu biểu đồ
+    var bookQuantities = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+
+    // Lấy thẻ canvas và lưu trữ trong biến chartCanvas
+    var chartCanvas = document.getElementById("columnChart1");
+    var maxData = Math.max(...bookQuantities.map(d => d.Value));
+
+    // Tìm các mục có giá trị cao nhất
+    var highestDataItems = bookQuantities.filter(d => d.Value === maxData);
+    // Tạo biểu đồ cột
+    new Chart(chartCanvas, {
+        type: "bar",
+        data: {
+            labels: bookQuantities.map(d => d.Label),
+            datasets: [{
+                label: false,
+                data: bookQuantities.map(d => d.Value),
+                backgroundColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(192, 75, 75, 1)',
+                    'rgba(75, 192, 75, 1)',
+                    'rgba(192, 75, 192, 1)',
+                    'rgba(75, 75, 192, 1)',
+                    'rgba(192, 192, 75, 1)',
+                    'rgba(192, 102, 75, 1)',
+                    'rgba(100, 102, 75, 1)',
+                    'rgba(130, 182, 75, 1)'
+                ],
+
+                borderWidth: 0.1,
+                borderWidth: 1, // Độ dày đường viền
+                barThickness: 30
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false // Bỏ đường kẻ dọc ngang
+                    }
+                },
+                x: {
+
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: " Statistics of books was ordered"
+                }
+                ,
+                legend: {
+                    display: false // Ẩn nhãn (label) của dataset
+                }
+            }
+        }
+    });
+    var reportContainer = document.getElementById("highestDataReport");
+
+    // Xóa nội dung cũ (nếu có)
+    reportContainer.innerHTML = "";
+
+    // Thêm thông tin vào phần tử div
+    highestDataItems.forEach(item => {
+        var itemText = "The top best sale products:" + " " + item.Label;
+        var itemElement = document.createElement("p");
+        itemElement.textContent = itemText;
+        itemElement.classList.add("centered-text");
+        reportContainer.appendChild(itemElement);
+    });
+    var chartCanvas = document.getElementById("columnChart2");
+    var lastFiveItems = bookQuantities.slice(-2);
+    new Chart(chartCanvas, {
+        type: "bar",
+        data: {
+            labels: lastFiveItems.map(d => d.Label),
+            datasets: [{
+                label: false,
+                data: lastFiveItems.map(d => d.Value),
+                backgroundColor: [
+                    'rgba(75, 192, 192, 1)',
+                ],
+
+                borderWidth: 0.1,
+                borderWidth: 1, // Độ dày đường viền
+                barThickness: 30
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false // Bỏ đường kẻ dọc ngang
+                    }
+                },
+                x: {
+
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: "The Top Best books"
+                },
+                legend: {
+                    display: false // Ẩn nhãn (label) của dataset
+                }
+            }
+        }
+    });
+</script>
+
+<style>
+    .chart-wrapper {
+        float: left;
+        width: 50%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    table {
+        text-align: center;
+    }
+
+    th, td {
+        vertical-align: middle;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table th, .table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .table thead th {
+            background-color: #f2f2f2;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table tbody tr:hover {
+            background-color: #eaf7ff;
+        }
+
+    .centered-text {
+        text-align: center;
+    }
+</style>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BookStore.Models.Bill>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h1>Index</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Id)
+            </td>
+            <td>
+                @{
+                        decimal payment = Convert.ToDecimal(item.Payment);
+                        string pay = String.Format("{0:C}", payment);
+                }
+                @pay
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.AjaxActionLink("Edit", "Edit", new {id=item.Id},
+                    new AjaxOptions{
+                    UpdateTargetId = "edit",
+                    LoadingElementId = "loading",
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                })
+                 |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div class="container">
+    <div id="loading" style="display:none">Loading.................</div>
+    @using (Html.AjaxBeginForm("Edit", "Bills",new AjaxOptions
+     {
+         HttpMethod = "post",
+         InsertionMode = InsertionMode.Replace,
+         UpdateTargetId = "result",
+         OnSuccess = "reloadPage"
+     }))
+    {
+        <div class="form-group" id="edit">
+        </div>
+    }
+</div>
+<script>
+    function reloadPage() {
+        location.reload();
+    }
+</script>

@@ -27,5 +27,10 @@ namespace BookStore.Data
         public DbSet<BookStore.Models.Coupon> Coupon { get; set; }
 
         public DbSet<BookStore.Models.Profile> Profile { get; set; }
+
+        public DbSet<BookStore.Models.Order> Order { get; set; }
+
+        public DbSet<BookStore.Models.Bill> Bill { get; set; }
+        public DbSet<BookStore.Models.Rank> Ranks { get; set; }
     }
 }

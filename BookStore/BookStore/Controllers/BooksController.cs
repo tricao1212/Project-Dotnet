@@ -26,11 +26,7 @@ namespace BookStore.Controllers
 		}
 
 		// GET: Books
-		public async Task<IActionResult> Index(
-		string sortOrder,
-		string currentFilter,
-		string searchString,
-		int? pageNumber)
+		public async Task<IActionResult> Index(string sortOrder,string currentFilter,string searchString,int? pageNumber)
 		{
 			ViewData["CurrentSort"] = sortOrder;
 			ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -43,6 +39,7 @@ namespace BookStore.Controllers
 			{
 				searchString = currentFilter;
 			}
+			
 			ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
 			ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
 			ViewData["CurrentFilter"] = searchString;
@@ -51,6 +48,21 @@ namespace BookStore.Controllers
 			if (!String.IsNullOrEmpty(searchString))
 			{
 				books = books.Where(s => s.Title.Contains(searchString));
+			}
+			switch (sortOrder)
+			{
+				case "name_desc":
+					books = books.OrderByDescending(s => s.Title);
+					break;
+				case "Date":
+					books = books.OrderBy(s => s.PublicDate);
+					break;
+				case "date_desc":
+					books = books.OrderByDescending(s => s.PublicDate);
+					break;
+				default:
+					books = books.OrderBy(s => s.Title);
+					break;
 			}
 			int pageSize = 4;
 			return View(await PaginatedList<Book>.CreateAsync(books.Include(x=>x.Genres).Include(x => x.Author)
